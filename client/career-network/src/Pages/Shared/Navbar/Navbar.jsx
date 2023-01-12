@@ -4,8 +4,6 @@ const Navbar = () => {
     return (
         <div>
             Navbar
-            Navbar
-            Navbar
         </div>
     );
 };
