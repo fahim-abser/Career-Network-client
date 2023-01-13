@@ -6,7 +6,7 @@ const Feature = () => {
     const features = featuresData
     console.log(features)
     return (
-        <div>
+        <div className='mt-10'>
             <h1 className='text-center font-bold text-4xl mb-[40px]'>Features Jobs</h1>
             <div className='mx-auto w-9/12  grid lg:grid-cols-2'>
                 {

@@ -13,13 +13,13 @@ const Home = () => {
     return (
         <div>
 
-                <Banner></Banner>
-                <Categories></Categories>
-                <TrustedSite></TrustedSite>
-                <JobPost></JobPost>
-                <Feature></Feature>
-                <Opinion></Opinion>
-                <SearchSection></SearchSection>
+            <Banner></Banner>
+            <Categories></Categories>
+            <TrustedSite></TrustedSite>
+            <JobPost></JobPost>
+            <Feature></Feature>
+            <Opinion></Opinion>
+            <SearchSection></SearchSection>
 
         </div>
     );

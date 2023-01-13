@@ -19,7 +19,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-2xl">JobHunt</a>
+                <a className="btn btn-ghost normal-case text-2xl">Career Network</a>
             </div>
             <div className="navbar-end hidden lg:flex px-20">
                 <ul className="menu menu-horizontal px-1 text-xl font-medium">
