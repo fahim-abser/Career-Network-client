@@ -7,7 +7,7 @@ import img3 from "../../../assets/opinion/img3.png"
 const Opinion = () => {
     return (
         <div className='mt-10'>
-            <h1 className='text-4xl font-bold text-center mb-1'>my openion</h1>
+            <h1 className='text-4xl font-bold text-center mb-1'>My Openion</h1>
             <p className='text-2xl text-center'> With Career NetWork. Save time and reduce</p>
             <div className='lg:flex justify-evenly mt-32 m-10'>
                 {/* img */}
@@ -26,7 +26,7 @@ const Opinion = () => {
                             <div className='h-[280px] w-[236px]'>
                                 <img src={img1} alt="" />
                                 <p className='text-2xl font-bold mt-2'>Cat</p>
-                                <p className='text-sm'>Freshteam. Save time and reduFreshteam. Save time an reduceFreshteam. Save time and reduceFreshteam. Save time and reduce</p>
+                                <p className='text-sm'>Career Network. Save time and reduCareer Network. Save time an reduceCareer Network. Save time and reduceCareer Network. Save time and reduce</p>
                             </div>
                         </div>
                         <div>
@@ -35,7 +35,7 @@ const Opinion = () => {
                                 <div className='h-[280px] w-[236px] mt-4'>
                                     <img src={img2} alt="" />
                                     <p className='text-2xl font-bold mt-2'>Dolphin</p>
-                                    <p className='text-sm'>Freshteam. Save time and reduFreshteam. Save time an reduceFreshteam. Save time and reduceFreshteam. Save time and reduce</p>
+                                    <p className='text-sm'>Career Network. Save time and reduCareer Network. Save time an reduceCareer Network. Save time and reduceCareer Network. Save time and reduce</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@ const Opinion = () => {
                         <div className='h-[280px] w-[236px]'>
                             <img src={img3} alt="" />
                             <p className='text-2xl font-bold mt-2'>Rabbit</p>
-                            <p className='text-sm'>Freshteam. Save time and reduFreshteam. Save time an reduceFreshteam. Save time and reduceFreshteam. Save time and reduce</p>
+                            <p className='text-sm'>Career Network. Save time and reduCareer Network. Save time an reduceCareer Network. Save time and reduceCareer Network. Save time and reduce</p>
                         </div>
                     </div>
                 </div>

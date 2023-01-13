@@ -41,7 +41,7 @@ export const featuresData =
     },
     {
       "id":4,
-      "job": "Manager",
+      "job": "Software engineer",
       "category": "mtwork",
       "img": developer,
       "location":{
@@ -51,7 +51,7 @@ export const featuresData =
     },
     {
       "id":5,
-      "job": "Manager",
+      "job": "Teacher",
       "category": "mtwork",
       "img": manager,
       "location":{
@@ -61,7 +61,7 @@ export const featuresData =
     },
     {
       "id":6,
-      "job": "Manager",
+      "job": "Developer",
       "category": "mtwork",
       "img":system,
       "location":{

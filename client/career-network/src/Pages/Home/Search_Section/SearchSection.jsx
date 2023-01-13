@@ -7,7 +7,7 @@ const SearchSection = () => {
 	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-evenly">
 		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
 			<h1 className="text-4xl font-bold leading-none text-green-600 sm:text-4xl">
-            variations of passages of Lorem Ipsum 
+            Variations of passages of Career Network
 			</h1>
 			<p className="mt-6 mb-8 text-lg sm:mb-12">With Career Network. Save time and reduce Centralize your HR Activities With Freshteam. Sadsflsdfsdfdsve time and reduce
 				<br className="hidden md:inline lg:hidden"/>
