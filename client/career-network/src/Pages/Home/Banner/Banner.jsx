@@ -10,7 +10,7 @@ const Banner = () => {
                 <div className="max-w-md ">
                     <h1 className="mb-5 text-5xl font-bold">Find the job<br />
                         that fits your life</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="mb-5">cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <div className='flex justify-center gap-6'>
                         <button className="btn bg-green-400 border-none">Register</button>
                         <button className="btn bg-blue-400 border-none">Find</button>
