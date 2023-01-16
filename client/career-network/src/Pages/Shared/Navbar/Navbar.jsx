@@ -8,9 +8,9 @@ const Navbar = () => {
     const [menu , setMenu] = useState(true)
     return (
         <div className='relative'>
-            <div className={`navbar max-w-[1250px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-white duration-200 ease-out'}  px-4 `}>
+            <div className={`navbar max-w-[1250px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4 `}>
                 <div className="navbar-start">
-                    <Link className="btn btn-ghost normal-case text-2xl">Career Network</Link>
+                    <Link className="btn btn-ghost normal-case font-bold text-2xl font-secondaryFont ">Career Network</Link>
                 </div>
                 <div className='navbar-end'>
                     <div className="dropdown">
