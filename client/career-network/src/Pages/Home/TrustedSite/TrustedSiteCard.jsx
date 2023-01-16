@@ -2,9 +2,9 @@ import React from 'react';
 
 const TrustedSiteCard = ({ logo }) => {
     return (
-        <a href="/">
+        <a href={logo.link} target={'_blank'}>
             <div className='flex justify-center h-full p-10'>
-                <img className='h-24 md:h-30 lg:h-full' src={logo} alt="" />
+                <img className='h-24 md:h-30 lg:h-full' src={logo.type} alt="" />
             </div>
         </a>
     );
