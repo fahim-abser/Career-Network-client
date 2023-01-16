@@ -6,13 +6,13 @@ const Categories = () => {
     const categories = categoriesData;
     
     return (
-        <div className='my-7'>
+        <div className='py-7'>
             <div className='text-center my-4'> 
                 <h2 className='text-4xl font-bold font-mono'>Categories</h2>
                 <p className='font-medium'>Easy-to-use, HR platform with highly <br />
                     responsive stellar customer support.</p>
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-10  gap-y-7'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 px-10 gap-7'>
                {
                 categories.map(category =><CategoryCard key={category.id} category={category}></CategoryCard>)
                }
