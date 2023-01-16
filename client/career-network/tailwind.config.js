@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        primaryFont: ['Bebas Neue','cursive'],
+        secondaryFont: ['Playfair Display','serif'],
+        besicFont: ['PT Serif','sans-serif']
+      },
+    },
   },
   plugins: [require("daisyui")],
 }
