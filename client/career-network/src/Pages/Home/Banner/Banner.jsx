@@ -5,7 +5,7 @@ const Banner = () => {
 
     return (
         <div className="hero min-h-screen w-full mx-auto mt-16" style={{ backgroundImage: `url(${banner})` }}>
-            <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero-overlay bg-opacity-60 "></div>
             <div className="hero-content text-center text-neutral-content font-mono">
                 <div className="max-w-md ">
                     <h1 className="mb-5 text-5xl font-bold">Find the job<br />
