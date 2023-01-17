@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navbar = () => {
+    const [menu,setMenu]=useState(true)
     const {user, logOut} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -19,8 +20,8 @@ const Navbar = () => {
                 </>
         }
     </>
+    const navItem =["jobs","Blogs","about","login"]
     return (
-
         <div className='relative'>
             <div className={`navbar max-w-[1250px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4 `}>
                 <div className="navbar-start">
@@ -34,14 +35,7 @@ const Navbar = () => {
                     </div>
                     <div className="hidden lg:flex">
                         <ul className="text-xl font-medium flex">
-                            {navItem.map((item,index )=>(
-                                <li key={index}>
-                                    <Link
-                                        className={`text-center px-4 mx-1 py-1 capitalize ${item ==="login" &&" rounded-full text-white px-14 bg-sky-600 hover:bg-sky-800"}`}>
-                                        {item}
-                                    </Link>
-                                </li>))
-                            }
+                            {navItems}
                         </ul>
                     </div>
                 </div>
@@ -49,14 +43,7 @@ const Navbar = () => {
             <div className=''>
                 <div className={`w-full lg:hidden z-10 fixed bg-sky-700 backdrop-blur-3xl duration-1000 ${menu?'h-0 duration-1000 hidden':" pb-10 duration-1000 block bg-sky-700" }`}>
                     <ul className=''>
-                    {navItem.map((item,index) =>(
-                        <li key={index} className='py-4 pl-5 capitalize font-bold hover:bg-sky-900'>
-                            <Link
-                                className={`text-center px-4 mx-1 py-1 text-white ${item ==="login" &&" rounded-full"}`}>
-                                {item}
-                            </Link>
-                        </li>))
-                    }
+                    {navItems}
                     </ul>
                 </div>
             </div>
