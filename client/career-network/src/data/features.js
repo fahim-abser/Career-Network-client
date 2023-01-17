@@ -16,7 +16,7 @@ export const featuresData =
       "img": chef,
       "location":{
         "one":"Dhaka",
-        "two":"Chattogram"
+        "two":"jon smith"
       }
     },
     {
@@ -26,7 +26,7 @@ export const featuresData =
       "img":deliver,
       "location":{
         "one":"Dhaka",
-        "two":"Chattogram"
+        "two":"jon smith"
       }
     },
     {
@@ -36,7 +36,7 @@ export const featuresData =
       "img":marketing,
       "location":{
         "one":"Dhaka",
-        "two":"Chattogram"
+        "two":"jon smith"
       }
     },
     {
@@ -46,7 +46,7 @@ export const featuresData =
       "img": developer,
       "location":{
         "one":"Dhaka",
-        "two":"Chattogram"
+        "two":"jon smith"
       }
     },
     {
@@ -56,7 +56,7 @@ export const featuresData =
       "img": manager,
       "location":{
         "one":"Dhaka",
-        "two":"Chattogram"
+        "two":"jon smith"
       }
     },
     {
@@ -66,7 +66,7 @@ export const featuresData =
       "img":system,
       "location":{
         "one":"Dhaka",
-        "two":"Chattogram"
+        "two":"jon smith"
       }
     }
   ]

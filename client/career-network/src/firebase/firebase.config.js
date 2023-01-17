@@ -1,19 +1,16 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
-  apiKey: "AIzaSyArbCOQa2tgkFJI8nLii5Dz4YVhvs69WuE",
-  authDomain: "career-network-83660.firebaseapp.com",
-  projectId: "career-network-83660",
-  storageBucket: "career-network-83660.appspot.com",
-  messagingSenderId: "261709196207",
-  appId: "1:261709196207:web:74fde9964b45a95e08dd5a",
-  measurementId: "G-H85HMXMMKX"
+
+  apiKey: "AIzaSyCxAazAt4CbRHIh998nDIhQYdp4W0uvPAs",
+  authDomain: "career-network-76558.firebaseapp.com",
+  projectId: "career-network-76558",
+  storageBucket: "career-network-76558.appspot.com",
+  messagingSenderId: "744443339381",
+  appId: "1:744443339381:web:7bf834c73453423dfe8e3c"
+
 };
 
 // Initialize Firebase
