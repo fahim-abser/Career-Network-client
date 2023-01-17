@@ -79,7 +79,7 @@ const Footer = () => {
                     <hr class="h-px my-6  border-none dark:bg-gray-700" />
 
                     <div>
-                        <p class="text-center ">© Career Network 2020 - All rights reserved</p>
+                        <p class="text-center ">© Career Network 2023 - All rights reserved</p>
                     </div>
                 </div>
             </footer>
