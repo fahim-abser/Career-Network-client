@@ -11,12 +11,12 @@ const Navbar = () => {
             .catch(err => console.log(err));
     }
     const navItems = <>
-        <li><Link>Jobs</Link></li>
-        <li><Link>Blogs</Link></li>
-        <li><Link>About</Link></li>
-        {user?.uid ? <> <li><Link onClick={handleLogOut}>Logout</Link></li></> : <>
-                    <li><Link to='/login'>Login</Link></li>
-                    <li><Link to='/signup'>Signup</Link></li>
+        <li className='text-center px-4 mx-1 py-1 text-white'><Link>Jobs</Link></li>
+        <li className='text-center px-4 mx-1 py-1 text-white'><Link>Blogs</Link></li>
+        <li className='text-center px-4 mx-1 py-1 text-white'><Link>About</Link></li>
+        {user?.uid ? <> <li className='text-center px-4 mx-1 py-1 text-white'><Link onClick={handleLogOut}>Logout</Link></li></> : <>
+                    <li className='text-center px-4 mx-1 py-1 text-white'><Link to='/login'>Login</Link></li>
+                    <li className='text-center px-4 mx-1 py-1 text-white'><Link to='/signup'>Signup</Link></li>
                 </>
         }
     </>
@@ -43,7 +43,14 @@ const Navbar = () => {
             <div className=''>
                 <div className={`w-full lg:hidden z-10 fixed bg-sky-700 backdrop-blur-3xl duration-1000 ${menu?'h-0 duration-1000 hidden':" pb-10 duration-1000 block bg-sky-700" }`}>
                     <ul className=''>
-                    {navItems}
+                    {navItem.map((item,index) =>(
+                        <li key={index} className='py-4 pl-5 capitalize font-bold hover:bg-sky-900'>
+                            <Link
+                                className={`text-center px-4 mx-1 py-1 text-white ${item ==="login" &&" rounded-full"}`}>
+                                {item}
+                            </Link>
+                        </li>))
+                    }
                     </ul>
                 </div>
             </div>
