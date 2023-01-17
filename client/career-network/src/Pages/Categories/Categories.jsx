@@ -7,7 +7,7 @@ const Categories = () => {
     
     return (
         <div className='py-7'>
-            <div className='text-center w-5/12 mx-auto my-4'> 
+            <div className='text-center w-8/12 mx-auto my-4'> 
                 <h2 className='text-4xl font-bold font-secondaryFont'>Categories</h2>
                 <p className='mt-4 font-besicFont font-bold text-lg'>Easy-to-use, HR platform with highly 
                     responsive stellar customer support.</p>
