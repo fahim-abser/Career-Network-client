@@ -4,7 +4,7 @@ import { FiMenu } from 'react-icons/fi';
 import { RxCross1 } from 'react-icons/rx';
 
 const Navbar = () => {
-    const navItem = ["jobs","Blogs","about","login"]
+    const navItem =["jobs","Blogs","about","login"]
     const [menu , setMenu] = useState(true)
     return (
         <div className='relative'>
