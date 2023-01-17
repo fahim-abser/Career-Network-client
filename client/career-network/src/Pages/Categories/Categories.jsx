@@ -7,9 +7,9 @@ const Categories = () => {
     
     return (
         <div className='py-7'>
-            <div className='text-center my-4'> 
-                <h2 className='text-4xl font-bold font-mono'>Categories</h2>
-                <p className='font-medium'>Easy-to-use, HR platform with highly <br />
+            <div className='text-center w-5/12 mx-auto my-4'> 
+                <h2 className='text-4xl font-bold font-secondaryFont'>Categories</h2>
+                <p className='mt-4 font-besicFont font-bold text-lg'>Easy-to-use, HR platform with highly 
                     responsive stellar customer support.</p>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 px-10 gap-7'>

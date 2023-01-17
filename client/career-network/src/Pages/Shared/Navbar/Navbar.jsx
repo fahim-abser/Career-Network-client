@@ -23,6 +23,7 @@ const Navbar = () => {
         }
     </>
     return (
+
         <div className="navbar w-full">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -31,6 +32,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-xl font-medium">
                         {navItems}
+
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-2xl">Career Network</a>
