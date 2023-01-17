@@ -12,9 +12,9 @@ const Opinion = () => {
             <div className='lg:flex justify-evenly mt-32 m-10'>
                 {/* img */}
                 <div className='relative lg:mb-2 mb-12 '>
-                    <img className="relative top-0 left-0 w-10/12 " src={metabg} alt="Workplace" />
+                    <img className="relative top-0 left-0 w-10/12 " src={metabg} alt="Workplace"/>
 
-                    <img className=" absolute top-[-20px] left-[60px] lg:top-[-20px] lg:left-[80px] w-10/12 hover:shadow-outline" src={meta} alt="" />
+                    <img className=" absolute top-[-20px] left-[60px] lg:top-[-20px] lg:left-[80px] w-10/12 hover:shadclow-outline" src={meta} alt="" />
 
                 </div>
 
