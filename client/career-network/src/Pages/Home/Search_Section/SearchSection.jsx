@@ -9,13 +9,10 @@ const SearchSection = () => {
 			<h1 className="text-4xl font-bold leading-none text-green-600 sm:text-4xl font-secondaryFont">
             Variations of passages of Career Network
 			</h1>
-			<p className="mt-6 mb-8 text-lg sm:mb-12 font-besicFont">With Career Network. Save time and reduce Centralize your HR Activities With Freshteam. Sadsflsdfsdfdsve time and reduce
+			<p className="my-6 text-lg sm:mb-12 font-besicFont">With Career Network. Save time and reduce Centralize your HR Activities With Freshteam. Sadsflsdfsdfdsve time and reduce
 				<br className="hidden md:inline lg:hidden"/>
 			</p>
-			<button className="flex justify-center ">
-				<Link to="" className="px-8 py-2 text-lg font-semibold rounded-full dark:bg-green-600 text-white">Explore This</Link>
-				
-			</button>
+			<Link to={''} className='flex lg:justify-start justify-center '><button className="px-8 py-2 text-lg font-semibold rounded-full bg-green-600 dark:bg-green-600 text-white rounded-tl-full rounded-br-none ">Explore This</button></Link>
 		</div>
 		<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
 			<img src={serachimg} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
