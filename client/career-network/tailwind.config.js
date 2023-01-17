@@ -9,7 +9,7 @@ module.exports = {
         primaryFont: ['Bebas Neue','cursive'],
         secondaryFont: ['Playfair Display','serif'],
         besicFont: ['PT Serif','sans-serif']
-      },
+      }, 
       keyframes:{
         wave: {
           '0%': { transform: 'rotate(0.0deg)' },
