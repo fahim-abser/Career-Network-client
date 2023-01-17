@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import { FiMenu } from 'react-icons/fi';
+import { RxCross1 } from 'react-icons/rx';
 
 const Navbar = () => {
     const [menu,setMenu]=useState(true)
@@ -14,7 +16,7 @@ const Navbar = () => {
         <li className='text-center px-4 mx-1 py-1 text-white'><Link>Jobs</Link></li>
         <li className='text-center px-4 mx-1 py-1 text-white'><Link>Blogs</Link></li>
         <li className='text-center px-4 mx-1 py-1 text-white'><Link>About</Link></li>
-        {user?.uid ? <> <li className='text-center px-4 mx-1 py-1 text-white'><Link onClick={handleLogOut}>Logout</Link></li></> : <>
+        {user?.uid ? <> <li gitclassName='text-center px-4 mx-1 py-1 text-white'><Link onClick={handleLogOut}>Logout</Link></li></> : <>
                     <li className='text-center px-4 mx-1 py-1 text-white'><Link to='/login'>Login</Link></li>
                     <li className='text-center px-4 mx-1 py-1 text-white'><Link to='/signup'>Signup</Link></li>
                 </>
