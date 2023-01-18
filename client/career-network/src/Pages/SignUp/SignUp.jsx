@@ -1,21 +1,44 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
-    const {registerUser} = useContext(AuthContext)
-    const {register, handleSubmit, formState: { errors } } = useForm()
+    const { registerUser } = useContext(AuthContext);
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
 
-    const handleSignUp = data =>{
+    const { register, handleSubmit, formState: { errors } } = useForm()
+
+    const handleSignUp = data => {
         console.log(data);
         registerUser(data.email, data.password)
-        .then(result =>{
-            const user = result.user
-            console.log(user)
-        })
-        .catch(error => console.log(error))
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(error => console.log(error))
     }
+
+
+
+
+    const saveUser = (name, email, role) => {
+        const verify = false
+        const user = { name, email, role, verify };
+        fetch('https://mobile-resale-server-seven.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email);
+            })
+    }
+
+
     return (
         <div className='h-[600px] flex justify-center'>
             <div className='w-96 p-7'>
