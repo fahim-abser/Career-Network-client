@@ -17,16 +17,16 @@ const SignUp = () => {
                 const user = result.user
                 setUser(user);
                 console.log(user)
-                toast('Your Account Created Successfully.')
                 const userInfo = {
                     displayName: user.name
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        const role = "buyer";
+                        const role = "";
                         saveUser(user.name, user.email, role);
                     })
                     .catch(err => console.log(err));
+                toast('Your Account Created Successfully.')
             })
             .catch(error => console.log(error))
     }
@@ -37,7 +37,7 @@ const SignUp = () => {
     const saveUser = (name, email, role) => {
         const verify = false
         const user = { name, email, role, verify };
-        fetch('https://mobile-resale-server-seven.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
