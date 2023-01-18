@@ -1,21 +1,77 @@
-import React, { useContext } from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
-    const {registerUser} = useContext(AuthContext)
-    const {register, handleSubmit, formState: { errors } } = useForm()
+    const { registerUser, setUser, updateUser, googleSignIn } = useContext(AuthContext);
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
 
-    const handleSignUp = data =>{
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const googleProvider = new GoogleAuthProvider()
+
+
+    const handleSignUp = data => {
         console.log(data);
         registerUser(data.email, data.password)
-        .then(result =>{
-            const user = result.user
-            console.log(user)
-        })
-        .catch(error => console.log(error))
+            .then(result => {
+                const user = result.user
+                setUser(user);
+                console.log(user)
+                const userInfo = {
+                    displayName: user.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        const role = "";
+                        saveUser(user.name, user.email, role);
+                    })
+                    .catch(err => console.log(err));
+                toast('Your Account Created Successfully.')
+            })
+            .catch(error => console.log(error))
     }
+
+    const handlegoogle = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user
+                setUser(user);
+                console.log(user);
+                const userInfo = {
+                    displayName: user.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        const role = "";
+                        saveUser(user.name, user.email, role);
+                    })
+                    .catch(err => console.log(err));
+                toast('Your Account Created Successfully.')
+            })
+            .catch(error => console.log(error))
+    }
+
+
+    const saveUser = (name, email, role) => {
+        const verify = false
+        const user = { name, email, role, verify };
+        fetch('http://localhost:5000/user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email);
+            })
+    }
+
+
     return (
         <div className='h-[600px] flex justify-center'>
             <div className='w-96 p-7'>
@@ -48,7 +104,7 @@ const SignUp = () => {
                 </form>
                 <p className='mt-3'>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handlegoogle} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );
