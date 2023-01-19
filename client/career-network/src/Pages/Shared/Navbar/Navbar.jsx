@@ -16,7 +16,7 @@ const Navbar = () => {
         <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu? 'text-black':"text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><Link className=''>Jobs</Link></li>
         <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Blogs</Link></li>
         <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>About</Link></li>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord"}>Deshbord</Link></li>
+        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord"}>Dashboard</Link></li>
         {user?.uid ? <>
             <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
