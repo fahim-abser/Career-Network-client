@@ -16,7 +16,7 @@ const Footer = () => {
 
                                 <p className="max-w-sm mt-2 ">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
 
-                               
+
                             </div>
                         </div>
 
@@ -43,8 +43,8 @@ const Footer = () => {
                                     <span className="block mt-2 text-sm hover:underline">example@email.com</span>
 
                                 </div>
-                                    {/*  */}
-                                    <div className="flex mt-6 -mx-2">
+                                {/*  */}
+                                <div className="flex mt-6 -mx-2">
                                     <a href="#"
                                         className="mx-2  transition-colors duration-300  hover:text-blue-500 dark:hover:text-blue-400"
                                         aria-label="Reddit">
@@ -90,7 +90,7 @@ const Footer = () => {
 
                     <div>
 
-                        <p class="text-center ">© Career Network 2023 - All rights reserved</p>
+                        <p className="text-center ">© Career Network 2023 - All rights reserved</p>
 
                     </div>
                 </div>
