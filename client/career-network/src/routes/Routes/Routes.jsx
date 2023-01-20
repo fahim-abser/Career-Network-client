@@ -13,6 +13,13 @@ import Reports from "../../Pages/Deshbord/Reports/Reports";
 import Setting from "../../Pages/Deshbord/Setting/Setting";
 import CreateJob from "../../Pages/Deshbord/Recruitments/Createjob/CreateJob";
 import EmployeeDeshbord from "../../Pages/EmployeeDeshbord/EmployeeDeshbord";
+import EmployeeDetails from "../../Pages/EmployeeDeshbord/EmployeeDetails/EmployeeDetails";
+import ResumeManager from "../../Pages/EmployeeDeshbord/ResumeManager/ResumeManager";
+import EmployeJobs from "../../Pages/EmployeeDeshbord/EmployeJobs/EmployeJobs";
+import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
+import MyJobsSearch from "../../Pages/EmployeeDeshbord/MyJobsSearch/MyJobsSearch";
+import Resources from "../../Pages/EmployeeDeshbord/Resources/Resources";
+import Responses from "../../Pages/EmployeeDeshbord/Responses/Responses";
 
 
 
@@ -79,8 +86,33 @@ const router = createBrowserRouter([
         element: <EmployeeDeshbord></EmployeeDeshbord>,
         children: ([
             {
-                path:"/"
-            }
+                path: "/employedeshbord",
+                element:<EmployeeDetails></EmployeeDetails>
+            },
+            {
+                path: "/employedeshbord/resumemanager",
+                element:<ResumeManager></ResumeManager>
+            },
+            {
+                path: "/employedeshbord/employejobs",
+                element:<EmployeJobs></EmployeJobs>
+            },
+            {
+                path: "/employedeshbord/myaccount",
+                element:<MyAccount></MyAccount>
+            },
+            {
+                path: "/employedeshbord/myjobssearch",
+                element:<MyJobsSearch></MyJobsSearch>
+            },
+            {
+                path: "/employedeshbord/resources",
+                element:<Resources></Resources>
+            },
+            {
+                path: "/employedeshbord/responses",
+                element:<Responses></Responses>
+            },
         ])
     }
 ])

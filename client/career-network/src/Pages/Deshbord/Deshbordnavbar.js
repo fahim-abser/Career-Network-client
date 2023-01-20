@@ -20,9 +20,8 @@ function Deshbordnavbar() {
     // navbar list item 
 
     const navItems =<>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black
-         ${menu ? 'text-black' : "text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><Link to="/deshbord" className=''>deshbord</Link></li>
-        <li onMouseEnter={()=>setInbox(true)} onMouseLeave={()=>setInbox(false)} className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord/inbox"}>inbox</Link>
+        <li className={`listItem ${menu ? 'text-black' : "text-white"}`}><Link to="/deshbord" className=''>deshbord</Link></li>
+        <li onMouseEnter={()=>setInbox(true)} onMouseLeave={()=>setInbox(false)} className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={"/deshbord/inbox"}>inbox</Link>
             <ul className={`${inbox?"block z-0 lg:bg-white lg:fixed ml-8 ":"hidden"}`}>
                 <li className='hover:bg-sky-600 pl-4 '>interview</li>
                 <li className='hover:bg-sky-600 pl-4 '>jobs</li>
@@ -33,20 +32,20 @@ function Deshbordnavbar() {
                 <li className='hover:bg-sky-600 pl-4 '>task</li>
             </ul>
         </li>
-        <li onMouseEnter={()=>setRecuriter(true)} onMouseLeave={()=>setRecuriter(false)} className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={'/deshbord/recruitment'}>recruitment</Link>
+        <li onMouseEnter={()=>setRecuriter(true)} onMouseLeave={()=>setRecuriter(false)} className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={'/deshbord/recruitment'}>recruitment</Link>
             <ul className={`${recuriter ? "block lg:bg-white lg:fixed ml-8 " : "hidden"}`}>
                 <Link to="/deshbord/recruitment/createjob"><li className='hover:bg-sky-600 pl-4 '>add a job</li></Link>
                 <li className='hover:bg-sky-600 pl-4 '>converstation</li>
                 <li className='hover:bg-sky-600 pl-4 '>task</li>
             </ul>
         </li>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord/employees"}>employees</Link></li>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord/reports"}>reports</Link></li>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord/setting"}>setting</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link to={"/deshbord/employees"}>employees</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link to={"/deshbord/reports"}>reports</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link to={"/deshbord/setting"}>setting</Link></li>
         {user?.uid ? <>
-            <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link onClick={handleLogOut}>Logout</Link></li>
+            <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
-                <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
+                <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to='/login'>Login</Link></li>
             </>
         }
     </>
