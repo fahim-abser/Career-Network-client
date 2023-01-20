@@ -1,9 +1,16 @@
-import React from 'react';
-import categoriesData from '../../CategoriesData/CategoriesData';
+import React, { useEffect, useState } from 'react';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
-    const categories = categoriesData;
+    const [categories, setCategories] = useState([])
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/categories')
+        .then(res => res.json())
+        .then(data =>{
+            setCategories(data)
+        })
+    },[])
     
     return (
         <div className='py-7'>
