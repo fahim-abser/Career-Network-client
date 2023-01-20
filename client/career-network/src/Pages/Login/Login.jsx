@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
-import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
-import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { FaGithubSquare, FaGoogle } from "react-icons/fa";
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const {logIn, googleSignIn, facebookSignIn} = useContext(AuthContext)
+    const {logIn, googleSignIn, githubSignIn} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const googleProvider = new GoogleAuthProvider()
-    const facebookProvider = new FacebookAuthProvider()
+    const githubProvider = new GithubAuthProvider()
 
 
     const handleLogin = data =>{
@@ -28,8 +28,8 @@ const Login = () => {
         .catch(error =>console.log(error))
     }
 
-    const handleFacebook = () =>{
-        facebookSignIn(facebookProvider)
+    const handleGithub = () =>{
+        githubSignIn(githubProvider)
         .then(result=>{
             
         })
@@ -63,7 +63,7 @@ const Login = () => {
                 </form>
                 <div className=''>
                     <button onClick={handlegoogle} className='btn btn-outline w-full my-7'><FaGoogle  className='text-2xl mx-4 text-blue-500'></FaGoogle> CONTINUE WITH GOOGLE</button>
-                    <button onClick={handleFacebook} className='btn bg-blue-600 w-full'><FaFacebookSquare className='text-2xl mx-4'></FaFacebookSquare> CONTINUE WITH Facebook</button>
+                    <button onClick={handleGithub} className='btn bg-black w-full'><FaGithubSquare className='text-2xl mx-4'></FaGithubSquare> CONTINUE WITH Facebook</button>
                 </div>
             </div>
         </div>

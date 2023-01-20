@@ -23,10 +23,9 @@ const SignUp = () => {
                 const userInfo = {
                     displayName: user.name
                 }
+                saveUser(data.name, data.email, data.role);
                 updateUser(userInfo)
                     .then(() => {
-                        const role = "";
-                        saveUser(user.name, user.email, role);
                     })
                     .catch(err => console.log(err));
                 toast('Your Account Created Successfully.')
@@ -45,7 +44,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        const role = "";
+                        const role = "seeker";
                         saveUser(user.name, user.email, role);
                     })
                     .catch(err => console.log(err));
@@ -99,6 +98,15 @@ const SignUp = () => {
                             pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text">Role</span></label>
+                        <select {...register("role")}>
+                            <option disabled selected value="">Select</option>
+                            <option value="recruiter">Recruiter</option>
+                            <option value="seeker">Job Seeker</option>
+                        </select>
+
                     </div>
                     <input className='btn  w-full mt-4' value="Sign Up" type="submit" />
                 </form>
