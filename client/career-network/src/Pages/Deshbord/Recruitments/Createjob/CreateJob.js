@@ -32,7 +32,7 @@ const CreateJob = () => {
   };
 
   return (
-    <div className="lg:shadow-md p-4 m-10">
+    <div className="lg:shadow-md p-4 mx-10 mb-10 ">
       <h1 className="text-center text-purple-800 text-2xl font-bold mt-5 mb-5">
         Post A Job
       </h1>

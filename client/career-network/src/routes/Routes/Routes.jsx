@@ -12,6 +12,7 @@ import Employess from "../../Pages/Deshbord/Employees/Employess";
 import Reports from "../../Pages/Deshbord/Reports/Reports";
 import Setting from "../../Pages/Deshbord/Setting/Setting";
 import CreateJob from "../../Pages/Deshbord/Recruitments/Createjob/CreateJob";
+import EmployeeDeshbord from "../../Pages/EmployeeDeshbord/EmployeeDeshbord";
 
 
 
@@ -74,7 +75,13 @@ const router = createBrowserRouter([
         ])
     },
     {
-        
+        path: "/employedeshbord",
+        element: <EmployeeDeshbord></EmployeeDeshbord>,
+        children: ([
+            {
+                path:"/"
+            }
+        ])
     }
 ])
 
