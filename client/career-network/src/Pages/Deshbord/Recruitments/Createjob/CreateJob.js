@@ -1,6 +1,13 @@
 import React from "react";
+<<<<<<< HEAD:client/career-network/src/Pages/Deshbord/Recruitments/Createjob/CreateJob.js
+=======
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+>>>>>>> 7fc92c33010552f405f7b67343206249fc816625:client/career-network/src/Pages/Deshbord/Createjob/CreateJob.js
 
 const CreateJob = () => {
+  const navigate = useNavigate()
   const handleCreateJob = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,19 +23,41 @@ const CreateJob = () => {
     const experience = form.experience.value;
     const postDate = form.date.value;
     const postInfo = {
-      jobTitle,
+      job_title: jobTitle,
       city,
       location,
       salary,
       skills,
-      category,
+      category_name: category,
       jobSummary,
       description,
-      jobType,
+      duty_hours: jobType,
       experience,
-      postDate,
+      deadline: postDate,
+      isPaid: false,
+      isVerify: false,
     };
     console.log(postInfo);
+    
+    console.log()
+    const url = `http://localhost:5000/jobs`
+    fetch(url, {
+      method: 'POST',
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(postInfo)
+  })
+      .then((response) => response.json())
+      .then((data) => {
+          console.log('Success:', data);
+          toast('job posted successfully')
+          navigate(`/category/${category}`)
+          
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
   };
 
   return (
@@ -134,13 +163,20 @@ const CreateJob = () => {
                   <label className="mb-3 block text-base font-medium text-[#07074D]">
                     Job Category
                   </label>
-                  <input
-                    type="text"
+                  <select
                     name="category"
-                    placeholder="Job Category"
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    required
-                  />
+                    className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option defaultValue="Choose a country">Choose a country</option>
+                    <option defaultValue="Designer">Designer</option>
+                    <option defaultValue="Web Developer">Web Developer</option>
+                    <option defaultValue="Marketing">Marketing</option>
+                    <option defaultValue="Education">Education</option>
+                    <option defaultValue="Writing And Editing">
+                      Writing And Editing
+                    </option>
+                    <option value="Sales">Sales</option>
+                  </select>
                 </div>
               </div>
             </div>
