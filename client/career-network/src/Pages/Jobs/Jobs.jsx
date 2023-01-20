@@ -7,7 +7,7 @@ const Jobs = () => {
     console.log(jobs)
 
     return (
-        <div>
+        <div className=''>
             <h2 className="text-center text-2xl">{jobs.category_name}</h2>
             {
                 jobs.map(job =><JobsCard key={job._id} job={job}></JobsCard>)
