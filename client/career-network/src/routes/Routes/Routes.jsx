@@ -11,7 +11,7 @@ import Recruitments from "../../Pages/Deshbord/Recruitments/Recruitments";
 import Employess from "../../Pages/Deshbord/Employees/Employess";
 import Reports from "../../Pages/Deshbord/Reports/Reports";
 import Setting from "../../Pages/Deshbord/Setting/Setting";
-import Recruit from "../../Pages/Deshbord/Recruitments/Recruit/Recruit";
+import CreateJob from "../../Pages/Deshbord/Recruitments/Createjob/CreateJob";
 
 
 
@@ -56,8 +56,8 @@ const router = createBrowserRouter([
                 element: <Recruitments></Recruitments>,
             },
             {
-                path:"/deshbord/recruitment/recruit",
-                element:<Recruit></Recruit>
+                path:"/deshbord/recruitment/createjob",
+                element:<CreateJob></CreateJob>
             },
             {
                 path: "/deshbord/employees",
