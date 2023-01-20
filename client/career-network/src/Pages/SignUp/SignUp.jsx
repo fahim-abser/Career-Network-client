@@ -23,10 +23,9 @@ const SignUp = () => {
                 const userInfo = {
                     displayName: user.name
                 }
+                saveUser(data.name, data.email, data.role);
                 updateUser(userInfo)
                     .then(() => {
-                        const role = "";
-                        saveUser(user.name, user.email, role);
                     })
                     .catch(err => console.log(err));
                 toast('Your Account Created Successfully.')
@@ -45,7 +44,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        const role = "";
+                        const role = "seeker";
                         saveUser(user.name, user.email, role);
                     })
                     .catch(err => console.log(err));
@@ -107,7 +106,7 @@ const SignUp = () => {
                             <option value="recruiter">Recruiter</option>
                             <option value="seeker">Job Seeker</option>
                         </select>
-                        
+
                     </div>
                     <input className='btn  w-full mt-4' value="Sign Up" type="submit" />
                 </form>
