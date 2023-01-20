@@ -2,7 +2,12 @@ import React from 'react'
 
 function Employess() {
   return (
-    <div>Employess</div>
+      <div>
+          <h1>user route Employess</h1>
+          <div>
+              <p>employee direction</p>
+          </div>
+    </div>
   )
 }
 

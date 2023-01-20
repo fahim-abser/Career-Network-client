@@ -66,6 +66,9 @@ const router = createBrowserRouter([
                 element:<Setting></Setting>
             }
         ])
+    },
+    {
+        
     }
 ])
 
