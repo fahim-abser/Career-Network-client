@@ -13,10 +13,10 @@ const Navbar = () => {
             .then(() => { })
             .catch(err => console.log(err));
     }
-    const { data:condition=[] } = useQuery({
+    const { data:condition={} } = useQuery({
         queryKey: [user],
         queryFn:(async()=>{
-            const res = await fetch("")
+            const res = await fetch(`http://localhost:5000/checkit?email=${user?.email}`)
             const data = res.json()
             return data
         })
@@ -26,9 +26,10 @@ const Navbar = () => {
         <li className={`listItem ${menu? 'text-black':"text-white"}`}><Link to='/category' className=''>Jobs</Link></li>
         <li className={`listItem ${menu? "text-black": "text-white"}`}><Link>Blogs</Link></li>
         <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>About</Link></li>
-        <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>
-        <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/deshbord"}>Deshbord</Link></li>
+        
         {user?.uid ? <>
+            {condition?.role ==="recruiter" && <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/deshbord"}>Deshbord</Link></li>}
+            {condition?.role === "job seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>}
             <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
                 <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to='/login'>Login</Link></li>

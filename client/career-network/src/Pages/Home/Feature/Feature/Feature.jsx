@@ -4,7 +4,6 @@ import FeatureCard from '../FeatureCard/FeatureCard';
 
 const Feature = () => {
     const features = featuresData
-    console.log(features)
     return (
         <div className='mt-10'>
             <h1 className='text-center font-bold text-4xl mb-[40px] font-secondaryFont'>Features Jobs</h1>

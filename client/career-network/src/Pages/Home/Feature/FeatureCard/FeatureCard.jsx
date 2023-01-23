@@ -2,7 +2,6 @@ import React from 'react';
 
 const FeatureCard = ({feature}) => {
     const {job,category,location,img} = feature;
-   
     return (
         <div className="flex flex-col mb-[48px] ml-8">
             <div
