@@ -1,14 +1,14 @@
 import React from 'react'
 import EmployeeDeshbordNavbar from './EmployeeDeshbordNavbar'
 import { Outlet } from 'react-router-dom'
-import Navbar from '../Shared/Navbar/Navbar'
+import Footer from '../Shared/Footer/Footer'
 
 function EmployeeDeshbord() {
   return (
       <div>
           <EmployeeDeshbordNavbar></EmployeeDeshbordNavbar>
           <Outlet></Outlet>
-          <Navbar></Navbar>
+          <Footer></Footer>
     </div>
   )
 }

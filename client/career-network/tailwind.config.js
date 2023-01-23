@@ -22,8 +22,18 @@ module.exports = {
           '100%': { transform: 'rotate(0.0deg)'}
         },
       },
+      key: {
+        open: {
+          "0%": { display: "none" },
+          "1%":{display:"block",height:"0px"},
+          "100%": {display:"block", height:"100%"}
+        }
+      },
       animation: {
         "waving-hand":"wave 2s linear infinite"
+      },
+      anim: {
+        "dropdown":"open 2s linear ease-in"
       },
     },
   },

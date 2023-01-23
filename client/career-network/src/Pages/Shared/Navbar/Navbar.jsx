@@ -5,23 +5,26 @@ import { FiMenu } from 'react-icons/fi';
 import { RxCross1 } from 'react-icons/rx';
 
 const Navbar = () => {
-    const [menu,setMenu]=useState(true)
+    const [menu, setMenu] = useState(true)
     const {user, logOut} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(err => console.log(err));
     }
+    
+    
     const navItems =<>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu? 'text-black':"text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/category' className=''>Jobs</Link></li>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Blogs</Link></li>
+        <li className={`listItem ${menu? 'text-black':"text-white"}`}><Link to='/category' className=''>Jobs</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link>Blogs</Link></li>
         <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>About</Link></li>
-        <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord"}>Deshbord</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/deshbord"}>Deshbord</Link></li>
         {user?.uid ? <>
-            <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link onClick={handleLogOut}>Logout</Link></li>
+            <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
-                <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
-                <li className={`px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/signup'>Signup</Link></li>
+                <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to='/login'>Login</Link></li>
+                <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to='/signup'>Signup</Link></li>
             </>
         }
     </>

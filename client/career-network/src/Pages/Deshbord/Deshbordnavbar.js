@@ -22,7 +22,7 @@ function Deshbordnavbar() {
     const navItems =<>
         <li className={`listItem ${menu ? 'text-black' : "text-white"}`}><Link to="/deshbord" className=''>deshbord</Link></li>
         <li onMouseEnter={()=>setInbox(true)} onMouseLeave={()=>setInbox(false)} className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={"/deshbord/inbox"}>inbox</Link>
-            <ul className={`${inbox?"block z-0 lg:bg-white lg:fixed ml-8 ":"hidden"}`}>
+            <ul className={`${inbox?"block z-0 lg:bg-white lg:absolute ml-8 ":"hidden"}`}>
                 <li className='hover:bg-sky-600 pl-4 '>interview</li>
                 <li className='hover:bg-sky-600 pl-4 '>jobs</li>
                 <li className='hover:bg-sky-600 pl-4 '>offer</li>
@@ -51,19 +51,19 @@ function Deshbordnavbar() {
     </>
     // navbar start hare
     return (
-      <div className='relative h-16'>
-            <div className={`navbar max-w-[1250px] mx-auto backdrop-blur-3xl z-20 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4`}>
+      <div className='relative z-30 h-16 border-2 border-red-800'>
+            <div className={`navbar p-0 border-2 border-blue-800 max-w-[1250px] mx-auto backdrop-blur-3xl z-20 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4`}>
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
-                <div className='navbar-end'>
+                <div className='navbar-end items-center'>
                     <div className="">
                         <label onClick={()=>setMenu(!menu)} className="btn btn-ghost lg:hidden">
                             <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
                         </label>
                     </div>
                     <div className="hidden lg:flex">
-                        <ul className="text-xl font-medium flex capitalize">
+                        <ul className="text-xl font-medium flex capitalize h-16 items-center">
                             {navItems}
                         </ul>
                     </div>

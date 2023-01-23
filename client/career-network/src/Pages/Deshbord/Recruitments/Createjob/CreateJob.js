@@ -1,11 +1,6 @@
 import React from "react";
-<<<<<<< HEAD:client/career-network/src/Pages/Deshbord/Recruitments/Createjob/CreateJob.js
-=======
-import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
->>>>>>> 7fc92c33010552f405f7b67343206249fc816625:client/career-network/src/Pages/Deshbord/Createjob/CreateJob.js
-
 const CreateJob = () => {
   const navigate = useNavigate()
   const handleCreateJob = (e) => {

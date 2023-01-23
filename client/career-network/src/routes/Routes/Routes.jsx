@@ -17,10 +17,6 @@ import EmployeeDetails from "../../Pages/EmployeeDeshbord/EmployeeDetails/Employ
 import ResumeManager from "../../Pages/EmployeeDeshbord/ResumeManager/ResumeManager";
 import EmployeJobs from "../../Pages/EmployeeDeshbord/EmployeJobs/EmployeJobs";
 import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
-import MyJobsSearch from "../../Pages/EmployeeDeshbord/MyJobsSearch/MyJobsSearch";
-import Resources from "../../Pages/EmployeeDeshbord/Resources/Resources";
-import Responses from "../../Pages/EmployeeDeshbord/Responses/Responses";
-
 
 
 const router = createBrowserRouter([
@@ -100,18 +96,6 @@ const router = createBrowserRouter([
             {
                 path: "/employedeshbord/myaccount",
                 element:<MyAccount></MyAccount>
-            },
-            {
-                path: "/employedeshbord/myjobssearch",
-                element:<MyJobsSearch></MyJobsSearch>
-            },
-            {
-                path: "/employedeshbord/resources",
-                element:<Resources></Resources>
-            },
-            {
-                path: "/employedeshbord/responses",
-                element:<Responses></Responses>
             },
         ])
     }
