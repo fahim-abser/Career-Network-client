@@ -17,6 +17,8 @@ import EmployeeDetails from "../../Pages/EmployeeDeshbord/EmployeeDetails/Employ
 import ResumeManager from "../../Pages/EmployeeDeshbord/ResumeManager/ResumeManager";
 import EmployeJobs from "../../Pages/EmployeeDeshbord/EmployeJobs/EmployeJobs";
 import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
+import AdminDeshbord from "../../Pages/Admin/AdminDeshbord";
+import AdminData from "../../Pages/Admin/AdminData/AdminData";
 
 
 const router = createBrowserRouter([
@@ -97,6 +99,16 @@ const router = createBrowserRouter([
                 path: "/employedeshbord/myaccount",
                 element:<MyAccount></MyAccount>
             },
+        ])
+    },
+    {
+        path: "/admin",
+        element: <AdminDeshbord></AdminDeshbord>,
+        children: ([
+            {
+                path: "/admin",
+                element:<AdminData></AdminData>
+            }
         ])
     }
 ])
