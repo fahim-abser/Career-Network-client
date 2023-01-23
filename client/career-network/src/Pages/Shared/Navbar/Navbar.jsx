@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FiMenu } from 'react-icons/fi';
 import { RxCross1 } from 'react-icons/rx';
+import { useQuery } from 'react-query';
 
 const Navbar = () => {
     const [menu, setMenu] = useState(true)
@@ -12,7 +13,14 @@ const Navbar = () => {
             .then(() => { })
             .catch(err => console.log(err));
     }
-    
+    const { data:condition=[] } = useQuery({
+        queryKey: [user],
+        queryFn:(async()=>{
+            const res = await fetch("")
+            const data = res.json()
+            return data
+        })
+    })
     
     const navItems =<>
         <li className={`listItem ${menu? 'text-black':"text-white"}`}><Link to='/category' className=''>Jobs</Link></li>
