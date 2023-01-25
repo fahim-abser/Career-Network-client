@@ -77,21 +77,21 @@ const SignUp = () => {
                 <h2 className='text-3xl font-bold text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Full Name</span></label>
+                        <label className="label"> <span className="label-text dark:text-white">Full Name</span></label>
                         <input type="text" {...register("name", {
                             required: "Name is Required"
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Email</span></label>
+                        <label className="label"> <span className="label-text dark:text-white">Email</span></label>
                         <input type="email" {...register("email", {
                             required: true
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Password</span></label>
+                        <label className="label"> <span className="label-text dark:text-white">Password</span></label>
                         <input type="password" {...register("password", {
                             required: "Password is required",
                             minLength: { value: 6, message: "Password must be 6 characters long" },
@@ -100,7 +100,7 @@ const SignUp = () => {
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Role</span></label>
+                        <label className="label"> <span className="label-text dark:text-white">Role</span></label>
                         <select {...register("role")}>
                             <option disabled selected value="">Select</option>
                             <option value="recruiter">Recruiter</option>
