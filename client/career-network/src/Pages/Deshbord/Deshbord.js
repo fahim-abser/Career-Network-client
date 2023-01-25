@@ -5,7 +5,7 @@ import Footer from '../Shared/Footer/Footer'
 
 function Deshbord() {
   return (
-      <div>
+      <div className='bg-white dark:bg-black dark:text-white'>
           <Deshbordnavbar></Deshbordnavbar>
           <Outlet></Outlet>
           <Footer></Footer>
