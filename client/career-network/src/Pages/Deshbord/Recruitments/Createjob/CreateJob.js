@@ -67,7 +67,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Job Title
                   </label>
                   <input
@@ -84,7 +84,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     City
                   </label>
                   <input
@@ -102,7 +102,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Location
                   </label>
                   <input
@@ -120,7 +120,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Salary
                   </label>
                   <input
@@ -137,7 +137,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Job Skills
                   </label>
                   <input
@@ -155,7 +155,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Job Category
                   </label>
                   <select
@@ -180,7 +180,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Job Summary
                   </label>
                   <textarea
@@ -195,7 +195,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Job Description
                   </label>
                   <textarea
@@ -210,7 +210,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Job Type
                   </label>
                   <input
@@ -227,7 +227,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Experience Required
                   </label>
                   <input
@@ -244,7 +244,7 @@ const CreateJob = () => {
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
                 <div className="mb-5">
-                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
                     Posting Date
                   </label>
                   <input

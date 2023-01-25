@@ -49,14 +49,14 @@ const Login = () => {
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <h2 className="text-3xl font-bold text-center">Login</h2>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Email</span></label>
+                        <label className=" label "> <span className="label-text dark:text-white">Email</span></label>
                         <input type="email" {...register("email", {
                             required: true
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Password</span></label>
+                        <label className=" label dark:t"> <span className="label-text dark:text-white">Password</span></label>
                         <input type="password" {...register("password", {
                             required: "Password is required",
                             minLength: { value: 6, message: "Password must be 6 characters long" },
@@ -67,8 +67,8 @@ const Login = () => {
                     <input className='btn  w-full mt-4' value="Log In" type="submit" />
                 </form>
                 <div className=''>
-                    <button onClick={handlegoogle} className='btn btn-outline w-full my-7'><FaGoogle  className='text-2xl mx-4 text-blue-500'></FaGoogle> CONTINUE WITH GOOGLE</button>
-                    <button onClick={handleGithub} className='btn bg-black w-full'><FaGithubSquare className='text-2xl mx-4'></FaGithubSquare> CONTINUE WITH Facebook</button>
+                    <button onClick={handlegoogle} className='btn btn-outline w-full my-7 dark:text-white'><FaGoogle  className='text-2xl mx-4 text-blue-500'></FaGoogle> CONTINUE WITH GOOGLE</button>
+                    <button onClick={handleGithub} className='btn bg-black w-full'><FaGithubSquare className='text-2xl mx-4'></FaGithubSquare> CONTINUE WITH Github</button>
                 </div>
             </div>
         </div>
