@@ -4,8 +4,6 @@ import JobsCard from './JobsCard';
 
 const Jobs = () => {
     const jobs = useLoaderData()
-    console.log(jobs)
-
     return (
         <div className=''>
             <h2 className="text-center text-2xl">{jobs.category_name}</h2>
