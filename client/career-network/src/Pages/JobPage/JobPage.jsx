@@ -15,28 +15,28 @@ const JobPage = () => {
     return (
     <div className='flex items-center justify-center'>
             <div className="mt-10">
-        <p className="text-xl text-gray-700 font-bold mb-5">
+        <p className="text-xl text-gray-700 dark:text-white font-bold mb-5">
           Find Your Dream Job Here
         </p>
         <div className="form-control">
           <div className="input-group">
           <div className="flex items-center relative ">
-              <HiTag className=" absolute "></HiTag>
+              <HiTag className=" absolute dark:text-gray-900 text-gray-300"></HiTag>
               <input
                 type="text"
                 placeholder="Job title or keyword" 
-                className="input input-bordered pl-6 border-l-0 focus:outline-none focus:outline-none"
+                className="input input-bordered pl-6 border-l-0 focus:outline-none dark:text-black"
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             {/* location input */}
             <div className="hidden md:block"> 
             <div className="flex items-center relative   ">
-              <CiLocationOn className=" absolute "></CiLocationOn>
+              <CiLocationOn className=" absolute dark:text-gray-900 text-gray-300 "></CiLocationOn>
               <input
                 type="text"
                 placeholder="Location"
-                className="input input-bordered pl-6 border-l-0 focus:outline-none "
+                className="input input-bordered pl-6 border-l-0 focus:outline-none   dark:text-black"
                 
                 onChange={(e) => setSearchLocation(e.target.value)}
               />
@@ -44,7 +44,7 @@ const JobPage = () => {
             </div>
             <div className="flex items-center relative ">
              
-              <select  onChange={(e) => setSelectCategory(e.target.value)} className="select select-bordered w-full  focus:outline-none text-gray-400">
+              <select  onChange={(e) => setSelectCategory(e.target.value)} className="select select-bordered w-full  focus:outline-none dark:text-gray-900 text-gray-300 ">
                 <option disabled selected>
                  Select Category
                 </option>
@@ -87,7 +87,7 @@ const JobPage = () => {
           .map((item, idx) => (
             <div
               key={idx}
-              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50"
+              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800"
             >
               <div className="card-body">
                 <h2 className="card-title"></h2>
