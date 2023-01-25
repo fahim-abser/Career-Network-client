@@ -19,6 +19,7 @@ import EmployeJobs from "../../Pages/EmployeeDeshbord/EmployeJobs/EmployeJobs";
 import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
 import AdminDeshbord from "../../Pages/Admin/AdminDeshbord";
 import AdminData from "../../Pages/Admin/AdminData/AdminData";
+import JobPage from "../../Pages/JobPage/JobPage"
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
                 path:'/category/:name',
                 element:<Jobs></Jobs>,
                 loader: ({params}) => fetch(`http://localhost:5000/category/${params.name}`)
+            },
+            {
+                path:'/alljobs',
+                element:<JobPage></JobPage>,
+                loader: () => fetch('http://localhost:5000/alljobs')
             }
         ]
     },
