@@ -20,100 +20,105 @@ import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
 import AdminDeshbord from "../../Pages/Admin/AdminDeshbord";
 import AdminData from "../../Pages/Admin/AdminData/AdminData";
 import JobPage from "../../Pages/JobPage/JobPage"
+import DisplayError from "../../Pages/DisplayError/DisplayError";
 
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
-        children:[
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/signup',
-                element:<SignUp></SignUp>
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/category/:name',
-                element:<Jobs></Jobs>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.name}`)
+                path: '/category/:name',
+                element: <Jobs></Jobs>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
             },
             {
-                path:'/alljobs',
-                element:<JobPage></JobPage>,
+                path: '/alljobs',
+                element: <JobPage></JobPage>,
                 loader: () => fetch('http://localhost:5000/alljobs')
             }
         ]
     },
     {
-        path:"/deshbord",
+        path: "/deshbord",
         element: <Deshbord></Deshbord>,
-        children:([
+        errorElement: <DisplayError></DisplayError>,
+        children: ([
             {
                 path: "/deshbord",
-                element:<UnderDeshbord></UnderDeshbord>
+                element: <UnderDeshbord></UnderDeshbord>
             },
             {
                 path: "/deshbord/inbox",
-                element:<Inbox></Inbox>
+                element: <Inbox></Inbox>
             },
             {
                 path: "/deshbord/recruitment",
                 element: <Recruitments></Recruitments>,
             },
             {
-                path:"/deshbord/recruitment/createjob",
-                element:<CreateJob></CreateJob>
+                path: "/deshbord/recruitment/createjob",
+                element: <CreateJob></CreateJob>
             },
             {
                 path: "/deshbord/employees",
-                element:<Employess></Employess>
+                element: <Employess></Employess>
             },
             {
                 path: "/deshbord/reports",
-                element:<Reports></Reports>
+                element: <Reports></Reports>
             },
             {
                 path: "/deshbord/setting",
-                element:<Setting></Setting>
+                element: <Setting></Setting>
             }
         ])
     },
     {
         path: "/employedeshbord",
         element: <EmployeeDeshbord></EmployeeDeshbord>,
+        errorElement: <DisplayError></DisplayError>,
         children: ([
             {
                 path: "/employedeshbord",
-                element:<EmployeeDetails></EmployeeDetails>
+                element: <EmployeeDetails></EmployeeDetails>
             },
             {
                 path: "/employedeshbord/resumemanager",
-                element:<ResumeManager></ResumeManager>
+                element: <ResumeManager></ResumeManager>
             },
             {
                 path: "/employedeshbord/employejobs",
-                element:<EmployeJobs></EmployeJobs>
+                element: <EmployeJobs></EmployeJobs>
             },
             {
                 path: "/employedeshbord/myaccount",
-                element:<MyAccount></MyAccount>
+                element: <MyAccount></MyAccount>
             },
         ])
     },
     {
         path: "/admin",
         element: <AdminDeshbord></AdminDeshbord>,
+        errorElement: <DisplayError></DisplayError>,
         children: ([
             {
                 path: "/admin",
-                element:<AdminData></AdminData>
+                element: <AdminData></AdminData>
             }
         ])
     }
