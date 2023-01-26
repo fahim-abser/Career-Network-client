@@ -4,6 +4,9 @@
 @layer components {
     .listItem {
         @apply px-4 lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black font-besicFont hover:bg-sky-900 lg:hover:bg-transparent
+    };
+    .InputData{
+        @apply input w-full focus:outline-none input-bordered font-besicFont focus:border-sky-800 
     }
 }
 

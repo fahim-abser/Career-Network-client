@@ -6,8 +6,7 @@ import { RxCross1 } from 'react-icons/rx';
 import { useQuery } from 'react-query';
 
 const Navbar = () => {
-    const [menu, setMenu] = useState(true)
-    const {user, logOut} = useContext(AuthContext)
+    const {user, logOut,menu,setMenu} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -21,6 +20,7 @@ const Navbar = () => {
             return data
         })
     })
+    console.log(condition)
     
     const navItems =<>
         <li className={`listItem ${menu? 'text-black':"text-white"}`}><Link to='/category' className=''>Jobs</Link></li>
@@ -29,7 +29,7 @@ const Navbar = () => {
         
         {user?.uid ? <>
             {condition?.role ==="recruiter" && <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/deshbord"}>Deshbord</Link></li>}
-            {condition?.role === "job seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>}
+            {condition?.role === "seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employe Deshbord</Link></li>}
             {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>}
             <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>

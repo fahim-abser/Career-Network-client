@@ -51,8 +51,8 @@ function Deshbordnavbar() {
     </>
     // navbar start hare
     return (
-      <div className='relative z-30 h-16 border-2 border-red-800'>
-            <div className={`navbar p-0 border-2 border-blue-800 max-w-[1250px] mx-auto backdrop-blur-3xl z-20 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4`}>
+      <div className='relative z-30 h-16'>
+            <div className={`navbar p-0 max-w-[1250px] mx-auto backdrop-blur-3xl z-20 fixed top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4`}>
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
