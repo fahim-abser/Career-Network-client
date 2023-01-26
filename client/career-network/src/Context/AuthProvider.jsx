@@ -7,6 +7,7 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [menu, setMenu] = useState(true)
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -47,7 +48,9 @@ const AuthProvider = ({ children }) => {
         setUser,
         updateUser,
         googleSignIn,
-        githubSignIn
+        githubSignIn,
+        menu,
+        setMenu
 
 
     }

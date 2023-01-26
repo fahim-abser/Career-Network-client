@@ -11,7 +11,7 @@ const Categories = () => {
             setCategories(data)
         })
     },[])
-    
+    console.log('')
     return (
         <div className='py-7'>
             <div className='text-center w-8/12 mx-auto my-4'> 

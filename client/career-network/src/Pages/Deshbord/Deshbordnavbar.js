@@ -20,8 +20,6 @@ function Deshbordnavbar() {
     // navbar list item 
 
     const navItems =<>
-
-
         <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Recruiter</Link></li>
         <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Employee</Link></li>
         <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord"}>Dashboard</Link></li>
