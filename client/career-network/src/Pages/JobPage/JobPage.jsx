@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { MdLocationPin } from "react-icons/md";
 import { FaGraduationCap } from "react-icons/fa";
@@ -6,53 +6,75 @@ import { MdWork } from "react-icons/md";
 import { BsCalendar2DateFill } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { HiTag } from "react-icons/hi";
+import Pagination from './Pagination';
 const JobPage = () => {
-    const data = useLoaderData()
-    console.log(data)
-    const[search, setSearch] = useState("");
-    const [searchLocation, setSearchLocation] = useState("");
-    const [selectCategory, setSelectCategory] = useState("");
-    return (
-    <div className='flex items-center justify-center'>
-            <div className="mt-10">
-        <p className="text-xl text-gray-700 font-bold mb-5">
+  // const jobData = useLoaderData()
+  // console.log(jobData)
+
+  // page
+  const [jobData,setJobData] = useState([]);
+  const [count,setCount] = useState(0);
+  const [page,setPage] = useState(0);
+  const [size,setSize] = useState(2)
+
+  useEffect(()=>{
+    const url = `http://localhost:5000/alljobs?page=${page}&size=${size}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>{
+      setCount(data.count)
+      setJobData(data.jobs)
+    })
+  },[page,size])
+   console.log(jobData, count)
+
+  const pages = Math.ceil(count/size)
+  // 
+  const [search, setSearch] = useState("");
+  const [searchLocation, setSearchLocation] = useState("");
+  const [selectCategory, setSelectCategory] = useState("");
+  return (
+  <div>
+      <div className='flex items-center justify-center'>
+      <div className="mt-10">
+        <p className="text-xl text-gray-700 dark:text-white font-bold mb-5">
           Find Your Dream Job Here
         </p>
         <div className="form-control">
           <div className="input-group">
-          <div className="flex items-center relative ">
-              <HiTag className=" absolute "></HiTag>
+            <div className="flex items-center relative ">
+              <HiTag className=" absolute dark:text-gray-900 text-gray-300"></HiTag>
               <input
                 type="text"
-                placeholder="Job title or keyword" 
-                className="input input-bordered pl-6 border-l-0 focus:outline-none focus:outline-none"
+                placeholder="Job title or keyword"
+                className="input input-bordered pl-6 border-l-0 focus:outline-none dark:text-black"
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             {/* location input */}
-            <div className="hidden md:block"> 
-            <div className="flex items-center relative   ">
-              <CiLocationOn className=" absolute "></CiLocationOn>
-              <input
-                type="text"
-                placeholder="Location"
-                className="input input-bordered pl-6 border-l-0 focus:outline-none "
-                
-                onChange={(e) => setSearchLocation(e.target.value)}
-              />
-            </div>
+            <div className="hidden md:block">
+              <div className="flex items-center relative   ">
+                <CiLocationOn className=" absolute dark:text-gray-900 text-gray-300 "></CiLocationOn>
+                <input
+                  type="text"
+                  placeholder="Location"
+                  className="input input-bordered pl-6 border-l-0 focus:outline-none   dark:text-black"
+
+                  onChange={(e) => setSearchLocation(e.target.value)}
+                />
+              </div>
             </div>
             <div className="flex items-center relative ">
-             
-              <select  onChange={(e) => setSelectCategory(e.target.value)} className="select select-bordered w-full  focus:outline-none text-gray-400">
+
+              <select onChange={(e) => setSelectCategory(e.target.value)} className="select select-bordered w-full  focus:outline-none dark:text-gray-900 text-gray-300 ">
                 <option disabled selected>
-                 Select Category
+                  Select Category
                 </option>
                 <option>web development</option>
                 <option>marketing</option>
               </select>
             </div>
-  
+
             <button className="btn btn-square">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,9 +93,9 @@ const JobPage = () => {
             </button>
           </div>
         </div>
-        {data
+        {jobData
           .filter((item) => {
-            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase()=="")
+            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase() == "")
               return item;
             else {
               return (
@@ -87,7 +109,7 @@ const JobPage = () => {
           .map((item, idx) => (
             <div
               key={idx}
-              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50"
+              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800"
             >
               <div className="card-body">
                 <h2 className="card-title"></h2>
@@ -114,8 +136,11 @@ const JobPage = () => {
             </div>
           ))}
       </div>
+      
     </div>
-    );
+    <Pagination pages={pages} page={page} setPage={setPage}></Pagination>
+  </div>
+  );
 };
 
 export default JobPage;
