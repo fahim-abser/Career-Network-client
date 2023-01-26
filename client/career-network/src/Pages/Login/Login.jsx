@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router';
 
 const Login = () => {
     const navigate = useNavigate()
-    const {logIn, googleSignIn, githubSignIn} = useContext(AuthContext)
+    const {logIn, googleSignIn, githubSignIn ,setMenu} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -44,7 +44,7 @@ const Login = () => {
 
 
     return (
-        <div className='h-[600px] flex justify-center'>
+        <div onClick={()=>setMenu(true)} className='h-[600px] flex justify-center'>
             <div className='w-96 p-7'>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <h2 className="text-3xl font-bold text-center">Login</h2>
