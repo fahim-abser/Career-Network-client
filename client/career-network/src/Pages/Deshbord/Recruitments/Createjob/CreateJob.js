@@ -66,9 +66,17 @@ const CreateJob = () => {
          <form onSubmit={handleCreateJob}>
             <div className="flex md:flex-row flex-col gap-6 justify-center items-center ">
             {/* title */}
+<<<<<<< HEAD
                <div className="w-full ">
                   <label className=" ml-2 block font-besicFont font-bold text-[#07074D]">
                      Job Title
+=======
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Job Title
+>>>>>>> master
                   </label>
                   <input
                      type="text"
@@ -77,11 +85,23 @@ const CreateJob = () => {
                      className="InputData"
                      required
                   />
+<<<<<<< HEAD
                </div>
               {/* City */}
               <div className="w-full">
                   <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                      City
+=======
+                </div>
+              </div>
+            </div>
+            {/* City */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    City
+>>>>>>> master
                   </label>
                   <input
                      type="text"
@@ -92,11 +112,21 @@ const CreateJob = () => {
                   />
                </div>
             </div>
+<<<<<<< HEAD
             <div className="flex gap-6 md:flex-row flex-col justify-center items-center my-3">
                {/* Location */}
                <div className="w-full">
                   <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                      Location
+=======
+
+            {/* Location */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Location
+>>>>>>> master
                   </label>
                   <input
                      type="text"
@@ -105,11 +135,24 @@ const CreateJob = () => {
                      className="InputData"
                      required
                   />
+<<<<<<< HEAD
                </div>
                {/* Salary */}
                <div className="w-full">
                   <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                      Salary
+=======
+                </div>
+              </div>
+            </div>
+
+            {/* Salary */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Salary
+>>>>>>> master
                   </label>
                   <input
                      type="text"
@@ -120,6 +163,7 @@ const CreateJob = () => {
                   />
                </div>
             </div>
+<<<<<<< HEAD
             <div className="flex md:flex-row flex-col gap-6 justify-center items-center">
                   {/* Job skills */}
                <div className="w-full">
@@ -138,6 +182,32 @@ const CreateJob = () => {
                <div className="w-full">
                   <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                      Job Category
+=======
+            {/* Job skills */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Job Skills
+                  </label>
+                  <input
+                    type="text"
+                    name="skills"
+                    placeholder="Job Skills"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Job Category */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Job Category
+>>>>>>> master
                   </label>
                   <select
                      name="category"
@@ -155,11 +225,22 @@ const CreateJob = () => {
                   </select>
                </div>
               </div>
+<<<<<<< HEAD
               <div className="flex gap-6 md:flex-row flex-col jsutify-center items-center my-3">
                  {/* Job Type selected */}
                <div className="w-full">
                   <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                      Job Type
+=======
+            </div>
+
+            {/* Job Summary */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Job Summary
+>>>>>>> master
                   </label>
                   <input
                      type="text"
@@ -195,6 +276,7 @@ const CreateJob = () => {
                ></textarea>
             </div>
             {/* Job description */}
+<<<<<<< HEAD
             <div className="w-full my-3">
                <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                   Job Description
@@ -205,6 +287,72 @@ const CreateJob = () => {
                   className="w-full  p-2 h-24 rounded-md focus:outlet-none dark:border-gray-700 dark:text-gray-900"
                ></textarea>
             </div>
+=======
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Job Description
+                  </label>
+                  <textarea
+                    name="description"
+                    placeholder="Write here..."
+                    className="w-full  p-2 h-24 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            {/* Job Type selected */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Job Type
+                  </label>
+                  <input
+                    type="text"
+                    name="jobType"
+                    placeholder=" Job Type"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Experienced Required */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Experience Required
+                  </label>
+                  <input
+                    type="text"
+                    name="experience"
+                    placeholder=" Experience Required"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            {/*Posting Date */}
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label className="mb-3 dark:text-white block text-base font-medium text-[#07074D]">
+                    Posting Date
+                  </label>
+                  <input
+                    type="date"
+                    name="date"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  />
+                </div>
+              </div>
+            </div>
+
+>>>>>>> master
             <div>
               <button className="hover:shadow-form rounded-md bg-green-700 py-3 px-6 text-center text-base font-semibold text-white outline-none">
                 Create Job

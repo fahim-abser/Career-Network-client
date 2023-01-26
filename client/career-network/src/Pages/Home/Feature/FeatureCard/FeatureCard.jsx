@@ -11,8 +11,8 @@ const FeatureCard = ({feature}) => {
             </div>
                 <div className="w-full md:w-2/3  flex flex-col space-y-2 p-3">
                    
-                    <h3 className=" text-gray-800 md:text-2xl text-xl font-bold font-primaryFont">{job}</h3>
-                    <p className="md:text-lg text-gray-500 text-base ">{category}</p>
+                    <h3 className="md:text-2xl text-xl font-bold font-primaryFont">{job}</h3>
+                    <p className="md:text-lg text-base ">{category}</p>
                     <div >
                         <div className='marker:text-blue-700 flex gap-2 mb-3'>
                             <li className=' '>{location.one}</li>
