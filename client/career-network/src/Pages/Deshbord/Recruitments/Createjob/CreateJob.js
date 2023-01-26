@@ -162,12 +162,12 @@ const CreateJob = () => {
                     name="category"
                     className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option defaultValue="Choose a country">Choose a country</option>
-                    <option defaultValue="Designer">Designer</option>
-                    <option defaultValue="Web Developer">Web Developer</option>
-                    <option defaultValue="Marketing">Marketing</option>
-                    <option defaultValue="Education">Education</option>
-                    <option defaultValue="Writing And Editing">
+                    <option value="Choose a country">Choose a country</option>
+                    <option value="Designer">Designer</option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Education">Education</option>
+                    <option value="Writing And Editing">
                       Writing And Editing
                     </option>
                     <option value="Sales">Sales</option>
