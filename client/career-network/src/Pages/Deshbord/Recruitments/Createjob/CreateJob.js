@@ -143,6 +143,7 @@ const CreateJob = () => {
                      name="category"
                      className=" InputData"
                   >
+
                      <option defaultValue="Choose a country">Choose a country</option>
                      <option defaultValue="Designer">Designer</option>
                      <option defaultValue="Web Developer">Web Developer</option>
@@ -152,6 +153,7 @@ const CreateJob = () => {
                         Writing And Editing
                      </option>
                      <option value="Sales">Sales</option>
+
                   </select>
                </div>
               </div>
