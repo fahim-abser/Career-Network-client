@@ -3,9 +3,11 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
-    const {logIn, googleSignIn, githubSignIn} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const {logIn, googleSignIn, githubSignIn ,setMenu} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -16,6 +18,9 @@ const Login = () => {
         .then(result =>{
             const user = result.user
             console.log(user);
+            if(user?.uid){
+                navigate('/')
+            }
         })
         .catch(error =>console.log(error))
     }
@@ -39,7 +44,7 @@ const Login = () => {
 
 
     return (
-        <div className='h-[600px] flex justify-center'>
+        <div onClick={()=>setMenu(true)} className='h-[600px] flex justify-center'>
             <div className='w-96 p-7'>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <h2 className="text-3xl font-bold text-center">Login</h2>
@@ -59,7 +64,7 @@ const Login = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
-                    <input className='btn  w-full mt-4' value="Sign Up" type="submit" />
+                    <input className='btn  w-full mt-4' value="Log In" type="submit" />
                 </form>
                 <div className=''>
                     <button onClick={handlegoogle} className='btn btn-outline w-full my-7 dark:text-white'><FaGoogle  className='text-2xl mx-4 text-blue-500'></FaGoogle> CONTINUE WITH GOOGLE</button>
