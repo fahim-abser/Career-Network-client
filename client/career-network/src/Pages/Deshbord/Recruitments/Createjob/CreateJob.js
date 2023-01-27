@@ -144,7 +144,7 @@ const CreateJob = () => {
                      className=" InputData"
                   >
 
-                     <option defaultValue="Choose a country">Choose a country</option>
+                     <option defaultValue="Choose a category">Choose a category</option>
                      <option defaultValue="Designer">Designer</option>
                      <option defaultValue="Web Developer">Web Developer</option>
                      <option defaultValue="Marketing">Marketing</option>
