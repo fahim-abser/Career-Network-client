@@ -16,18 +16,37 @@ function Deshbordnavbar() {
             .then(() => { })
             .catch(err => console.log(err));
     }
-
     // navbar list item 
 
     const navItems =<>
-        <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Recruiter</Link></li>
-        <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Employee</Link></li>
-        <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord"}>Dashboard</Link></li>
+        <li className={`px-3  dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={'/deshbord'}>Recruiter</Link></li>
+        <div onMouseEnter={()=>setInbox(true)} onMouseLeave={()=>setInbox(false)} className=' mx-1'>
+            <li  className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>inbox</Link></li>
+            <ul className={`font-besicFont h-0 lg:absolute block ${inbox?" h-fit animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3":"hidden "}`}>
+                <Link><li className='py-1'>interview</li></Link>
+                <Link><li className='py-1'>jobs</li></Link>
+                <Link><li className='py-1'>offer</li></Link>
+                <Link><li className='py-1'>candidate email</li></Link>
+                <Link><li className='py-1'>internal comment</li></Link>
+                <Link><li className='py-1'>condidate alert</li></Link>
+            </ul>
+        </div>
+        <div onMouseEnter={()=>setRecuriter(true)} onMouseLeave={()=>setRecuriter(false)} className='mx-1 ' >
+            <li className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Recruitment</Link></li>
+            <ul className={`font-besicFont ${recuriter?"lg:absolute block animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3":"hidden "}`}>
+                <Link><li className='py-1'>recruit</li></Link>
+                <Link><li className='py-1'>conversation</li></Link>
+                <Link><li className='py-1'>task</li></Link>
+                <Link to={'/deshbord/recruitment/createjob'}><li className='py-1'>add jobs</li></Link>
+            </ul>
+        </div>
+        <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Employee</Link></li>
+        <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord"}>Dashboard</Link></li>
         {user?.uid ? <>
-            <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link onClick={handleLogOut}>Logout</Link></li>
+            <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
-                <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
-                <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/signup'>Signup</Link></li>
+                <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
+                <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/signup'>Signup</Link></li>
 
             </>
         }
@@ -41,14 +60,14 @@ function Deshbordnavbar() {
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
-                <div className='navbar-end items-center'>
+                <div className='navbar-end'>
                     <div className="">
                         <label onClick={()=>setMenu(!menu)} className="btn btn-ghost lg:hidden">
                             <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
                         </label>
                     </div>
                     <div className="hidden lg:flex">
-                        <ul className="text-xl font-medium flex capitalize h-16 items-center">
+                        <ul className="text-xl font-medium flex capitalize justify-center items-center">
                             {navItems}
                         </ul>
                     </div>
