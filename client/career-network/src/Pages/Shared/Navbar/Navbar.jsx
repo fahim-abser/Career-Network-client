@@ -7,11 +7,13 @@ import { BsMoonFill } from 'react-icons/bs';
 import { BsFillSunFill } from 'react-icons/bs';
 
 import { useQuery } from 'react-query';
+import { ThemeContext } from '../../../App';
 
 const Navbar = () => {
-    const [theme, setTheme] = useState('light')
-    const { user, logOut ,menu,setMenu} = useContext(AuthContext)
+    const {theme, setTheme} = useContext(ThemeContext)
 
+    const { user, logOut ,menu,setMenu} = useContext(AuthContext)
+ 
     useEffect(() => {
         if (theme === "dark") {
             document.documentElement.classList.add("dark")
