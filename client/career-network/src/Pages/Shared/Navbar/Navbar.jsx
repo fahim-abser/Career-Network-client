@@ -37,7 +37,6 @@ const Navbar = () => {
             return data
         })
     })
-    console.log(condition)
     const navItems = <>
         <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu ? 'text-black' : "text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><Link to="/alljobs" className=''>Jobs</Link></li>
         <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu ? 'text-black' : "text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><button onClick={handleTheme} className=''>Theme</button></li>
@@ -46,7 +45,7 @@ const Navbar = () => {
         {user?.uid ? <>
             {condition?.role ==="recruiter" && <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/deshbord"}>Deshbord</Link></li>}
             {condition?.role === "seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>}
-            {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>}
+            {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/admin"}>admin deshbord</Link></li>}
             <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
             <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
@@ -57,7 +56,7 @@ const Navbar = () => {
     </>
     return (
         <div className={`relative h-16 `}>
-            <div className={`navbar max-w-[1250px]  mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
+            <div className={`navbar max-w-[1440px]  mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
