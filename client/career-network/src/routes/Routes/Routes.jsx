@@ -20,6 +20,9 @@ import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
 import AdminDeshbord from "../../Pages/Admin/AdminDeshbord";
 import AdminData from "../../Pages/Admin/AdminData/AdminData";
 import JobPage from "../../Pages/JobPage/JobPage"
+import RecruiteTable from "../../Pages/Admin/UserTabel/RecruiteTable";
+import JobSeekerTabel from "../../Pages/Admin/UserTabel/JobSeekerTabel";
+import AdminTable from "../../Pages/Admin/UserTabel/AdminTable";
 
 
 const router = createBrowserRouter([
@@ -114,6 +117,18 @@ const router = createBrowserRouter([
             {
                 path: "/admin",
                 element:<AdminData></AdminData>
+            },
+            {
+                path:"/admin/recruiter",
+                element:<RecruiteTable></RecruiteTable>
+            },
+            {
+                path: "/admin/jobseerker",
+                element:<JobSeekerTabel></JobSeekerTabel>
+            },
+            {
+                path: "/admin/admintable",
+                element:<AdminTable></AdminTable>
             }
         ])
     }
