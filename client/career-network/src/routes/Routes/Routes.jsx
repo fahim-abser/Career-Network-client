@@ -20,13 +20,10 @@ import MyAccount from "../../Pages/EmployeeDeshbord/MyAccount/MyAccount";
 import AdminDeshbord from "../../Pages/Admin/AdminDeshbord";
 import AdminData from "../../Pages/Admin/AdminData/AdminData";
 import JobPage from "../../Pages/JobPage/JobPage"
-<<<<<<< HEAD
 import RecruiteTable from "../../Pages/Admin/UserTabel/RecruiteTable";
 import JobSeekerTabel from "../../Pages/Admin/UserTabel/JobSeekerTabel";
 import AdminTable from "../../Pages/Admin/UserTabel/AdminTable";
-=======
 import DisplayError from "../../Pages/DisplayError/DisplayError";
->>>>>>> 659be760351d498b607236e8181920781db390f5
 
 
 const router = createBrowserRouter([
@@ -124,7 +121,6 @@ const router = createBrowserRouter([
         children: ([
             {
                 path: "/admin",
-<<<<<<< HEAD
                 element:<AdminData></AdminData>
             },
             {
@@ -138,9 +134,6 @@ const router = createBrowserRouter([
             {
                 path: "/admin/admintable",
                 element:<AdminTable></AdminTable>
-=======
-                element: <AdminData></AdminData>
->>>>>>> 659be760351d498b607236e8181920781db390f5
             }
         ])
     }

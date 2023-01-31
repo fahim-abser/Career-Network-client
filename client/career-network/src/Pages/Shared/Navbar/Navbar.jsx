@@ -50,13 +50,8 @@ const Navbar = () => {
         {user?.uid ? <>
             {condition?.role ==="recruiter" && <li className={`listItem ${menu? "text-black dark:text-white": "text-white"} `}><Link to={"/deshbord"}>Dashbord</Link></li>}
             {condition?.role === "seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>}
-<<<<<<< HEAD
             {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/admin"}>admin deshbord</Link></li>}
             <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
-=======
-            {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>}
-            <li className={`listItem ${menu ? "text-black dark:text-white" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
->>>>>>> 659be760351d498b607236e8181920781db390f5
         </> : <>
             <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
             <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/signup'>Signup</Link></li>

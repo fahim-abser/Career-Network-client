@@ -16,9 +16,9 @@ function AdminNavbar() {
     // navbar list item 
     const navItems =<>
         <li className={`listItem ${menu ? 'text-black' : "text-white"}`}><Link to="/employedeshbord" className=''>deshbord</Link></li>
-        <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={"/employedeshbord/resumemanager"}>Resume</Link></li>
-        <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={'/employedeshbord/employejobs'}>jobs</Link></li>
-        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link to={"/employedeshbord/myaccount"}>account</Link></li>
+        <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={""}>Resume</Link></li>
+        <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={''}>jobs</Link></li>
+        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link to={""}>account</Link></li>
         {user?.uid ? <>
             <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
