@@ -8,6 +8,8 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [menu, setMenu] = useState(true)
+    const [adminNavmenu, setAdminNavMenu] = useState(true)
+    const [addValueInModal,setAddValueInModal]=useState(null)
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -50,9 +52,11 @@ const AuthProvider = ({ children }) => {
         googleSignIn,
         githubSignIn,
         menu,
-        setMenu
-
-
+        setMenu,
+        setAdminNavMenu,
+        adminNavmenu,
+        setAddValueInModal,
+        addValueInModal
     }
     return (
         <AuthContext.Provider value={authInfo}>
