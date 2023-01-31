@@ -16,14 +16,13 @@ function Deshbordnavbar() {
             .then(() => { })
             .catch(err => console.log(err));
     }
-
     // navbar list item 
 
     const navItems =<>
         <li className={`px-3  dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={'/deshbord'}>Recruiter</Link></li>
         <div onMouseEnter={()=>setInbox(true)} onMouseLeave={()=>setInbox(false)} className=' mx-1'>
-            <li  className={`px-3 relative dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>inbox</Link></li>
-            <ul className={`font-besicFont ${inbox?" lg:absolute block animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3":"hidden "}`}>
+            <li  className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>inbox</Link></li>
+            <ul className={`font-besicFont h-0 lg:absolute block ${inbox?" h-fit animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3":"hidden "}`}>
                 <Link><li className='py-1'>interview</li></Link>
                 <Link><li className='py-1'>jobs</li></Link>
                 <Link><li className='py-1'>offer</li></Link>

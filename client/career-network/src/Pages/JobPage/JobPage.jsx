@@ -33,6 +33,7 @@ const JobPage = () => {
   const [search, setSearch] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const [selectCategory, setSelectCategory] = useState("");
+  console.log(selectCategory)
   return (
   <div>
       <div className='flex items-center justify-center'>
@@ -67,11 +68,12 @@ const JobPage = () => {
             <div className="flex items-center relative ">
 
               <select onChange={(e) => setSelectCategory(e.target.value)} className="select select-bordered w-full  focus:outline-none dark:text-gray-900 text-gray-300 ">
-                <option disabled selected>
-                  Select Category
+                <option value="All Jobs" selected>
+                  
                 </option>
                 <option>web development</option>
                 <option>marketing</option>
+                
               </select>
             </div>
 
@@ -95,7 +97,7 @@ const JobPage = () => {
         </div>
         {jobData
           .filter((item) => {
-            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase() == "")
+            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase() == "" )
               return item;
             else {
               return (
