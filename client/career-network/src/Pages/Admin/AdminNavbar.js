@@ -14,12 +14,12 @@ function AdminNavbar() {
 
     // navbar list item 
     const navItems =<>
-        <li className={`listItem ${adminNavmenu ? 'text-black' : "text-white"}`}><Link to="/admin" className=''>deshbord</Link></li>
-        <li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}><Link to={""}>Resume</Link></li>
-        <li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}><Link to={''}>jobs</Link></li>
-        <li className={`listItem ${adminNavmenu? "text-black": "text-white"}`}><Link to={""}>account</Link></li>
+        <Link to="/admin" className=''><li className={`listItem ${adminNavmenu ? 'text-black' : "text-white"}`}>deshbord</li></Link>
+        <Link to={""}><li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}>Resume</li></Link>
+        <Link to={''}><li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}>jobs</li></Link>
+        <Link to={""}><li className={`listItem ${adminNavmenu? "text-black": "text-white"}`}>account</li></Link>
         {user?.uid ? <>
-            <li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}><Link onClick={handleLogOut}>Logout</Link></li>
+            <Link onClick={handleLogOut}><li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}>Logout</li></Link>
         </> : <>
                 <li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}><Link to='/login'>Login</Link></li>
             </>
