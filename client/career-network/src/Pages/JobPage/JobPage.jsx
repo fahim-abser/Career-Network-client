@@ -7,6 +7,7 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { HiTag } from "react-icons/hi";
 import Pagination from './Pagination';
+import { Link } from 'react-router-dom';
 const JobPage = () => {
   // const jobData = useLoaderData()
   // console.log(jobData)
@@ -109,9 +110,10 @@ const JobPage = () => {
             // return search.toLowerCase()==='' || selectCategory?.toLowerCase===''? item : item.title.toLowerCase().includes(search) || item.category.toLowerCase.includes(selectCategory)
           })
           .map((item, idx) => (
+           <Link to={`/jobdetails/${item._id}`}>
             <div
               key={idx}
-              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800"
+              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800 hover:bg-orange-200"
             >
               <div className="card-body">
                 <h2 className="card-title"></h2>
@@ -136,6 +138,7 @@ const JobPage = () => {
                 </div>
               </div>
             </div>
+           </Link>
           ))}
       </div>
       
