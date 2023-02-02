@@ -42,26 +42,25 @@ const Navbar = () => {
         })
     })
     const navItems = <>
-        {theme==='light'? <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu ? 'text-black' : "text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><button onClick={handleTheme} className='mt-1 text-md'><BsMoonFill/></button></li>:<li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu ? 'text-black' : "text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><button onClick={handleTheme} className='mt-1 text-md text-yellow-600'><BsFillSunFill/></button></li>}
-        <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 font-besicFont lg:text-black ${menu ? 'text-black' : "text-white"} hover:bg-sky-900 lg:hover:bg-transparent`}><Link to="/alljobs" className=''>Jobs</Link></li>
-        
-        <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Blogs</Link></li>
-        <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>About</Link></li>
+        {theme==='light'? <button onClick={handleTheme} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}><BsMoonFill/></li></button>:<button onClick={handleTheme} className='mt-1 w-full text-md text-yellow-600'><li className={` listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}><BsFillSunFill/></li></button>}
+        <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
+        <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
+        <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
         {user?.uid ? <>
-            {condition?.role ==="recruiter" && <li className={`listItem ${menu? "text-black dark:text-white": "text-white"} `}><Link to={"/deshbord"}>Dashbord</Link></li>}
-            {condition?.role === "seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>}
-            {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/admin"}>admin deshbord</Link></li>}
-            <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
+            {condition?.role ==="recruiter" && <Link to={"/deshbord"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>Dashbord</li></Link>}
+            {condition?.role === "seeker" && <Link to={"/employedeshbord"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>employeDeshbord</li></Link>}
+            {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>admin deshbord</li></Link>}
+            <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
         </> : <>
-            <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/login'>Login</Link></li>
-            <li className={`px-4 dark:text-white lg:pl-0 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to='/signup'>Signup</Link></li>
+            <Link to='/login'><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Login</li></Link>
+            <Link to='/signup'><li className={`listItem ${menu ? "text-black" : "text-white"}`}>Signup</li></Link>
         </>
 
         }
     </>
     return (
         <div className={`relative h-16 `}>
-            <div className={`navbar max-w-[1440px]  mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
+            <div className={`navbar max-w-[1440px]  mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
@@ -79,7 +78,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className=''>
-                <div className={`w-full lg:hidden  z-10 top-16 fixed bg-sky-700 backdrop-blur-3xl duration-1000 ${menu ? 'h-0 duration-1000 hidden' : " pb-10 duration-1000 block bg-sky-700"}`}>
+                <div className={`w-full lg:hidden  z-10 top-16 fixed bg-sky-700 dark:bg-black backdrop-blur-3xl duration-1000 ${menu ? 'h-0 duration-1000 hidden' : " pb-10 duration-1000 block bg-sky-700"}`}>
                     <ul className='text-lg '>
                         {navItems}
                     </ul>
