@@ -24,6 +24,7 @@ import RecruiteTable from "../../Pages/Admin/UserTabel/RecruiteTable";
 import JobSeekerTabel from "../../Pages/Admin/UserTabel/JobSeekerTabel";
 import AdminTable from "../../Pages/Admin/UserTabel/AdminTable";
 import DisplayError from "../../Pages/DisplayError/DisplayError";
+import JobDetails from "../../Pages/Jobs/JobDetails";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
                 path: '/alljobs',
                 element: <JobPage></JobPage>,
                 loader: () => fetch('http://localhost:5000/alljobs')
+            },
+            {
+                path: '/jobdetails/:jobId',
+                element: <JobDetails></JobDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
             }
         ]
     },
