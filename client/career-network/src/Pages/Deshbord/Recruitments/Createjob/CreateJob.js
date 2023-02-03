@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../../Context/AuthProvider";
+
+// d1f3d96d8051fdcb90609fd80a5c336d
 
 const CreateJob = () => {
+   const {user}=useContext(AuthContext)
    const date = new Date().toLocaleDateString('en-GB')
   const navigate = useNavigate()
   const handleCreateJob = (e) => {
-    e.preventDefault();
+     e.preventDefault();
+     const formData = new FormData()
     const form = e.target;
     const jobTitle = form.title.value;
     const city = form.city.value;
@@ -19,43 +24,62 @@ const CreateJob = () => {
     const jobType = form.jobType.value;
     const experience = form.experience.value;
     const postDate = date
-    const postInfo = {
-      job_title: jobTitle,
-      city,
-      location,
-      salary,
-      skills,
-      category_name: category,
-      jobSummary,
-      description,
-      duty_hours: jobType,
-      experience,
-      deadline: postDate,
-      isPaid: false,
-      isVerify: false,
-    };
-    console.log(postInfo);
-    
-    console.log()
-    const url = `http://localhost:5000/jobs`
-    fetch(url, {
-      method: 'POST',
-      headers: {
-          'content-type': 'application/json'
-      },
-      body: JSON.stringify(postInfo)
-  })
-      .then((response) => response.json())
-      .then((data) => {
-          console.log('Success:', data);
-          toast('job posted successfully')
-          navigate(`/category/${category}`)
-          
+    const deadline = form.dateline.value
+    const imagedata = e.target.image.files[0]
+    formData.append("image", imagedata)
+
+   //  imgbb api 
+    fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
+      method:"POST",
+      body:formData
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.success){
+         console.log(data)
+         const postInfo = {
+            image:data?.data?.url,
+            job_title: jobTitle,
+            city,
+            location,
+            salary,
+            skills,
+            category_name: category,
+            jobSummary,
+            description,
+            duty_hours: jobType,
+            experience,
+            postDate,
+            deadline,
+            isPaid: false,
+            isVerify: false,
+            recruiterEmail:user?.email
+          };
+
+          const url = `http://localhost:5000/jobs`
+            fetch(url, {
+               method: 'POST',
+               headers: {
+                  'content-type': 'application/json'
+               },
+               body: JSON.stringify(postInfo)
+            })
+            .then((response) => response.json())
+            .then((data) => {
+               console.log('Success:', data);
+               toast.success('job posted successfully')
+               navigate(`/category/${category}`)
+               
+            })
+            .catch((error) => {
+               console.error('Error:', error);
+            });
+         };
       })
-      .catch((error) => {
-          console.error('Error:', error);
-      });
-  };
+      .catch((err) => {
+         console.log(err)
+      })
+   };
 
   return (
     <div className="lg:shadow-md  mb-10 lg:w-8/12 md:w-10/12 w-full px-16 py-10 mx-auto">
@@ -117,6 +141,7 @@ const CreateJob = () => {
                      id="fName"
                      placeholder="Salary"
                      className="InputData"
+                     required
                   />
                </div>
             </div>
@@ -124,11 +149,11 @@ const CreateJob = () => {
                   {/* Job skills */}
                <div className="w-full">
                      <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                     Job Skills
+                     deadline
                      </label>
                      <input
-                     type="text"
-                     name="skills"
+                     type="date"
+                     name="dateline"
                      placeholder="Job Skills"
                      className="InputData"
                      required
@@ -185,6 +210,32 @@ const CreateJob = () => {
                   />
                </div>
             </div>
+            <div className="flex gap-6 md:flex-row flex-col jsutify-center items-center my-3 ">
+               <div className="w-full">
+                  <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
+                  Job Skills
+                  </label>
+                  <input
+                     type="text"
+                     name="skills"
+                     placeholder="Job Skills"
+                     className="InputData"
+                     required
+                  />
+               </div>
+               <div className="w-full">
+                  <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
+                  set image
+                  </label>
+                  <input 
+                     type="file"
+                     name="image"
+                     placeholder="Job Skills"
+                     className="InputData w-full h-full ml-0 pl-0"
+                     required
+                  />
+               </div>
+            </div>
             {/* Job Summary */}
             <div className="w-full">
                <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
@@ -193,7 +244,8 @@ const CreateJob = () => {
                <textarea
                   name="jobSummary"
                   placeholder="Write here.."
-                  className="w-full h-20 rounded-md focus:outlet-none focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
+                  className="w-full border-2 h-20 rounded-md focus:outlet-none focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
+                  required
                ></textarea>
             </div>
             {/* Job description */}
@@ -204,7 +256,8 @@ const CreateJob = () => {
                <textarea
                   name="description"
                   placeholder="Write here..."
-                  className="w-full  p-2 h-24 rounded-md focus:outlet-none dark:border-gray-700 dark:text-gray-900"
+                  className="w-full border-2  p-2 h-24 rounded-md focus:outlet-none dark:border-gray-700 dark:text-gray-900"
+                  required
                ></textarea>
             </div>
             <div>
