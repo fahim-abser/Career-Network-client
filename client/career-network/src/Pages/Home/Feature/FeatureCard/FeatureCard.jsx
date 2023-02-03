@@ -7,7 +7,7 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 const FeatureCard = ({ feature }) => {
     const { job_title, skills, experience, deadline, location } = feature;
     return (
-        <div className="card-body card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800">
+        <div className="card-body ">
             <h2 className="card-title"></h2>
             <p className="text-xl text-green-500">{job_title}</p>
             <p className="flex items-center gap-2">
