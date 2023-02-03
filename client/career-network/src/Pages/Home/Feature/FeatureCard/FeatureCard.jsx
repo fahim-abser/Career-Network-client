@@ -1,28 +1,35 @@
 import React from 'react';
+import { MdLocationPin } from "react-icons/md";
+import { FaGraduationCap } from "react-icons/fa";
+import { MdWork } from "react-icons/md";
+import { BsCalendar2DateFill } from "react-icons/bs";
 
-const FeatureCard = ({feature}) => {
-    const {job,category,location,img} = feature;
+const FeatureCard = ({ feature }) => {
+    const { job_title, skills, experience, deadline, location } = feature;
     return (
-        <div className="flex flex-col mb-[48px] ml-8">
-            <div
-            className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border ">
-            <div className="w-full md:w-1/3 grid place-items-center">
-                <img src={img} alt="tailwind logo" className="rounded-xl" />
-            </div>
-                <div className="w-full md:w-2/3  flex flex-col space-y-2 p-3">
-                   
-                    <h3 className="md:text-2xl text-xl font-bold font-primaryFont">{job}</h3>
-                    <p className="md:text-lg text-base ">{category}</p>
-                    <div >
-                        <div className='marker:text-blue-700 flex gap-2 mb-3'>
-                            <li className=' '>{location.one}</li>
-                            <li className=''>{location.two}</li>
-                        </div>
-                    </div>
-                    <button type="button" className="w-1/3 p-1  rounded-full dark:bg-green-700 dark:text-white text-sm">Part Time</button>
-                </div>
+        <div className="card-body ">
+            <h2 className="card-title"></h2>
+            <p className="text-xl text-green-500">{job_title}</p>
+            <p className="flex items-center gap-2">
+                <MdLocationPin />
+                {location}
+            </p>
+            <p className="flex items-center gap-2">
+                <FaGraduationCap />
+                {skills}
+            </p>
+            <div className="flex justify-around">
+                <p className="flex items-center gap-2">
+                    <MdWork /> At least {experience}{" "}
+                    {experience > 1 ? "years" : "year"}
+                </p>
+                <p className="flex items-center gap-2">
+                    <BsCalendar2DateFill />
+                    Deadline: {deadline}
+                </p>
             </div>
         </div>
+
     );
 };
 
