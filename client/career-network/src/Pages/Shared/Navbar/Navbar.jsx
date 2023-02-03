@@ -42,14 +42,14 @@ const Navbar = () => {
         })
     })
     const navItems = <>
-        {theme==='light'? <button onClick={handleTheme} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}><BsMoonFill/></li></button>:<button onClick={handleTheme} className='mt-1 w-full text-md text-yellow-600'><li className={` listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}><BsFillSunFill/></li></button>}
+        {theme==='light'? <button onClick={handleTheme} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}><BsMoonFill/></li></button>:<button onClick={handleTheme} className='mt-1 w-full text-md text-yellow-600 '><li className={` listItem ${menu ? 'text-black' : "text-white lg:text-black"}`}><BsFillSunFill/></li></button>}
         <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
         <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
         <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
         {user?.uid ? <>
-            {condition?.role ==="recruiter" && <Link to={"/deshbord"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>Dashbord</li></Link>}
-            {condition?.role === "seeker" && <Link to={"/employedeshbord"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>employeDeshbord</li></Link>}
-            {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>admin deshbord</li></Link>}
+            {condition?.role ==="recruiter" && <Link to={"/deshbord"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            {condition?.role === "seeker" && <Link to={"/employedeshbord"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
             <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
         </> : <>
             <Link to='/login'><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Login</li></Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
                         </label>
                     </div>
                     <div className="hidden lg:flex">
-                        <ul className="text-xl font-medium flex">
+                        <ul className="text-xl font-medium flex items-center justify-center">
                             {navItems}
                         </ul>
                     </div>
