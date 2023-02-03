@@ -1,4 +1,8 @@
 import React from 'react';
+import { MdLocationPin } from "react-icons/md";
+import { FaGraduationCap } from "react-icons/fa";
+import { MdWork } from "react-icons/md";
+import { BsCalendar2DateFill } from "react-icons/bs";
 
 const FeatureCard = ({ feature }) => {
     const { job, category, location, img } = feature;
@@ -15,6 +19,7 @@ const FeatureCard = ({ feature }) => {
                 </div>
             </div>
         </div>
+
     );
 };
 

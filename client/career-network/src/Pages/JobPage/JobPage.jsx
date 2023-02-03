@@ -7,6 +7,7 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { HiTag } from "react-icons/hi";
 import Pagination from './Pagination';
+import { Link } from 'react-router-dom';
 const JobPage = () => {
   // const jobData = useLoaderData()
   // console.log(jobData)
@@ -33,6 +34,7 @@ const JobPage = () => {
   const [search, setSearch] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const [selectCategory, setSelectCategory] = useState("");
+  console.log(selectCategory)
   return (
   <div>
       <div className='flex items-center justify-center'>
@@ -67,11 +69,12 @@ const JobPage = () => {
             <div className="flex items-center relative ">
 
               <select onChange={(e) => setSelectCategory(e.target.value)} className="select select-bordered w-full  focus:outline-none dark:text-gray-900 text-gray-300 ">
-                <option disabled selected>
-                  Select Category
+                <option value="All Jobs" selected>
+                  
                 </option>
                 <option>web development</option>
                 <option>marketing</option>
+                
               </select>
             </div>
 
@@ -95,7 +98,7 @@ const JobPage = () => {
         </div>
         {jobData
           .filter((item) => {
-            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase() == "")
+            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase() == "" )
               return item;
             else {
               return (
@@ -107,9 +110,10 @@ const JobPage = () => {
             // return search.toLowerCase()==='' || selectCategory?.toLowerCase===''? item : item.title.toLowerCase().includes(search) || item.category.toLowerCase.includes(selectCategory)
           })
           .map((item, idx) => (
+           <Link to={`/jobdetails/${item._id}`}>
             <div
               key={idx}
-              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800"
+              className="card lg:w-[700px] shadow-xl mt-10 bg-gray-50 dark:bg-blue-800 hover:bg-orange-200"
             >
               <div className="card-body">
                 <h2 className="card-title"></h2>
@@ -134,6 +138,7 @@ const JobPage = () => {
                 </div>
               </div>
             </div>
+           </Link>
           ))}
       </div>
       
