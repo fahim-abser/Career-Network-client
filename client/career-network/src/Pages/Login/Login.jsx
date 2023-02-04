@@ -25,7 +25,7 @@ const Login = () => {
 
     const handleLogin = data => {
         logIn(data.email, data.password)
-
+            console.log(data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
