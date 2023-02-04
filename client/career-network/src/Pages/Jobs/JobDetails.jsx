@@ -90,9 +90,9 @@ const JobDetails = () => {
                         <p className='mb-2'><span className='font-bold '>Application Deadline :</span> {deadline}</p>
 
                     </div>
-                   { apply==0 ?  <button onClick={handleApply} className='bg-green-600 rounded-md h-10 w-full mt-8 text-center text-white font-bold'>Apply</button>: <button className='bg-green-200 disabled rounded-md h-10 w-full mt-8 text-center text-green-800 font-bold'>Application sent successfully</button>}
+                   { apply===0 ?  <button onClick={handleApply} className='bg-green-600 rounded-md h-10 w-full mt-8 text-center text-white font-bold'>Apply</button>: <button className='bg-green-200 disabled rounded-md h-10 w-full mt-8 text-center text-green-800 font-bold'>Application sent successfully</button>}
                 {
-                    saveJob==0?     <button onClick={handleSaveJob} className='bg-black rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Save</button>:<button onClick={handleUnSaveJob} className='bg-gray-600 rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Unsave</button>
+                    saveJob===0?     <button onClick={handleSaveJob} className='bg-black rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Save</button>:<button onClick={handleUnSaveJob} className='bg-gray-600 rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Unsave</button>
                 }
 
 
