@@ -63,59 +63,59 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: "/deshbord",
+        path: "/dashboard",
         element: <Deshbord></Deshbord>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
-                path: "/deshbord",
+                path: "/dashboard",
                 element: <UnderDeshbord></UnderDeshbord>
             },
             {
-                path: "/deshbord/inbox",
+                path: "/dashboard/inbox",
                 element: <Inbox></Inbox>
             },
             {
-                path: "/deshbord/recruitment",
+                path: "/dashboard/recruitment",
                 element: <Recruitments></Recruitments>,
             },
             {
-                path: "/deshbord/recruitment/createjob",
+                path: "/dashboard/recruitment/createjob",
                 element: <CreateJob></CreateJob>
             },
             {
-                path: "/deshbord/employees",
+                path: "/dashboard/employees",
                 element: <Employess></Employess>
             },
             {
-                path: "/deshbord/reports",
+                path: "/dashboard/reports",
                 element: <Reports></Reports>
             },
             {
-                path: "/deshbord/setting",
+                path: "/dashboard/setting",
                 element: <Setting></Setting>
             }
         ])
     },
     {
-        path: "/employedeshbord",
+        path: "/employedashboard",
         element: <EmployeeDeshbord></EmployeeDeshbord>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
-                path: "/employedeshbord",
+                path: "/employedashboard",
                 element: <EmployeeDetails></EmployeeDetails>
             },
             {
-                path: "/employedeshbord/resumemanager",
+                path: "/employedashboard/resumemanager",
                 element: <ResumeManager></ResumeManager>
             },
             {
-                path: "/employedeshbord/employejobs",
+                path: "/employedashboard/employejobs",
                 element: <EmployeJobs></EmployeJobs>
             },
             {
-                path: "/employedeshbord/myaccount",
+                path: "/employedashboard/myaccount",
                 element: <MyAccount></MyAccount>
             },
         ])
