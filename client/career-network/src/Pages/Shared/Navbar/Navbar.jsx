@@ -8,12 +8,14 @@ import { BsFillSunFill } from 'react-icons/bs';
 
 import { useQuery } from 'react-query';
 import { ThemeContext } from '../../../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMenu } from '../../../app/AllStateSlice/StateManageSlice';
 
 const Navbar = () => {
     const {theme, setTheme} = useContext(ThemeContext)
-
-    const { user, logOut ,menu,setMenu} = useContext(AuthContext)
- 
+    const { user, logOut } = useContext(AuthContext)
+    const {menu} = useSelector(store=>store.state)
+    const dispatch = useDispatch()
     useEffect(() => {
         if (theme === "dark") {
             document.documentElement.classList.add("dark")
@@ -66,7 +68,7 @@ const Navbar = () => {
                 </div>
                 <div className='navbar-end'>
                     <div className="dropdown">
-                        <label onClick={() => setMenu(!menu)} className="btn btn-ghost lg:hidden">
+                        <label onClick={() =>dispatch(setMenu())} className="btn btn-ghost lg:hidden">
                             <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
                         </label>
                     </div>
