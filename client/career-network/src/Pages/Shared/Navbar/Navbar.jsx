@@ -8,12 +8,14 @@ import { BsFillSunFill } from 'react-icons/bs';
 
 import { useQuery } from 'react-query';
 import { ThemeContext } from '../../../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMenu } from '../../../app/AllStateSlice/StateManageSlice';
 
 const Navbar = () => {
     const {theme, setTheme} = useContext(ThemeContext)
-
-    const { user, logOut ,menu,setMenu} = useContext(AuthContext)
- 
+    const { user, logOut } = useContext(AuthContext)
+    const {menu} = useSelector(store=>store.state)
+    const dispatch = useDispatch()
     useEffect(() => {
         if (theme === "dark") {
             document.documentElement.classList.add("dark")
@@ -47,10 +49,10 @@ const Navbar = () => {
         <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
         <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
         {user?.uid ? <>
-            {condition?.role ==="recruiter" && <li className={`listItem ${menu? "text-black": "text-white"} `}><Link to={"/dashboard"}>Deshbord</Link></li>}
-            {condition?.role === "seeker" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link to={"/employedeshbord"}>employeDeshbord</Link></li>}
-            {condition?.role === "admin" && <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>}
-            <li className={`listItem ${menu ? "text-black" : "text-white"} `}><Link onClick={handleLogOut}>Logout</Link></li>
+            {condition?.role ==="recruiter" && <Link to={"/deshbord"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            {condition?.role === "seeker" && <Link to={"/employedeshbord"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
         </> : <>
             <Link to='/login'><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Login</li></Link>
             <Link to='/signup'><li className={`listItem ${menu ? "text-black" : "text-white"}`}>Signup</li></Link>
@@ -66,7 +68,7 @@ const Navbar = () => {
                 </div>
                 <div className='navbar-end'>
                     <div className="dropdown">
-                        <label onClick={() => setMenu(!menu)} className="btn btn-ghost lg:hidden">
+                        <label onClick={() =>dispatch(setMenu())} className="btn btn-ghost lg:hidden">
                             <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
                         </label>
                     </div>
