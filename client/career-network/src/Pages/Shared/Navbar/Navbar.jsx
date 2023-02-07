@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FiMenu } from 'react-icons/fi';
@@ -7,29 +7,13 @@ import { BsMoonFill } from 'react-icons/bs';
 import { BsFillSunFill } from 'react-icons/bs';
 
 import { useQuery } from 'react-query';
-import { ThemeContext } from '../../../App';
 import { useDispatch, useSelector } from 'react-redux';
-import { setMenu } from '../../../app/AllStateSlice/StateManageSlice';
+import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice';
 
 const Navbar = () => {
-    const {theme, setTheme} = useContext(ThemeContext)
     const { user, logOut } = useContext(AuthContext)
-    const {menu} = useSelector(store=>store.state)
+    const {menu,them} = useSelector(store => store.state)
     const dispatch = useDispatch()
-    useEffect(() => {
-        if (theme === "dark") {
-            document.documentElement.classList.add("dark")
-
-        } else {
-            document.documentElement.classList.remove("dark")
-        }
-    }, [theme])
-
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark")
-    }
-
-
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -44,13 +28,13 @@ const Navbar = () => {
         })
     })
     const navItems = <>
-        {theme==='light'? <button onClick={handleTheme} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}><BsMoonFill/></li></button>:<button onClick={handleTheme} className='mt-1 w-full text-md text-yellow-600 '><li className={` listItem ${menu ? 'text-black' : "text-white lg:text-black"}`}><BsFillSunFill/></li></button>}
+        <button onClick={()=>dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill/>:<BsFillSunFill className='text-yellow-600'/>}</li></button>
         <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
         <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
         <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
         {user?.uid ? <>
-            {condition?.role ==="recruiter" && <Link to={"/deshbord"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>Dashboard</li></Link>}
-            {condition?.role === "seeker" && <Link to={"/employedeshbord"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            {condition?.role ==="recruiter" && <Link to={"/dashboard"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>RDashboard</li></Link>}
+            {condition?.role === "seeker" && <Link to={"/employedashboard"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>SDashboard</li></Link>}
             {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
             <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
         </> : <>
