@@ -16,7 +16,7 @@ function EmployeeDeshbord() {
           </div>
           <div className='w-full overflow-y-scroll'>
               <EmployeeDeshbordNavbar></EmployeeDeshbordNavbar>
-                <div onClick={()=>dispatch(onEmployeDrawerClick())} className='mx-8'>
+                <div onClick={()=>dispatch(onEmployeDrawerClick())} className='lg:mx-6'>
                     <Outlet></Outlet>
                 </div>
               <Footer></Footer>
