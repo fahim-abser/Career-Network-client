@@ -35,9 +35,8 @@ const Navbar = () => {
     // notification
     const handleNotification =()=>{
         setNot(0)
-    }
-
-
+    } 
+    
     const handleLogOut = () => {
         logOut()
             .then(() => { })
