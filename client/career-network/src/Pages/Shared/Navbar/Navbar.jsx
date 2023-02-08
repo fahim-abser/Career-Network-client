@@ -11,7 +11,7 @@ import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice
 import { MdNotificationsNone } from 'react-icons/md';
 import { useState } from 'react';
 
-const Navbar = () => {
+const Navbar = () =>{
     const { user, logOut } = useContext(AuthContext)
     const {menu,them} = useSelector(store => store.state)
     const [not,setNot] = useState(5)
@@ -20,8 +20,8 @@ const Navbar = () => {
     // notification
     const handleNotification =()=>{
         setNot(0)
-    }
-
+    } 
+    
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -74,34 +74,31 @@ const Navbar = () => {
             </div>
         </div>
         {/* modal */}
-
     </>
     return (
         <div className={`relative h-16 `}>
-            <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:bg-transparent lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
-                <div className={`navbar max-w-[1440px] mx-auto z-10 fixed top-0 lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
-                    <div className="navbar-start">
-                        <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
-                    </div>
-                    <div className='navbar-end'>
-                        <div className="dropdown">
-                            <label onClick={() => dispatch(setMenu())} className="btn btn-ghost lg:hidden">
-                                <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
-                            </label>
-                        </div>
-                        <div className="hidden lg:flex">
-                            <ul className="text-xl font-medium flex items-center justify-center">
-                                {navItems}
-                            </ul>
-                        </div>
-                    </div>
+            <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
+                <div className="navbar-start">
+                    <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
-                <div className=''>
-                    <div className={`w-full lg:hidden  z-10 top-16 fixed bg-sky-700 dark:bg-black backdrop-blur-3xl duration-1000 ${menu ? 'h-0 duration-1000 hidden' : " pb-10 duration-1000 block bg-sky-700"}`}>
-                        <ul className='text-lg '>
+                <div className='navbar-end'>
+                    <div className="dropdown">
+                        <label onClick={() => dispatch(setMenu())} className="btn btn-ghost lg:hidden">
+                            <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
+                        </label>
+                    </div>
+                    <div className="hidden lg:flex">
+                        <ul className="text-xl font-medium flex items-center justify-center">
                             {navItems}
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div className=''>
+                <div className={`w-full lg:hidden  z-10 top-16 fixed bg-sky-700 dark:bg-black backdrop-blur-3xl duration-1000 ${menu ? 'h-0 duration-1000 hidden' : " pb-10 duration-1000 block bg-sky-700"}`}>
+                    <ul className='text-lg '>
+                        {navItems}
+                    </ul>
                 </div>
             </div>
         </div>
