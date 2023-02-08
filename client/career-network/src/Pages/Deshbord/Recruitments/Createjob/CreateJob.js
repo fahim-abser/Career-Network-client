@@ -27,7 +27,7 @@ const CreateJob = () => {
     const deadline = form.dateline.value
     const imagedata = e.target.image.files[0]
     formData.append("image", imagedata)
-
+    console.log(formData)
    //  imgbb api 
     fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
       method:"POST",

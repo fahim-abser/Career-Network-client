@@ -7,8 +7,8 @@ import { onEmployeDrawerClick } from '../../app/EmployeSlice/EmployeSlice'
 function EmployeeDrawer() {
     const dispatch = useDispatch()
     const navbar = [
-        {name:"slider-1",send:"/employedashboard/resumemanager"},
-        {name:"slider-2",send:""}
+        {name:"my dashboard",send:"/employedashboard"},
+        {name:"resume",send:"/employedashboard/resumemanager"}
     ]
   return (
     <div className=''>
@@ -20,7 +20,7 @@ function EmployeeDrawer() {
                 </div>
                 <ul className="menu p-4 text-white">
                     {navbar.map((item, i)=>(
-                        <li key={i} onClick={()=>dispatch(onEmployeDrawerClick())} className="border-b-2 hover:bg-sky-800 hover:rounded-lg duration-150">
+                        <li key={i} onClick={()=>dispatch(onEmployeDrawerClick())} className="border-b-2 hover:bg-sky-800 hover:rounded-lg duration-150 capitalize">
                             <Link to={item.send}>{item.name}</Link>
                         </li>
                     ))}

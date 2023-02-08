@@ -26,6 +26,7 @@ import AdminTable from "../../Pages/Admin/UserTabel/AdminTable";
 import DisplayError from "../../Pages/DisplayError/DisplayError";
 import JobDetails from "../../Pages/Jobs/JobDetails";
 import ContactWithEmail from "../../Pages/ContactWithEmail/ContactWithEmail";
+import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
 
 
 const router = createBrowserRouter([
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
             {
                 path: "/employedashboard/resumemanager",
                 element: <ResumeManager></ResumeManager>
+            },
+            {
+                path:"/employedashboard/addresume",
+                element:<AddResume></AddResume>
             },
             {
                 path: "/employedashboard/employejobs",

@@ -32,12 +32,12 @@ function Deshbordnavbar() {
             </ul>
         </div>
         <div onMouseEnter={()=>setRecuriter(true)} onMouseLeave={()=>setRecuriter(false)} className='mx-1 ' >
-            <li className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/deshbord/recruitment"}>Recruitment</Link></li>
+            <li className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link to={"/dashboard/recruitment"}>Recruitment</Link></li>
             <ul className={`font-besicFont ${recuriter?"lg:absolute block animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3":"hidden "}`}>
                 <Link><li className='py-1'>recruit</li></Link>
                 <Link><li className='py-1'>conversation</li></Link>
                 <Link><li className='py-1'>task</li></Link>
-                <Link to={'/deshbord/recruitment/createjob'}><li className='py-1'>add jobs</li></Link>
+                <Link to={"/dashboard/recruitment/createjob"}><li className='py-1'>add jobs</li></Link>
             </ul>
         </div>
         <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${menu? "text-black": "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}><Link>Employee</Link></li>
