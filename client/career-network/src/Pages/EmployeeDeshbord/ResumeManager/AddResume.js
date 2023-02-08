@@ -1,37 +1,46 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react'
+import { useContext } from 'react';
 import { FileUploader } from 'react-drag-drop-files'
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 function AddResume() {
-    const [isLoding,setLoding]=useState(false)
-    const [success,setSuccess]=useState([])
-    const [error,setError]=useState(null)
-    // const formdata = new FormData()
+    const navigate = useNavigate()
+    const {user}=useContext(AuthContext)
     const fileTypes = ["JPG", "PNG", "GIF","PDF"];
-    const [file, setFile] = useState(null);
-    const handleData = (file) => {
-        setFile(file);
-    };
-    // formdata.append(file?.name)
-   useEffect(()=>{
-        setLoding(true)
-        const inUserDataSet =async()=>{
-            try {
-                const res = await fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
-                    method:"POST",
-                    body:file
-                })
-                    const data = await res.json()
-                    setSuccess(data)
+    const formData = new FormData()
+    const handleData = async(file) => {
+        if(file?.name){
+            formData.append("image", file)
+            const res = await fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
+                method:"POST",
+                body:formData
+            })
+            const data = await res.json()
+                if(data.success){
+                    const userData = {
+                        email:user?.email,
+                        resume:data?.data?.url
+                    }
+                    console.log(userData)
+                    fetch("http://localhost:5000/addresume",{
+                        method:"PUT",
+                        headers:{
+                            "content-type":"application/json"
+                        },
+                        body:JSON.stringify(userData)
+                    })
+                    .then(res => res.json())
+                    .then(item=>{
+                        if(item?.acknowledged){
+                            toast.success("add successfully")
+                            navigate("/employedashboard/resumemanager")
+                        }
+                    })
                 }
-            catch(error){
-                setError(error.message)
             }
-            setLoding(false)
-        }
-        inUserDataSet()
-   },[file])
+       }
   return (
     <div>
         <div className='min-h-screen overflow-hidden -z-50 bg-sky-800 text-white'>
