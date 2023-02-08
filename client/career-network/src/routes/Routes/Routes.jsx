@@ -25,6 +25,7 @@ import JobSeekerTabel from "../../Pages/Admin/UserTabel/JobSeekerTabel";
 import AdminTable from "../../Pages/Admin/UserTabel/AdminTable";
 import DisplayError from "../../Pages/DisplayError/DisplayError";
 import JobDetails from "../../Pages/Jobs/JobDetails";
+import ContactWithEmail from "../../Pages/ContactWithEmail/ContactWithEmail";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/contact/email',
+                element: <ContactWithEmail></ContactWithEmail>
             },
             {
                 path: '/category/:name',
