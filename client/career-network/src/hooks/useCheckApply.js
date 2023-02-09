@@ -9,11 +9,11 @@ const useCheckApply = (email,jobID,loading) => {
       if (email) {
         // console.log(email)
         const url =`http://localhost:5000/appliedjob?email=${email}&_id=${jobID}`
-        console.log(url)
+        // console.log(url)
             fetch(url)
             .then(res=>res.json())
             .then(data=> {
-                console.log(data)
+                // console.log(data)
                 setIsApplied(data)
                 
             }) 

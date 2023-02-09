@@ -11,12 +11,13 @@ import { useEffect } from 'react';
 import GetLoading from '../../components/Loading/GetLoading';
 import useCheckApply from '../../hooks/useCheckApply';
 import useCheckSaved from '../../hooks/useCheckSaved';
+import useGetNotifications from '../../hooks/useGetNotifications';
 
 
 const JobDetails = () => {
   const data = useLoaderData()
   const user = useContext(AuthContext)
-  const { _id, job_title, duty_hours, location, salary, companyName, experience, deadline, description, jobSummary } = data
+  const { _id, job_title, duty_hours, location, salary, companyName, experience, deadline, description, jobSummary,recruiterEmail } = data
   const descrip = description.split('.')
 
   const [loading, setLoading] = useState(false)
@@ -24,8 +25,34 @@ const JobDetails = () => {
   const applied = useCheckApply(user?.user?.email, _id, loading)
   const saved = useCheckSaved(user?.user?.email, _id,loading)
 
-  console.log(saved === true);
-
+  //  console.log(new Date());
+  // console.log(notInfo)
+  const postNotification = ()=>{
+    const notification ={
+        applicant_name:'John',
+        applicant_email:user?.user?.email,
+        job_id:_id,
+        job_title,
+        createdAt:new Date(),
+        companyEmail:recruiterEmail,
+        status:'unread'
+    }
+    fetch('http://localhost:5000/notifications', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(notification),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+       
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
   const handleApply = () => {
     setLoading(true)
@@ -48,6 +75,7 @@ const JobDetails = () => {
       .then((data) => {
         console.log('Success:', data);
         setLoading(false);
+        postNotification()
         toast.success('Apply Success')
       })
       .catch((error) => {

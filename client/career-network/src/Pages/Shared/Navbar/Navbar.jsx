@@ -10,16 +10,40 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice';
 import { MdNotificationsNone } from 'react-icons/md';
 import { useState } from 'react';
+import useGetNotifications from '../../../hooks/useGetNotifications';
+import moment from 'moment/moment';
+import useGetUnreadNotNum from '../../../hooks/useGetUnreadNotNum';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const { menu, them } = useSelector(store => store.state)
-    const [not, setNot] = useState(5)
+    
     const dispatch = useDispatch()
-
+    const [loading, setLoading] = useState(false)
+    const notInfo = useGetNotifications(user?.email)
+    const notCounts = useGetUnreadNotNum(user?.email,'unread',loading)
     // notification
+    console.log(notInfo.length)
+     console.log(user?.email)
     const handleNotification = () => {
-        setNot(0)
+        setLoading(true)
+        const url = `http://localhost:5000/notifications?email=${user?.email}`
+        console.log(url)
+        fetch(url, {
+            method: 'PUT', // or 'PUT'
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status: "read" })
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('Success:', data);
+              setLoading(false);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
     }
 
     const handleLogOut = () => {
@@ -55,21 +79,27 @@ const Navbar = () => {
 
         }
 
-        {/* modal */}
-        <div className=''>
-            {/* The button to open modal */}
-            <label onClick={() => handleNotification()} htmlFor="my-modal-3" className="relative inline-flex items-center cursor-pointer p-3 text-xl font-medium text-center    "><MdNotificationsNone />
-                {not === 0 ? '' : <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-0 dark:border-gray-900">{not}</div>}
+        {/* notification */}
+        <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle">
+                <div className="indicator">
+                <button onClick={()=>handleNotification()} className='text-2xl'> <MdNotificationsNone/></button>
+                    
+                  {
+                    notCounts.length > 0 ?   <span className="badge bg-red-600  top-0.5 right-0.5 badge-sm indicator-item">{notCounts?.length}</span>:''
+                  }
+                </div>
             </label>
+            <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-96 bg-base-100  shadow">
+                <div className="card-body">
+                  <p className='text-lg font-bold mt-0'>Notifications</p>
+                  <div className='divider -mt-1 mb-0'></div>
+                  {
+                    notInfo?.map(notification=><div className='bg-base-100 shadow-xl rounded' key={notification._id}>
+                        <p className='p-3'>{notification.applicant_name} has applied for your job post {notification.job_title} <span className=''>--{moment(notification.createdAt).fromNow()}</span></p>
 
-            {/* Put this part before </body> tag */}
-            <input type="checkbox" id="my-modal-3" className="modal-toggle " />
-            <div className="modal lg:left-3/4 lg:bottom-1/3 bg-transparent ">
-                <div className="modal-box   ">
-                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold divide-y ">Notifications</h3>
-                    <p className='divider mt-0'></p>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    </div>)
+                  }
                 </div>
             </div>
         </div>
