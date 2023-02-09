@@ -1,104 +1,179 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../Context/AuthProvider';
-import { FiMenu } from 'react-icons/fi';
-import { RxCross1 } from 'react-icons/rx';
-import { BsMoonFill } from 'react-icons/bs';
-import { BsFillSunFill } from 'react-icons/bs';
-import { useQuery } from 'react-query';
-import { useDispatch, useSelector } from 'react-redux';
-import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice';
-import { MdNotificationsNone } from 'react-icons/md';
-import { useState } from 'react';
-
-const Navbar = () =>{
+import { AuthContext } from '../../../contexts/AuthProvider';
+import logo from '../../../assets/logo.png'
+import logo2 from '../../../assets/logo3.png'
+const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext)
-    const {menu,them} = useSelector(store => store.state)
-    const [not,setNot] = useState(5)
-    const dispatch = useDispatch()
-    const [tab,setTab] = useState(0)
-    // notification
-    const handleNotification =()=>{
-        setNot(0)
-        setTab(null)
-    } 
-    
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(err => console.log(err));
     }
-    const { data: condition = {} } = useQuery({
-        queryKey: [user],
-        queryFn: (async () => {
-            const res = await fetch(`http://localhost:5000/checkit?email=${user?.email}`)
-            const data = await res.json()
-            return data
-        })
 
-    })
-
-    const navItems = <>
-                <button onClick={()=>dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill/>:<BsFillSunFill className='text-yellow-600'/>}</li></button>
-                <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
-                <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
-                <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
-            {user?.uid ? <>
-                {condition?.role ==="recruiter" && <Link to={"/dashboard"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>RDashboard</li></Link>}
-                {condition?.role === "seeker" && <Link to={"/employedashboard"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>SDashboard</li></Link>}
-                {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
-                <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
-            </> : <>
-                <Link to='/login'><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Login</li></Link>
-                <Link to='/signup'><li className={`listItem ${menu ? "text-black" : "text-white"}`}>Signup</li></Link>
-            </>
-
-
-        }
-      
-        {/* modal */}
-        
-
-    <div className="dropdown dropdown-end">
-      <label onClick={()=>handleNotification()} tabIndex={0} className="btn btn-ghost btn-circle">
-        <div className="indicator">
-        <p className='text-2xl'><MdNotificationsNone/></p>
-         {not>=1 &&  <span className="badge text-white bg-red-500 badge-sm  indicator-item">{not}</span>}
-        </div>
-      </label>
-      <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-96 bg-base-100 shadow">
-        <div className="card-body">
-          <span className="font-bold text-lg">Notifications</span>
-          <span className='divider mt-0'></span>
-        </div>
-      </div>
-    </div>
-        {/* modal */}
-    </>
     return (
-        <div className={`relative h-16 `}>
-            <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
-                <div className="navbar-start">
-                    <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
-                </div>
-                <div className='navbar-end'>
-                    <div className="dropdown">
-                        <label onClick={() => dispatch(setMenu())} className="btn btn-ghost lg:hidden">
-                            <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
-                        </label>
-                    </div>
-                    <div className="hidden lg:flex">
-                        <ul className="text-xl font-medium flex items-center justify-center">
-                            {navItems}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className=''>
-                <div className={`w-full lg:hidden  z-10 top-16 fixed bg-sky-700 dark:bg-black backdrop-blur-3xl duration-1000 ${menu ? 'h-0 duration-1000 hidden' : " pb-10 duration-1000 block bg-sky-700"}`}>
-                    <ul className='text-lg '>
-                        {navItems}
-                    </ul>
+
+        <div className="px-4  py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div className="relative flex items-center justify-between">
+                <Link
+                    to="/"
+                    aria-label="Company"
+                    title="Company"
+                    className='text-red-500'
+                >
+                    <img src={logo2} style={{ "height": "100px", "width": "200px" }} alt="" />
+
+                </Link>
+                <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <li>
+                        <Link
+                            to="/"
+                            aria-label="Our product"
+                            title="Our product"
+                            className="font-bold  tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Home
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link
+                            to="/dashboard"
+                            aria-label="Product pricing"
+                            title="Product pricing"
+                            className="font-bold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Dashboard
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/blog"
+                            aria-label="About us"
+                            title="Blog"
+                            className="font-bold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Blog
+                        </Link>
+                    </li>
+                </ul>
+                <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <li>
+                        {
+                            user?.uid ? <>
+                                <button onClick={handleLogOut} className='btn btn-error btn-sm'>Sign Out</button>
+                            </> :
+                                <>
+                                    <Link to="/login"><button className='btn btn-primary btn-sm'>Sign In</button></Link>
+
+                                </>
+                        }
+                    </li>
+                </ul>
+                <div className="lg:hidden">
+                    <button
+                        aria-label="Open Menu"
+                        title="Open Menu"
+                        className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+                        onClick={() => setIsMenuOpen(true)}
+                    >
+                        <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                            <path
+                                fill="currentColor"
+                                d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                            />
+                        </svg>
+                    </button>
+                    {isMenuOpen && (
+                        <div className="absolute top-0 left-0 w-full">
+                            <div className="p-5 bg-white border rounded shadow-sm">
+                                <div className="flex items-center justify-between mb-4">
+                                    <div>
+
+                                        <Link
+                                            to="/"
+                                            aria-label="Company"
+                                            title="Company"
+                                            className=""
+                                        >
+                                            <img src={logo2} style={{ "height": "100px", "width": "200px" }} alt="" />
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <button
+                                            aria-label="Close Menu"
+                                            title="Close Menu"
+                                            className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <nav>
+                                    <ul className="space-y-4">
+                                        <li>
+                                            <Link
+                                                to="/"
+                                                aria-label="Our product"
+                                                title="Our product"
+                                                className="font-bold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Home
+                                            </Link>
+                                        </li>
+
+                                        <li>
+                                            <Link
+                                                to="/dashboard"
+                                                aria-label="Product pricing"
+                                                title="Product pricing"
+                                                className="font-bold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Dashboard
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/blog"
+                                                aria-label="About us"
+                                                title="Blog"
+                                                className="font-bold tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Blog
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            {
+                                                user?.uid ? <>
+                                                    <button onClick={handleLogOut} className='btn btn-error btn-sm'>Sign Out</button>
+                                                </> :
+                                                    <>
+                                                        <Link to="/login"><button className='btn btn-primary btn-sm '>Sign In</button></Link>
+
+                                                    </>
+                                            }
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

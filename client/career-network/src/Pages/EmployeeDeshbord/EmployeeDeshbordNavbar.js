@@ -8,7 +8,6 @@ import { AuthContext } from '../../Context/AuthProvider'
 
 function EmployeeDeshbordNavbar() {
   // state context
-    const [menu, setMenu] = useState(true)
     const {state} = useSelector(store=>store.counter)
     const dispatch = useDispatch()
     const {user, logOut} = useContext(AuthContext)
@@ -21,29 +20,31 @@ function EmployeeDeshbordNavbar() {
     // navbar list item 
     const navItems =<>
         <li className={`listItem`}><Link to="/employedeshbord" className=''>deshbord</Link></li>
-        <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={"/employedashboard/resumemanager"}>Resume</Link></li>
-        <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to={'/employedashboard/employejobs'}>jobs</Link></li>
-        <li className={`listItem ${menu? "text-black": "text-white"}`}><Link to={"/employedashboard/myaccount"}>account</Link></li> 
+        <li className={`listItem`}><Link to={"/employedashboard/resumemanager"}>Resume</Link></li>
+        <li className={`listItem`}><Link to={'/employedashboard/employejobs'}>jobs</Link></li>
+        <li className={`listItem `}><Link to={"/employedashboard/myaccount"}>account</Link></li> 
         {user?.uid ? <>
-            <li className={`listItem ${state ? "text-black" : "text-white"}`}><Link onClick={handleLogOut}>Logout</Link></li>
+            <li className={`listItem`}><Link onClick={handleLogOut}>Logout</Link></li>
         </> : <>
-                <li className={`listItem ${menu ? "text-black" : "text-white"}`}><Link to='/login'>Login</Link></li>
+                <li className={`listItem`}><Link to='/login'>Login</Link></li>
             </>
         }
-        <li><img className='h-10 w-10 bg-black rounded-full' src="" alt="" /></li>
+        <li className="tooltip tooltip-bottom" data-tip="name">
+            <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
+        </li>
     </>
 
     // navbar start hare
     return (
       <div className='h-16 sticky top-0'>
-            <div className={`navbar max-w-[1440px] mx-auto s backdrop-blur-3xl z-20 top-0 lg:bg-transparent lg:text-black ${menu?'bg-transparent text-black duration-200 ease-in':'bg-sky-800 text-slate-200 duration-200 ease-out'}  px-4`}>
+            <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl z-20 top-0 bg-transparent text-black px-4`}>
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
                 <div className='navbar-end'>
                     <div className="">
                         <label onClick={()=>dispatch(onclickdrawerbutton())} className="btn btn-ghost lg:hidden">
-                            <i className=''>{menu ? <FiMenu className='text-3xl'></FiMenu> : <RxCross1 className='text-3xl '></RxCross1>}</i>
+                            <i className=''>{state ? <RxCross1 className='text-3xl '></RxCross1>:<FiMenu className='text-3xl'></FiMenu>}</i>
                         </label>
                     </div>
                     <div className="hidden lg:flex">

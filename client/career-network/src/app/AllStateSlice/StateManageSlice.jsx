@@ -14,7 +14,7 @@ const StateMenageSlice = createSlice({
         setOnlyMenuTrue:(state)=>{
             state.menu = true
         },
-        onSetTheme:(state,action)=>{
+        onSetTheme:(state)=>{
             state.them = !state.them;
             if(state.them === true ){
                 document.documentElement.classList.add("dark")
