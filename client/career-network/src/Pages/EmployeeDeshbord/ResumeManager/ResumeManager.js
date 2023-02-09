@@ -1,23 +1,31 @@
+import { Viewer, Worker } from '@react-pdf-viewer/core'
 import React from 'react'
 import { useContext } from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
-import { resumeFetch } from '../../../app/EmployeSlice/ResumeSlice'
 import { AuthContext } from '../../../Context/AuthProvider'
 
+
 function ResumeManager() {
+
   const {user}= useContext(AuthContext)
-  const dispatch = useDispatch()
-  const data = useSelector(state=>state)
-  console.log(data)
-  useEffect(()=>{
-    dispatch(resumeFetch(user?.email))
-  },[user?.email])
+  const {data:resumeData={}}=useQuery({
+    queryKey:{},
+    queryFn:(async()=>{
+      const res = await fetch(`http://localhost:5000/resumefind?email=${user?.email}`)
+      const data = await res.json()
+      return data
+    })
+  })
+  console.log(resumeData)
   return (
     <div>
-        <div className='h-[100vh] border-2 border-red-800 bg-sky-600'>
-            <div>hello world</div>
+        <div className='w-40'>
+            <div className='mx-auto'>
+              {/* <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+                <Viewer fileUrl={resumeData?.resume}/>
+            </Worker> */}
+            </div>
             <Link to={"/employedashboard/addresume"}><button  className='btn btn-info'>add resume</button></Link>
         </div>
     </div>
