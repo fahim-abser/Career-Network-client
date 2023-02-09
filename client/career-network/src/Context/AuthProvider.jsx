@@ -9,12 +9,15 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [adminNavmenu, setAdminNavMenu] = useState(true)
     const [addValueInModal,setAddValueInModal]=useState(null)
+    const [isloding ,setisLoding]=useState(true)
 
     const registerUser = (email, password) => {
+        setisLoding(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const logIn = (email, password) => {
+        setisLoding(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -36,6 +39,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            setisLoding(false)
         });
 
         return () => unsubscribe();
@@ -53,7 +57,9 @@ const AuthProvider = ({ children }) => {
         setAdminNavMenu,
         adminNavmenu,
         setAddValueInModal,
-        addValueInModal
+        addValueInModal,
+        isloding ,
+        setisLoding
     }
     return (
         <AuthContext.Provider value={authInfo}>

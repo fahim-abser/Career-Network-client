@@ -57,6 +57,7 @@ function AddResume() {
                     </div>
                 </FileUploader>
             </div>
+            <p>{error && error}</p>
         </div>
     </div>
   )
