@@ -59,7 +59,7 @@ const Login = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
-                    <input className='btn  w-full mt-4' value="Sign Up" type="submit" />
+                    <input className='btn  w-full mt-4' value="Login" type="submit" />
                 </form>
                 <div className=''>
                     <button onClick={handlegoogle} className='btn btn-outline w-full my-7'><FaGoogle  className='text-2xl mx-4 text-blue-500'></FaGoogle> CONTINUE WITH GOOGLE</button>
