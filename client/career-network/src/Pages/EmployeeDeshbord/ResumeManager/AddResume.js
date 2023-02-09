@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react';
 import { FileUploader } from 'react-drag-drop-files'
 import { toast } from 'react-hot-toast';
@@ -8,22 +8,19 @@ import { AuthContext } from '../../../Context/AuthProvider';
 function AddResume() {
     const navigate = useNavigate()
     const {user}=useContext(AuthContext)
-    const fileTypes = ["JPG", "PNG", "GIF","PDF"];
-    const formData = new FormData()
+    const [error ,setError]=useState(null)
+    const fileTypes = ["PDF"];
+    const fileType = ["application/pdf"]
     const handleData = async(file) => {
-        if(file?.name){
-            formData.append("image", file)
-            const res = await fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
-                method:"POST",
-                body:formData
-            })
-            const data = await res.json()
-                if(data.success){
-                    const userData = {
-                        email:user?.email,
-                        resume:data?.data?.url
+        if(file && fileType.includes(file.type)){
+            let reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend =(e)=>{
+                console.log(e)
+                const userData = {
+                    email:user?.email,
+                    resume:e.target.result
                     }
-                    console.log(userData)
                     fetch("http://localhost:5000/addresume",{
                         method:"PUT",
                         headers:{
@@ -38,9 +35,12 @@ function AddResume() {
                             navigate("/employedashboard/resumemanager")
                         }
                     })
-                }
             }
-       }
+        }
+        else{
+            setError("please add PDF file")
+        }
+    }
   return (
     <div>
         <div className='min-h-screen overflow-hidden -z-50 bg-sky-800 text-white'>
@@ -57,7 +57,6 @@ function AddResume() {
                     </div>
                 </FileUploader>
             </div>
-            {/* <img className='h-20 w-10' src={file.name} alt="" /> */}
         </div>
     </div>
   )
