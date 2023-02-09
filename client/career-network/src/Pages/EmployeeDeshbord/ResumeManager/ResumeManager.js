@@ -1,5 +1,5 @@
 import { Viewer, Worker } from '@react-pdf-viewer/core'
-import React, { useState } from 'react'
+import React from 'react'
 import { useContext } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
@@ -10,7 +10,6 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 
 function ResumeManager() {
   const {user,isloding}= useContext(AuthContext)
-  const [download,setDownload]=useState("")
   const {data:resumeData={},isLoading,}=useQuery({
     queryKey:{},
     queryFn:(async()=>{
@@ -21,13 +20,6 @@ function ResumeManager() {
   })
   {isLoading && <p>loding....</p>}
   {isloding && <p>loding ----</p>}
-
-  // const blob = new Blob([resumeData?.resume],{type:"application/pdf"})
-  // const url = window.URL.createObjectURL(blob)
-  // let a = document.createElement('a');
-  // a.href = blob;
-  // a.download = 'doc.pdf';
-  // a.click();
 
   return (
     <div>
