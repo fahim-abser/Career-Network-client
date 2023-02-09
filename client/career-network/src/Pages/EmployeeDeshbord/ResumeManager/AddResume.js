@@ -16,7 +16,6 @@ function AddResume() {
             let reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onloadend =(e)=>{
-                console.log(e)
                 const userData = {
                     email:user?.email,
                     resume:e.target.result
@@ -49,15 +48,16 @@ function AddResume() {
                     <h2 className='text-6xl capitalize font-semibold'>add you resume or cv</h2>
                 </div>
                 <FileUploader className="-z-50" handleChange={handleData} name="file" types={fileTypes} >
-                    <div className={`h-72 -z-50 grid place-items-center outline-dashed my-10 lg:mx-10 mx-6 bg-slate-300`}> 
-                        <h2 className='text-5xl capitalize font-bold '>drag & drop</h2>
+                    <div className={`lg:h-72 h-60 -z-50 flex justify-center items-center flex-col outline-dashed my-10 lg:mx-10 mx-6 bg-slate-300`}> 
+                        <h2 className='text-5xl capitalize font-bold mb-2'>drag & drop</h2>  
+                        <p>please only pdf file upload</p>
                     </div>
                     <div className='lg:mx-10 mx-6 mb-10'>
                         <button className='btn btn-secondary w-40'>add resume</button>
                     </div>
                 </FileUploader>
             </div>
-            <p>{error && error}</p>
+            <p>{error}</p>
         </div>
     </div>
   )
