@@ -8,7 +8,7 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [adminNavmenu, setAdminNavMenu] = useState(true)
-    const [addValueInModal,setAddValueInModal]=useState(null)
+    const [addValueInModal, setAddValueInModal] = useState(null)
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)

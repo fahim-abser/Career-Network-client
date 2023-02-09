@@ -1,31 +1,95 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { MdOutlineDescription } from 'react-icons/md';
 import { GoLocation } from 'react-icons/go';
-import { BsCalendarDate } from 'react-icons/bs';
+import { BsCalendarDate, BsCheckLg } from 'react-icons/bs';
 import { FiClock } from 'react-icons/fi';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import { useEffect } from 'react';
+import GetLoading from '../../components/Loading/GetLoading';
+import useCheckApply from '../../hooks/useCheckApply';
+import useCheckSaved from '../../hooks/useCheckSaved';
+
 
 const JobDetails = () => {
     const data = useLoaderData()
+    const user = useContext(AuthContext)
     const { _id, job_title, duty_hours, location, salary, skills, experience, deadline,description,jobSummary } = data
-    const [apply,setApply] = useState(0)
     const [saveJob,setSaveJob] = useState(0)
     const descrip = description.split('.')
-    console.log(descrip)
+  
+    const[loading,setLoading] = useState(false)
+
+    const applied = useCheckApply(user?.user?.email,_id,loading)
+    const saved = useCheckSaved(user?.user?.email,_id)
+   
+    console.log(saved===true);
+
+
     const handleApply = () => {
-        setApply(1)
-        toast.success('Apply Success')
+       setLoading(true)
+        const job = {
+            applicant_email:user?.user?.email,
+            jobId:_id,
+            job_title,
+            company: "Soft Tech",
+            status: "Appiled",
+        }
+
+        fetch('http://localhost:5000/appliedjob', {
+            method: 'POST', // or 'PUT'
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(job),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('Success:', data);
+              setLoading(false);
+              toast.success('Apply Success')
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+       
     }
+
     const handleSaveJob = () => {
-        setSaveJob(1)
-        toast.success('Saved')
+        setLoading(true)
+        const job = {
+            applicant_email:user?.user?.email,
+            jobId:_id,
+            job_title,
+            company: "Soft Tech",
+            
+        }
+
+        fetch('http://localhost:5000/savedJob', {
+            method: 'POST', // or 'PUT'
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(job),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('Success:', data);
+              setLoading(false);
+              toast.success('saved ')
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+       
     }
     const handleUnSaveJob = () => {
         setSaveJob(0)
         toast.info('Saved')
     }
+    
     return (
         <div className='m-10'>
             <section className=' lg:grid grid-cols-4 gap-6'>
@@ -90,10 +154,17 @@ const JobDetails = () => {
                         <p className='mb-2'><span className='font-bold '>Application Deadline :</span> {deadline}</p>
 
                     </div>
-                   { apply===0 ?  <button onClick={handleApply} className='bg-green-600 rounded-md h-10 w-full mt-8 text-center text-white font-bold'>Apply</button>: <button className='bg-green-200 disabled rounded-md h-10 w-full mt-8 text-center text-green-800 font-bold'>Application sent successfully</button>}
-                {
-                    saveJob===0?     <button onClick={handleSaveJob} className='bg-black dark:bg-stone-600 rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Save</button>:<button onClick={handleUnSaveJob} className='bg-gray-600 rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Unsave</button>
-                }
+{
+    user?.user?.uid ? <div>
+    
+    { applied ?  <>{loading===true ?<GetLoading></GetLoading> : <button className='bg-green-200 disabled rounded-md h-10 w-full mt-8 text-center text-green-800 font-bold'>{loading?<button className="btn btn-square loading"></button>:'Application sent successfully'}</button>}</> :<>
+                       {loading ===true? <GetLoading></GetLoading>:<button onClick={handleApply} className='bg-green-600 rounded-md h-10 w-full mt-8 text-center text-white font-bold'>Apply</button>}
+                       </>}
+                    {
+                        saveJob===true ?     <button onClick={handleSaveJob} className='bg-black dark:bg-stone-600 rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Save</button>:<button onClick={handleUnSaveJob} className='bg-gray-600 rounded-md h-10 w-full mt-2 text-center text-white font-bold'>Unsave</button>
+                    }
+    </div> : <p className='text-center mt-10 font-bold text-lg text-blue-600'>Please Login to Apply</p>
+}
 
 
                 </div>

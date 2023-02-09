@@ -14,7 +14,7 @@ const CreateJob = () => {
      const formData = new FormData()
     const form = e.target;
     const jobTitle = form.title.value;
-    const city = form.city.value;
+    const companyName = form.companyName.value;
     const location = form.location.value;
     const salary = form.salary.value;
     const skills = form.skills.value;
@@ -40,7 +40,7 @@ const CreateJob = () => {
          const postInfo = {
             image:data?.data?.url,
             job_title: jobTitle,
-            city,
+            companyName,
             location,
             salary,
             skills,
@@ -105,12 +105,12 @@ const CreateJob = () => {
               {/* City */}
               <div className="w-full">
                   <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                     City
+                    Company Name
                   </label>
                   <input
                      type="text"
-                     name="city"
-                     placeholder="City"
+                     name="companyName"
+                     placeholder="Company Name"
                      className="InputData"
                      required
                   />
