@@ -17,12 +17,15 @@ import useGetUnreadNotNum from '../../../hooks/useGetUnreadNotNum';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const { menu, them } = useSelector(store => store.state)
+
     
+
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const notInfo = useGetNotifications(user?.email)
     const notCounts = useGetUnreadNotNum(user?.email,'unread',loading)
     // notification
+
     console.log(notInfo.length)
      console.log(user?.email)
     const handleNotification = () => {
@@ -44,6 +47,7 @@ const Navbar = () => {
             .catch((error) => {
               console.error('Error:', error);
             });
+
     }
 
     const handleLogOut = () => {
@@ -79,6 +83,7 @@ const Navbar = () => {
 
         }
 
+
         {/* notification */}
         <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -89,6 +94,7 @@ const Navbar = () => {
                     notCounts.length > 0 ?   <span className="badge bg-red-600  top-0.5 right-0.5 badge-sm indicator-item">{notCounts?.length}</span>:''
                   }
                 </div>
+
             </label>
             <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-96 bg-base-100  shadow">
                 <div className="card-body">
