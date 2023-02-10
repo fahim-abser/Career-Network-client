@@ -27,9 +27,9 @@ import DisplayError from "../../Pages/DisplayError/DisplayError";
 import JobDetails from "../../Pages/Jobs/JobDetails";
 import ContactWithEmail from "../../Pages/ContactWithEmail/ContactWithEmail";
 import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
-import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import Payment from "../../Pages/Home/Payment/Payment";
 import AdminRoute from "../../PrivateRoute/AdminRoute";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([

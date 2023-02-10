@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 import CheckOut from './CheckOut';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
-
+console.log(stripePromise)
 const Payment = () => {
     const jobinfo = useLoaderData();
     const navigation = useNavigation();
