@@ -101,9 +101,12 @@ const Navbar = () => {
                 <div className="indicator">
                 <button onClick={()=>handleNotification()} className='text-2xl'> <MdNotificationsNone/></button>
                     
-                  {/* {
+
+                   {
                     notCounts.length > 0 ?   <span className="badge bg-red-600  top-0.5 right-0.5 badge-sm indicator-item">{notCounts?.length}</span>:''
-                  } */}
+                  } 
+
+
                 </div>
 
             </label>
@@ -111,12 +114,16 @@ const Navbar = () => {
                 <div className="card-body">
                   <p className='text-lg font-bold mt-0'>Notifications</p>
                   <div className='divider -mt-1 mb-0'></div>
-                  {/* {
+
+                 {
+
                     notInfo?.map(notification=><div className='bg-base-100 shadow-xl rounded' key={notification._id}>
                         <p className='p-3'>{notification.applicant_name} has applied for your job post {notification.job_title} <span className=''>--{moment(notification.createdAt).fromNow()}</span></p>
 
                     </div>)
-                  } */}
+
+                  } 
+
                 </div>
             </div>
         </div>
