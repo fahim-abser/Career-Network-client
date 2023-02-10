@@ -37,7 +37,7 @@ function EmployeeDeshbordNavbar() {
     // navbar start hare
     return (
       <div className='h-16 sticky top-0 z-20'>
-            <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl top-0 bg-transparent text-black px-4`}>
+            <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl top-0 bg-transparent text-black px-4 dark:text-white`}>
                 <div className="navbar-start">
                     <Link to={'/'} className="btn btn-ghost normal-case font-bold text-2xl font-besicFont ">Career Network</Link>
                 </div>
