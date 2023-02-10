@@ -10,9 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice';
 import { MdArrowDropDown, MdNotificationsNone } from 'react-icons/md';
 import { useState } from 'react';
-// import useGetNotifications from '../../../hooks/useGetNotifications';
+import useGetNotifications from '../../../hooks/useGetNotifications';
 import moment from 'moment/moment';
-// import useGetUnreadNotNum from '../../../hooks/useGetUnreadNotNum';
+import useGetUnreadNotNum from '../../../hooks/useGetUnreadNotNum';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -22,8 +22,8 @@ const Navbar = () => {
 
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
-    // const notInfo = useGetNotifications(user?.email)
-    // const notCounts = useGetUnreadNotNum(user?.email,'unread',loading)
+    const notInfo = useGetNotifications(user?.email)
+    const notCounts = useGetUnreadNotNum(user?.email,'unread',loading)
     // notification
 
 

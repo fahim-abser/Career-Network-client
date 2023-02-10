@@ -28,16 +28,14 @@ import JobDetails from "../../Pages/Jobs/JobDetails";
 import ContactWithEmail from "../../Pages/ContactWithEmail/ContactWithEmail";
 import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
 
-import Blogs from "../../Pages/Blogs/Blogs";
-import Resume from "../../Pages/Blogs/Resume";
-import CoverLetter from "../../Pages/Blogs/CoverLetter";
-import Articles from "../../Pages/Blogs/Articles";
-import Payment from "../../Pages/Home/Payment/Payment";
 import AdminRoute from "../../PrivateRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
-import Resume from "../../Pages/BLogs/Resume";
 import CoverLetter from "../../Pages/BLogs/CoverLetter";
 import Articles from "../../Pages/BLogs/Articles";
+import Blogs from "../../Pages/BLogs/Blogs";
+import Resume from "../../Pages/BLogs/Resume";
+import Payment from "../../Pages/Home/Payment/Payment";
+
 
 
 
