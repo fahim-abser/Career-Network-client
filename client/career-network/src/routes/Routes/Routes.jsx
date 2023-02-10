@@ -27,10 +27,15 @@ import DisplayError from "../../Pages/DisplayError/DisplayError";
 import JobDetails from "../../Pages/Jobs/JobDetails";
 import ContactWithEmail from "../../Pages/ContactWithEmail/ContactWithEmail";
 import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
+
 import Blogs from "../../Pages/Blogs/Blogs";
 import Resume from "../../Pages/Blogs/Resume";
 import CoverLetter from "../../Pages/Blogs/CoverLetter";
 import Articles from "../../Pages/Blogs/Articles";
+import Payment from "../../Pages/Home/Payment/Payment";
+import AdminRoute from "../../PrivateRoute/AdminRoute";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+
 
 
 const router = createBrowserRouter([
@@ -84,7 +89,7 @@ const router = createBrowserRouter([
             {
                 path: '/jobdetails/:jobId',
                 element: <JobDetails></JobDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
             }
         ]
     },
@@ -137,8 +142,8 @@ const router = createBrowserRouter([
                 element: <ResumeManager></ResumeManager>
             },
             {
-                path:"/employedashboard/addresume",
-                element:<AddResume></AddResume>
+                path: "/employedashboard/addresume",
+                element: <AddResume></AddResume>
             },
             {
                 path: "/employedashboard/employejobs",
@@ -148,28 +153,35 @@ const router = createBrowserRouter([
                 path: "/employedashboard/myaccount",
                 element: <MyAccount></MyAccount>
             },
+            {
+                path: "/employedashboard/payment/:Id",
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/addjobs/${params.Id}`)
+
+            }
+
         ])
     },
     {
         path: "/admin",
-        element: <AdminDeshbord></AdminDeshbord>,
+        element: <AdminRoute><AdminDeshbord></AdminDeshbord></AdminRoute>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
                 path: "/admin",
-                element:<AdminData></AdminData>
+                element: <AdminData></AdminData>
             },
             {
-                path:"/admin/recruiter",
-                element:<RecruiteTable></RecruiteTable>
+                path: "/admin/recruiter",
+                element: <RecruiteTable></RecruiteTable>
             },
             {
                 path: "/admin/jobseerker",
-                element:<JobSeekerTabel></JobSeekerTabel>
+                element: <JobSeekerTabel></JobSeekerTabel>
             },
             {
                 path: "/admin/admintable",
-                element:<AdminTable></AdminTable>
+                element: <AdminTable></AdminTable>
             }
         ])
     }

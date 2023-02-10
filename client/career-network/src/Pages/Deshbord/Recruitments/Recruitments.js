@@ -2,13 +2,12 @@ import React, { useContext } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../../Context/AuthProvider'
-import { BsArrowRight } from 'react-icons/bs'
 
 function Recruitments() {
-  const {user}=useContext(AuthContext)
-  const {data:postingJobData=[]}=useQuery({
-    queryKey:[],
-    queryFn:(async()=>{
+  const { user } = useContext(AuthContext)
+  const { data: postingJobData = [] } = useQuery({
+    queryKey: [],
+    queryFn: (async () => {
       const res = await fetch(`http://localhost:5000/recuriterjob?email=${user?.email}`)
       const data = res.json()
       return data
@@ -16,29 +15,38 @@ function Recruitments() {
   })
   console.log(postingJobData)
   return (
-    <div className='container mx-auto font-besicFont'>
-        <div className='sm:mx-0 mx-10'>
-            <div className='grid lg:grid-cols-3 sm:grid-cols-2 gap-4'>
-               {postingJobData?.map((item) =>
-                  <div className=' shadow-lg shadow-slate-400 flex flex-col gap-3 capitalize'>
-                     <div>
-                        <img className='h-40 w-full' src={item?.image} alt="" />
-                     </div>
-                     <div className='px-3 pb-3 h-full flex flex-col justify-between'>
-                           <h2 className='text-lg capitalize'><span className='font-bold'>category name:</span> {item?.category_name}</h2>
-                           <div className='flex justify-between items-center my-4'>
-                                 <h4><span>duty hours: </span> {item?.duty_hours}</h4>
-                                 <h4><span>deadline:</span> {item?.deadline}</h4>
-                           </div>
-                           <button className='flex items-center justify-between w-full btn btn-primary btn-sm'>
-                                 <Link to={""}>click</Link>
-                                 <BsArrowRight className='text-2xl'></BsArrowRight>
-                           </button>
-                     </div>
+    <div className='m-5'>
+      <h2 className="text-3xl p-3 font-bold text-sky-900 text-center">My Orders</h2>
+      <div className="overflow-x-auto">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Pay</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {
+              postingJobData.map((job, i) => <tr key={job._id}>
+                <th>{i + 1}</th>
+                <td>
+                  <div className="avatar">
+                    <div className="w-24 rounded">
+                      <img src={job.image} alt="" />
+                    </div>
                   </div>
-               )}
-            </div>
-        </div>
+                </td>
+                <td>{job.job_title}</td>
+                <td>{job?.isPaid !== true && <Link to={`/employedashboard/payment/${job._id}`}><button className='btn btn-xs btn-info'>Pay</button></Link>}{job?.isPaid === true && <button className='btn btn-xs  btn-success'>Paid</button>}</td>
+              </tr>)
+            }
+
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
