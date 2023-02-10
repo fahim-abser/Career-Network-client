@@ -30,6 +30,9 @@ import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
 import Payment from "../../Pages/Home/Payment/Payment";
 import AdminRoute from "../../PrivateRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import Resume from "../../Pages/BLogs/Resume";
+import CoverLetter from "../../Pages/BLogs/CoverLetter";
+import Articles from "../../Pages/BLogs/Articles";
 
 
 const router = createBrowserRouter([
@@ -68,7 +71,19 @@ const router = createBrowserRouter([
                 path: '/jobdetails/:jobId',
                 element: <JobDetails></JobDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
-            }
+            },
+            {
+                path:'/blog/resume',
+                element:<Resume></Resume>
+            },
+            {
+                path:'/blog/coverletter',
+                element:<CoverLetter></CoverLetter>
+            },
+            {
+                path:'/blog/article',
+                element:<Articles></Articles>
+            },
         ]
     },
     {
