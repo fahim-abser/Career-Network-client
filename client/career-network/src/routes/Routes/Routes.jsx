@@ -30,10 +30,10 @@ import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
 
 import AdminRoute from "../../PrivateRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
-import CoverLetter from "../../Pages/BLogs/CoverLetter";
-import Articles from "../../Pages/BLogs/Articles";
-import Blogs from "../../Pages/BLogs/Blogs";
-import Resume from "../../Pages/BLogs/Resume";
+import CoverLetter from "../../Pages/Blogs/CoverLetter";
+import Articles from "../../Pages/Blogs/Articles";
+import Blogs from "../../Pages/Blogs/Blogs";
+import Resume from "../../Pages/Blogs/Resume";
 import Payment from "../../Pages/Home/Payment/Payment";
 
 
