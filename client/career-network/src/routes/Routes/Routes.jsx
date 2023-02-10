@@ -32,9 +32,10 @@ import AdminRoute from "../../PrivateRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import CoverLetter from "../../Pages/Blogs/CoverLetter";
 import Articles from "../../Pages/Blogs/Articles";
-import Blogs from "../../Pages/Blogs/Blogs";
-import Resume from "../../Pages/Blogs/Resume";
 import Payment from "../../Pages/Home/Payment/Payment";
+import Blogs from "../../Pages/Blogs/Blogs";
+import Resume from "../../Pages/Blogs/Resume"
+
 
 
 

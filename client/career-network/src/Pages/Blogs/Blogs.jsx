@@ -171,17 +171,17 @@ const Blogs = () => {
             <div className='mt-20 bg-orange-300 h-60 ml-16 rounded-xl p-3'>
                 <div className='text-center'>
                     <h1 className='font-bold text-lg '>Blogs</h1>
-                    <hr className='mt-2'/>
+                    <hr className='mt-2' />
 
                 </div>
                 <div className='mt-5'>
                     <div className='my-3 hover:text-blue-500'>
-                    <Link to='/blog/interview '><li>Interview Tips</li></Link>
+                        <Link to='/blog/interview '><li>Interview Tips</li></Link>
                     </div>
                     <div className='my-3 hover:text-blue-500'><Link to='/blog/resume'><li>Resume Building Tips</li></Link></div>
                     <div className='my-3 hover:text-blue-500'><Link to='/blog/coverletter'><li>Cover Letter Tips</li></Link></div>
                     <div className='mt-2 hover:text-blue-500'>
-                    <Link to='/blog/Article'><li>Articles</li></Link>
+                        <Link to='/blog/Article'><li>Articles</li></Link>
                     </div>
                 </div>
             </div>
