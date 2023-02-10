@@ -23,8 +23,7 @@ const Navbar = () => {
     const notInfo = useGetNotifications(user?.email)
     const notCounts = useGetUnreadNotNum(user?.email,'unread',loading)
     // notification
-    console.log(notInfo.length)
-     console.log(user?.email)
+    
     const handleNotification = () => {
         setLoading(true)
         const url = `http://localhost:5000/notifications?email=${user?.email}`
