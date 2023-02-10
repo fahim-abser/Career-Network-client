@@ -55,7 +55,7 @@ const Navbar = () => {
         queryKey: [user],
         queryFn: (async () => {
             const res = await fetch(`http://localhost:5000/checkit?email=${user?.email}`)
-            const data = await res.json()
+            const data = res.json()
             return data
         })
 
