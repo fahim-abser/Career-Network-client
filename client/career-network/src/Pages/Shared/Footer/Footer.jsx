@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="bg-gray-50 ">
-                <div className="container p-6 mx-auto">
+        <div className=''>
+            <footer className="">
+                <div className="p-6 mx-auto">
                     <div className="lg:flex">
                         <div className="w-full -mx-6 lg:w-2/5">
                             <div className="px-6">
@@ -31,14 +31,14 @@ const Footer = () => {
                                 </div>
 
                                 <div>
-                                    <h3 className="text-gray-700 uppercase font-bold font-primaryFont text-2xl">Blog</h3>
+                                    <h3 className="uppercase font-bold font-primaryFont text-2xl">Blog</h3>
                                     <a href="#" className="block mt-2 text-sm hover:underline">Tec</a>
                                     <a href="#" className="block mt-2 text-sm hover:underline">Music</a>
                                     <a href="#" className="block mt-2 text-sm hover:underline">Videos</a>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-gray-700 uppercase font-bold font-primaryFont text-2xl ">Contact</h3>
+                                    <h3 className="uppercase font-bold font-primaryFont text-2xl ">Contact</h3>
                                     <span className="block mt-2 text-sm  hover:underline">+1 526 654 8965</span>
                                     <span className="block mt-2 text-sm hover:underline">example@email.com</span>
 
