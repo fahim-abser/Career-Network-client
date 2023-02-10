@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: "career-network-76558",
   storageBucket: "career-network-76558.appspot.com",
   messagingSenderId: "744443339381",
-  appId: "1:744443339381:web:7bf834c73453423dfe8e3c"
+  appId: "1:744443339381:web:7bf834c73453423dfe8e3c",
 
 };
 

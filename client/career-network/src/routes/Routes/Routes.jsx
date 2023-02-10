@@ -27,6 +27,9 @@ import DisplayError from "../../Pages/DisplayError/DisplayError";
 import JobDetails from "../../Pages/Jobs/JobDetails";
 import ContactWithEmail from "../../Pages/ContactWithEmail/ContactWithEmail";
 import AddResume from "../../Pages/EmployeeDeshbord/ResumeManager/AddResume";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import Payment from "../../Pages/Home/Payment/Payment";
+import AdminRoute from "../../PrivateRoute/AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -64,7 +67,7 @@ const router = createBrowserRouter([
             {
                 path: '/jobdetails/:jobId',
                 element: <JobDetails></JobDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
             }
         ]
     },
@@ -105,7 +108,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/employedashboard",
-        element: <EmployeeDeshbord></EmployeeDeshbord>,
+        element: <PrivateRoute><EmployeeDeshbord></EmployeeDeshbord></PrivateRoute>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
@@ -117,8 +120,8 @@ const router = createBrowserRouter([
                 element: <ResumeManager></ResumeManager>
             },
             {
-                path:"/employedashboard/addresume",
-                element:<AddResume></AddResume>
+                path: "/employedashboard/addresume",
+                element: <AddResume></AddResume>
             },
             {
                 path: "/employedashboard/employejobs",
@@ -128,28 +131,35 @@ const router = createBrowserRouter([
                 path: "/employedashboard/myaccount",
                 element: <MyAccount></MyAccount>
             },
+            {
+                path: "/employedashboard/payment/:Id",
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/addjobs/${params.Id}`)
+
+            }
+
         ])
     },
     {
         path: "/admin",
-        element: <AdminDeshbord></AdminDeshbord>,
+        element: <AdminRoute><AdminDeshbord></AdminDeshbord></AdminRoute>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
                 path: "/admin",
-                element:<AdminData></AdminData>
+                element: <AdminData></AdminData>
             },
             {
-                path:"/admin/recruiter",
-                element:<RecruiteTable></RecruiteTable>
+                path: "/admin/recruiter",
+                element: <RecruiteTable></RecruiteTable>
             },
             {
                 path: "/admin/jobseerker",
-                element:<JobSeekerTabel></JobSeekerTabel>
+                element: <JobSeekerTabel></JobSeekerTabel>
             },
             {
                 path: "/admin/admintable",
-                element:<AdminTable></AdminTable>
+                element: <AdminTable></AdminTable>
             }
         ])
     }
