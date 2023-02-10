@@ -11,17 +11,17 @@ import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice
 import { MdNotificationsNone } from 'react-icons/md';
 import { useState } from 'react';
 
-const Navbar = () =>{
+const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    const {menu,them} = useSelector(store => store.state)
-    const [not,setNot] = useState(5)
+    const { menu, them } = useSelector(store => store.state)
+    const [not, setNot] = useState(5)
     const dispatch = useDispatch()
 
     // notification
-    const handleNotification =()=>{
+    const handleNotification = () => {
         setNot(0)
-    } 
-    
+    }
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -38,28 +38,28 @@ const Navbar = () =>{
     })
 
     const navItems = <>
-                <button onClick={()=>dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill/>:<BsFillSunFill className='text-yellow-600'/>}</li></button>
-                <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
-                <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
-                <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
-            {user?.uid ? <>
-                {condition?.role ==="recruiter" && <Link to={"/dashboard"}><li className={`listItem ${menu? "text-black dark:text-white": "text-white lg:text-black"} `}>RDashboard</li></Link>}
-                {condition?.role === "seeker" && <Link to={"/employedashboard"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>SDashboard</li></Link>}
-                {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
-                <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
-            </> : <>
-                <Link to='/login'><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Login</li></Link>
-                <Link to='/signup'><li className={`listItem ${menu ? "text-black" : "text-white"}`}>Signup</li></Link>
-            </>
+        <button onClick={() => dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill /> : <BsFillSunFill className='text-yellow-600' />}</li></button>
+        <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
+        <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
+        <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
+        {user?.uid ? <>
+            {condition?.role === "recruiter" && <Link to={"/dashboard"}><li className={`listItem ${menu ? "text-black dark:text-white" : "text-white lg:text-black"} `}>RDashboard</li></Link>}
+            {condition?.role === "seeker" && <Link to={"/employedashboard"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>SDashboard</li></Link>}
+            {condition?.role === "admin" && <Link to={"/admin"}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Dashboard</li></Link>}
+            <Link onClick={handleLogOut}><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Logout</li></Link>
+        </> : <>
+            <Link to='/login'><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Login</li></Link>
+            <Link to='/signup'><li className={`listItem ${menu ? "text-black" : "text-white"}`}>Signup</li></Link>
+        </>
 
 
         }
-      
+
         {/* modal */}
         <div className=''>
             {/* The button to open modal */}
-            <label onClick={()=>handleNotification()} htmlFor="my-modal-3" className="relative inline-flex items-center cursor-pointer p-3 text-xl font-medium text-center    "><MdNotificationsNone />
-                    {not===0 ? '': <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-0 dark:border-gray-900">{not}</div>}
+            <label onClick={() => handleNotification()} htmlFor="my-modal-3" className="relative inline-flex items-center cursor-pointer p-3 text-xl font-medium text-center    "><MdNotificationsNone />
+                {not === 0 ? '' : <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-0 dark:border-gray-900">{not}</div>}
             </label>
 
             {/* Put this part before </body> tag */}

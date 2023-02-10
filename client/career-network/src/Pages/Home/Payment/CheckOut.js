@@ -11,8 +11,9 @@ const CheckOut = ({ jobinfo }) => {
 
     const stripe = useStripe();
     const elements = useElements();
-    const { recruiterEmail, job, _id } = jobinfo;
-    const value = parseInt('35');
+    const { recruiterEmail, job_title, _id } = jobinfo;
+    const p = "35";
+    const value = parseInt(p);
 
     useEffect(() => {
         fetch("http://localhost:5000/create-payment-intent", {
@@ -53,13 +54,13 @@ const CheckOut = ({ jobinfo }) => {
         }
         setSuccess('');
         setProcessing(true);
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPaymen(
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
             {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: job,
+                        name: job_title,
                         email: recruiterEmail
                     },
                 },
