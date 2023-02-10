@@ -6,7 +6,7 @@ import img2 from "../../../assets/opinion/img2.png"
 import img3 from "../../../assets/opinion/img3.png"
 const Opinion = () => {
     return (
-        <div className='mt-10 border'>
+        <div className='mt-10'>
             <h1 className='text-4xl font-bold text-center mb-1 font-secondaryFont'>My Openion</h1>
             <p className='text-xl text-center font-besicFont'> With Career NetWork. Save time and reduce</p>
             <div className='flex lg:flex-row flex-col items-center justify-evenly gap-6 mt-32 m-10'>
