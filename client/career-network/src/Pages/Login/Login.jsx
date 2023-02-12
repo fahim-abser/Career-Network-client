@@ -78,6 +78,7 @@ const Login = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
+                    <input className='btn  w-full mt-4' value="Login" type="submit" />
                     <input className='btn  w-full mt-4' value="Log In" type="submit" />
                 </form>
                 <div className=''>

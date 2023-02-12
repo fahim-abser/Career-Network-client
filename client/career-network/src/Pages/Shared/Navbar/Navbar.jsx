@@ -8,7 +8,7 @@ import { BsFillSunFill } from 'react-icons/bs';
 import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { onSetTheme, setMenu } from '../../../app/AllStateSlice/StateManageSlice';
-import { MdNotificationsNone } from 'react-icons/md';
+import { MdArrowDropDown, MdNotificationsNone } from 'react-icons/md';
 import { useState } from 'react';
 import useGetNotifications from '../../../hooks/useGetNotifications';
 import moment from 'moment/moment';
@@ -27,7 +27,7 @@ const Navbar = () => {
     // notification
 
 
-    console.log(notInfo.length)
+    // console.log(notInfo.length)
      console.log(user?.email)
 
     const handleNotification = () => {
@@ -71,7 +71,16 @@ const Navbar = () => {
     const navItems = <>
         <button onClick={() => dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill /> : <BsFillSunFill className='text-yellow-600' />}</li></button>
         <Link to="/alljobs"><li className={`listItem ${menu ? 'text-black' : "text-white lg:text-black"} `}>Jobs</li></Link>
-        <Link><li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"} `}>Blogs</li></Link>
+        <li className={`listItem ${menu ? "text-black" : "text-white lg:text-black"}`}><div className="dropdown">
+            <label tabIndex={0} className="flex">Blogs <div className='grid items-center ml-2'><MdArrowDropDown></MdArrowDropDown></div></label>
+            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-black lg:bg-base-100 rounded-box w-52">
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/interview'>Interview Tips</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/resume'>Resume Building Tips</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/coverletter'>Cover Letter Tips</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/article'>Articles</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link>Post An Article</Link></li>
+            </ul>
+        </div></li>
         <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
         {user?.uid ? <>
             {condition?.role === "recruiter" && <Link to={"/dashboard"}><li className={`listItem ${menu ? "text-black dark:text-white" : "text-white lg:text-black"} `}>RDashboard</li></Link>}
@@ -93,9 +102,12 @@ const Navbar = () => {
                 <div className="indicator">
                 <button onClick={()=>handleNotification()} className='text-2xl'> <MdNotificationsNone/></button>
                     
-                  {
+
+                   {
                     notCounts.length > 0 ?   <span className="badge bg-red-600  top-0.5 right-0.5 badge-sm indicator-item">{notCounts?.length}</span>:''
-                  }
+                  } 
+
+
                 </div>
 
             </label>
@@ -103,12 +115,16 @@ const Navbar = () => {
                 <div className="card-body">
                   <p className='text-lg font-bold mt-0'>Notifications</p>
                   <div className='divider -mt-1 mb-0'></div>
-                  {
+
+                 {
+
                     notInfo?.map(notification=><div className='bg-base-100 shadow-xl rounded' key={notification._id}>
                         <p className='p-3'>{notification.applicant_name} has applied for your job post {notification.job_title} <span className=''>--{moment(notification.createdAt).fromNow()}</span></p>
 
                     </div>)
-                  }
+
+                  } 
+
                 </div>
             </div>
         </div>
