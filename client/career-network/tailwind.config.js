@@ -9,7 +9,7 @@ module.exports = {
       fontFamily:{
         primaryFont: ['Bebas Neue','cursive'],
         secondaryFont: ['Playfair Display','serif'],
-        besicFont: ['PT Serif','sans-serif']
+        besicFont: ['Tinos', "serif"]
       }, 
       keyframes:{
         wave: {

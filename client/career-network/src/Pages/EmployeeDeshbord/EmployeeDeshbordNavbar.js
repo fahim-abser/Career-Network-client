@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { RxCross1 } from 'react-icons/rx'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { onclickdrawerbutton } from '../../app/EmployeSlice/EmployeSlice'
+import { onclickdrawerbutton } from '../../app/DashboardSlice/DashboardSlice'
 import { AuthContext } from '../../Context/AuthProvider'
 
 function EmployeeDeshbordNavbar() {
@@ -19,9 +19,9 @@ function EmployeeDeshbordNavbar() {
 
     // navbar list item 
     const navItems =<>
-        <li className={`listItem`}><Link to="/employedeshbord" className=''>deshbord</Link></li>
+        <li className={`listItem`}><Link to="/employedashboard" className=''>deshbord</Link></li>
         <li className={`listItem`}><Link to={"/employedashboard/resumemanager"}>Resume</Link></li>
-        <li className={`listItem`}><Link to={'/employedashboard/employejobs'}>jobs</Link></li>
+        <li className={`listItem`}><Link to={"/employedashboard/employejobs"}>jobs</Link></li>
         <li className={`listItem `}><Link to={"/employedashboard/myaccount"}>account</Link></li> 
         {user?.uid ? <>
             <li className={`listItem`}><Link onClick={handleLogOut}>Logout</Link></li>

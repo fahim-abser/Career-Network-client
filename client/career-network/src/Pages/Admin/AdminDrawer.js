@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RxCross1 } from 'react-icons/rx'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { onlyDrawerClick } from '../../app/DashboardSlice/DashboardSlice'
 
-
-function EmployeeDrawer() {
+function AdminDrawer() {
     const dispatch = useDispatch()
     const navbar = [
         {name:"my dashboard",send:"/employedashboard"},
@@ -33,4 +32,4 @@ function EmployeeDrawer() {
   )
 }
 
-export default EmployeeDrawer
+export default AdminDrawer

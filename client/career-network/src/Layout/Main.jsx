@@ -8,7 +8,7 @@ import { setOnlyMenuTrue } from '../app/AllStateSlice/StateManageSlice';
 const Main = () => {
     const dispatch = useDispatch()
     return (
-        <div>
+        <div className='font-besicFont'>
             <Navbar></Navbar>
             <div onClick={()=>dispatch(setOnlyMenuTrue())}>
                 <Outlet></Outlet>
