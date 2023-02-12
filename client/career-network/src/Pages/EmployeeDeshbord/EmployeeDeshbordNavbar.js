@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { RxCross1 } from 'react-icons/rx'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { onclickdrawerbutton } from '../../app/EmployeSlice/EmployeSlice'
+import { onclickdrawerbutton } from '../../app/DashboardSlice/DashboardSlice'
 import { AuthContext } from '../../Context/AuthProvider'
 
 function EmployeeDeshbordNavbar() {

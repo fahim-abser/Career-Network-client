@@ -1,13 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../AllStateSlice/StateManageSlice";
-import employeReducer from "../EmployeSlice/EmployeSlice";
-import ResumeReducer from "../EmployeSlice/ResumeSlice";
+import ResumeReducer from "../DashboardSlice/DashboardSlice";
+import DashboardReducer from "../DashboardSlice/DashboardSlice";
+
 
 
 const store = configureStore({
     reducer:{
         state:counterReducer,
-        counter:employeReducer,
+        counter:DashboardReducer,
         resumeData:ResumeReducer
     }
 })

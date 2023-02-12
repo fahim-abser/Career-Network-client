@@ -11,16 +11,15 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 function ResumeManager() {
   const {user,isloding}= useContext(AuthContext)
   const {data:resumeData={},isLoading,}=useQuery({
-    queryKey:{},
+    queryKey:[user],
     queryFn:(async()=>{
       const res = await fetch(`http://localhost:5000/resumefind?email=${user?.email}`)
-      const data = await res.json()
+      const data = res.json()
       return data
     })
   })
-  {isLoading && <p>loding....</p>}
-  {isloding && <p>loding ----</p>}
-
+  isLoading && <p>loding....</p>
+  isloding && <p>loding ----</p>
   return (
     <div>
         <div className='w-full mx-auto text-center'>

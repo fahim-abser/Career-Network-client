@@ -9,12 +9,12 @@ const EmployeeSlice = createSlice({
         onclickdrawerbutton:(state)=>{
             state.state = !state.state
         },
-        onEmployeDrawerClick:(state)=>{
+        onlyDrawerClick:(state)=>{
             state.state = false
         }
     }
 })
 
 const {reducer ,actions}=EmployeeSlice
-export const {onclickdrawerbutton,onEmployeDrawerClick}=actions
+export const {onclickdrawerbutton,onlyDrawerClick}=actions
 export default reducer

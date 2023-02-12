@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import Footer from '../Shared/Footer/Footer'
 import EmployeeDrawer from './EmployeeDrawer'
 import { useDispatch, useSelector } from 'react-redux'
-import { onEmployeDrawerClick } from '../../app/EmployeSlice/EmployeSlice'
+import { onlyDrawerClick } from '../../app/DashboardSlice/DashboardSlice'
 
 function EmployeeDeshbord() {
   const {state} = useSelector(store=>store.counter)
@@ -16,7 +16,7 @@ function EmployeeDeshbord() {
           </div>
           <div className='w-full overflow-y-scroll'>
               <EmployeeDeshbordNavbar></EmployeeDeshbordNavbar>
-                <div onClick={()=>dispatch(onEmployeDrawerClick())} className='lg:mx-6'>
+                <div onClick={()=>dispatch(onlyDrawerClick())} className='lg:mx-6'>
                     <Outlet></Outlet>
                 </div>
               <Footer></Footer>
