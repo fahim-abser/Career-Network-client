@@ -23,7 +23,7 @@ function Deshbordnavbar() {
 
   const navItems = (<>
         <li className={`px-3  dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>
-          <Link to={"/deshbord"}>Recruiter</Link>
+          <Link to={"/dashboard"}>Recruiter</Link>
         </li>
         <div onMouseEnter={() => setInbox(true)} onMouseLeave={() => setInbox(false)} className=" mx-1">
             <li className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>

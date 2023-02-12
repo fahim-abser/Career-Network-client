@@ -8,7 +8,7 @@ function DashboardDrawer() {
     const dispatch = useDispatch()
     const navbar = [
         {name:"my dashboard",send:"/employedashboard"},
-        {name:"resume",send:"/employedashboard/resumemanager"}
+        {name:"resume",send:"/employedashboard/resumemanager"},
     ]
     return(
         <div className=''>

@@ -19,9 +19,9 @@ function EmployeeDeshbordNavbar() {
 
     // navbar list item 
     const navItems =<>
-        <li className={`listItem`}><Link to="/employedeshbord" className=''>deshbord</Link></li>
+        <li className={`listItem`}><Link to="/employedashboard" className=''>deshbord</Link></li>
         <li className={`listItem`}><Link to={"/employedashboard/resumemanager"}>Resume</Link></li>
-        <li className={`listItem`}><Link to={'/employedashboard/employejobs'}>jobs</Link></li>
+        <li className={`listItem`}><Link to={"/employedashboard/employejobs"}>jobs</Link></li>
         <li className={`listItem `}><Link to={"/employedashboard/myaccount"}>account</Link></li> 
         {user?.uid ? <>
             <li className={`listItem`}><Link onClick={handleLogOut}>Logout</Link></li>
