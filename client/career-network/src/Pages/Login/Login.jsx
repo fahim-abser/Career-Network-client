@@ -4,54 +4,59 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useLocation, useNavigate } from 'react-router';
-import useToken from '../../others/Hooks/useToken';
 import login from '../../../src/others/images/login.png'
+import useToken from '../../others/Hooks/useToken';
 
 const Login = () => {
-    const navigate = useNavigate()
     const { logIn, googleSignIn, setUser, githubSignIn } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const [loginUserEmail, setLoginUserEmail] = useState('');
-    const [token] = useToken(loginUserEmail);
+    const [loginError, setLoginError] = useState('');
+    const [tEmail, setEmail] = useState('');
+    const [token] = useToken(tEmail);
+
     const location = useLocation();
+    const navigate = useNavigate()
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
 
     const from = location.state?.from?.pathname || '/';
-
     if (token) {
         navigate(from, { replace: true });
     }
 
     const handleLogin = data => {
+        setEmail(data.email);
+        console.log(tEmail)
         logIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                setLoginUserEmail(data.email);
                 if (user?.uid) {
                     navigate('/')
                 }
             })
             .catch(error => console.log(error))
     }
+    console.log(tEmail)
 
     const handlegoogle = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user
-                console.log(user);
+                setEmail(user.email);
                 setUser(user);
-                setLoginUserEmail(user.email);
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error)
+                setLoginError(error.message);
+            })
     }
+    console.log(tEmail)
 
     const handleGithub = () => {
         githubSignIn(githubProvider)
             .then(result => {
-
+                const user = result.user
             })
             .catch(error => console.log(error))
     }
@@ -81,7 +86,7 @@ const Login = () => {
                                 })} className="input input-bordered w-full max-w-xs" />
                                 {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                             </div>
-                            <input  className='btn  w-full mt-4' value="Login" type="submit" />
+                            <input className='btn  w-full mt-4' value="Login" type="submit" />
                         </form>
                         <div className=''>
                             <button onClick={handlegoogle} className='btn btn-outline w-full my-7 dark:text-white'><FaGoogle className='text-2xl mx-4 text-blue-500'></FaGoogle> CONTINUE WITH GOOGLE</button>
