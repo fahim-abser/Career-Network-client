@@ -14,7 +14,7 @@ const FeatureCard = ({ feature }) => {
                 <img className='h-full p-2' src={image} alt="jobImage" />
             </div>
             <div className=" w-full h-full flex flex-col justify-evenly">
-                <h2 className="text-2xl text-sky-800">{job_title}</h2>
+                <h2 className="text-2xl font-semibold text-sky-800">{job_title}</h2>
                 <p className="flex items-center gap-2">
                         <MdWork className='text-sky-600' /> {companyName}
                 </p>
