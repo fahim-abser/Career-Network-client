@@ -11,17 +11,17 @@ const Categories = () => {
             setCategories(data)
         })
     },[])
-    console.log(categories)
+
     return (
-        <div className='py-7'>
-            <div className='text-center w-8/12 mx-auto my-4'> 
-                <h2 className='text-4xl font-bold font-secondaryFont'>Categories</h2>
-                <p className='mt-4 font-besicFont font-bold text-lg'>Easy-to-use, HR platform with highly 
+        <div className=' py-14 bg-Primary'>
+            <div className='text-center w-8/12 mx-auto mb-10'> 
+                <h2 className='text-4xl font-bold text-sky-800 '>Categories</h2>
+                <p className='mt-2 text-lg'>Easy-to-use, HR platform with highly 
                     responsive stellar customer support.</p>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 px-10 gap-7'>
                {
-                categories.map(category =><CategoryCard key={category.id} category={category}></CategoryCard>)
+                categories.map(category =><CategoryCard key={category._id} category={category}></CategoryCard>)
                }
             </div>
         </div>

@@ -6,7 +6,7 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
 const FeatureCard = ({ feature }) => {
-    const { _id, job_title, location, companyName, salary, skills,duty_hours,image } = feature;
+    const { _id, job_title, location, companyName, salary,image } = feature;
     return (
         <Link to={`/jobdetails/${_id}`}>
         <div className="flex justify-start items-stretch shadow-md h-40 gap-2 bg-white hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500">
@@ -32,12 +32,9 @@ const FeatureCard = ({ feature }) => {
                         11 hour ago
                     </p>
                 </div>
-                <div>
-                    <button className={`${duty_hours.includes("remote")&& "bg-amber-600"} ${duty_hours.includes("temporary")&& "bg-orange-600"} ${duty_hours.includes("permanent")&& "bg-teal-600"} px-10 py-1 rounded-full text-white`}>{duty_hours}</button>
-                </div>
             </div>
         </div>
-        </Link>
+    </Link>
 
     );
 };
