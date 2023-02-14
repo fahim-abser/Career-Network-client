@@ -3,12 +3,14 @@ import { MdLocationPin } from "react-icons/md";
 import { FaGraduationCap } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { BsCalendar2DateFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const FeatureCard = ({ feature }) => {
-    const { _id, job_title, duty_hours, location, salary, skills, experience, deadline } = feature;
+    const { _id, job_title, duty_hours, location, salary, skills, experience, deadline, image } = feature;
     return (
-        <div className="card h-40 lg:card-side shadow-xl gap-y-4">
-            <figure><img src='' alt="Album" /></figure>
+        <Link to={`/jobdetails/${_id}`}>
+        <div className="card lg:card-side shadow-xl">
+            <figure><img src={image} alt="Album" /></figure>
             <div className="card-body">
                 <h2 className="card-title"></h2>
                 <p className="text-xl text-green-500">{job_title}</p>
@@ -32,6 +34,7 @@ const FeatureCard = ({ feature }) => {
                 </div>
             </div>
         </div>
+        </Link>
 
     );
 };
