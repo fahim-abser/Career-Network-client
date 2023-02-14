@@ -1,35 +1,30 @@
 import React from 'react';
-import { MdLocationPin } from "react-icons/md";
-import { FaGraduationCap } from "react-icons/fa";
-import { MdWork } from "react-icons/md";
-import { BsCalendar2DateFill } from "react-icons/bs";
+import { BsClock } from 'react-icons/bs';
+import { HiLocationMarker } from 'react-icons/hi';
+import { GiMoneyStack } from 'react-icons/gi';
 
 const FeatureCard = ({ feature }) => {
-    const { _id, job_title, duty_hours, location, salary, skills, experience, deadline } = feature;
+    const { _id, job_title, duty_hours, location, salary, skills, experience, deadline, image,companyName } = feature;
+    console.log(feature)
     return (
-        <div className="card h-40 lg:card-side shadow-xl gap-y-4">
-            <figure><img src='' alt="Album" /></figure>
-            <div className="card-body">
-                <h2 className="card-title"></h2>
-                <p className="text-xl text-green-500">{job_title}</p>
-                <p className="flex items-center gap-2">
-                    <MdLocationPin />
-                    {location}
-                </p>
-                <p className="flex items-center gap-2">
-                    <FaGraduationCap />
-                    {skills}
-                </p>
-                <div className="flex justify-around">
-                    <p className="flex items-center gap-2">
-                        <MdWork /> At least {experience}{" "}
-                        {experience > 1 ? "years" : "year"}
-                    </p>
-                    <p className="flex items-center gap-2">
-                        <BsCalendar2DateFill />
-                        Deadline: {deadline}
-                    </p>
+        <div className="col-span-6 flex justify-between items-center h-full border-2 border-sky-600">
+            <div className='flex justify-start items-center'>
+                <div>
+                    <img className='w-20 m-3' src={image} alt="imgage" />
                 </div>
+                <div>
+                    <h3>{job_title}</h3>
+                    <div className='flex justify-between items-center'>
+                        <p>{companyName}</p>
+                        <p><HiLocationMarker/> {location}</p>
+                        <p><BsClock></BsClock>{deadline}</p>
+                        <p><GiMoneyStack></GiMoneyStack>  {salary? <span>${salary}k</span>:"negotiable"}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button className='btn bg-info hover:bg-info
+                btn-sm rounded-none'>onclick</button>
             </div>
         </div>
 
