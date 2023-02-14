@@ -13,14 +13,14 @@ const Feature = () => {
 
 
     return (
-        <div className='my-10 flex justify-center'>
-            <div>
-            <h1 className='text-center font-bold text-4xl mb-[40px] font-secondaryFont'>Features Jobs</h1>
-            <div className='card lg:grid lg:grid-cols-2 shadow-xl mt-10 bg-gray-50 dark:bg-blue-800 gap-6'>
-                {
-                    features.map((feature) => <FeatureCard feature={feature} key={feature.id}></FeatureCard>)
-                }
-            </div>
+        <div className='my-10 py-10 lg:px-14 md:px-24 px-6'>
+            <div className=''>
+                <h1 className='text-center font-bold text-4xl mb-[40px] font-secondaryFont'>Features Jobs</h1>
+                <div className='grid lg:grid-cols-2 mt-10 dark:bg-blue-800 gap-6'>
+                    {
+                        features.map((feature) => <FeatureCard feature={feature} key={feature.id}></FeatureCard>)
+                    }
+                </div>
             </div>
         </div>
     );

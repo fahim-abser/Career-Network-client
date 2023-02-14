@@ -1,36 +1,39 @@
 import React from 'react';
 import { MdLocationPin } from "react-icons/md";
-import { FaGraduationCap } from "react-icons/fa";
+import { GiMoneyStack } from "react-icons/gi";
 import { MdWork } from "react-icons/md";
 import { BsCalendar2DateFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
 const FeatureCard = ({ feature }) => {
-    const { _id, job_title, duty_hours, location, salary, skills, experience, deadline, image } = feature;
+    const { _id, job_title, location, companyName, salary, skills,duty_hours,image } = feature;
     return (
         <Link to={`/jobdetails/${_id}`}>
-        <div className="card lg:card-side shadow-xl">
-            <figure><img src={image} alt="Album" /></figure>
-            <div className="card-body">
-                <h2 className="card-title"></h2>
-                <p className="text-xl text-green-500">{job_title}</p>
+        <div className="flex justify-start items-stretch shadow-md h-40 gap-2 bg-white hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500">
+            <div className=''>
+                <img className='h-full p-2' src={image} alt="jobImage" />
+            </div>
+            <div className=" w-full h-full flex flex-col justify-evenly">
+                <h2 className="text-2xl text-sky-800">{job_title}</h2>
                 <p className="flex items-center gap-2">
-                    <MdLocationPin />
-                    {location}
+                        <MdWork className='text-sky-600' /> {companyName}
                 </p>
-                <p className="flex items-center gap-2">
-                    <FaGraduationCap />
-                    {skills}
-                </p>
-                <div className="flex justify-around">
+                <div className='flex justify-start items-center gap-4'>
                     <p className="flex items-center gap-2">
-                        <MdWork /> At least {experience}{" "}
-                        {experience > 1 ? "years" : "year"}
+                        <MdLocationPin className='text-sky-600' />
+                        {location}
                     </p>
                     <p className="flex items-center gap-2">
-                        <BsCalendar2DateFill />
-                        Deadline: {deadline}
+                        <GiMoneyStack className='text-sky-600' />
+                        {salary ? <span>$ {salary}k</span>:"negotiable"}
                     </p>
+                    <p className="flex items-center gap-2">
+                        <BsCalendar2DateFill className='text-sky-600' />
+                        11 hour ago
+                    </p>
+                </div>
+                <div>
+                    <button className={`${duty_hours.includes("remote")&& "bg-amber-600"} ${duty_hours.includes("temporary")&& "bg-orange-600"} ${duty_hours.includes("permanent")&& "bg-teal-600"} px-10 py-1 rounded-full text-white`}>{duty_hours}</button>
                 </div>
             </div>
         </div>
