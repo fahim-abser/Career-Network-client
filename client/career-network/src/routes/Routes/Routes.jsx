@@ -35,6 +35,11 @@ import Articles from "../../Pages/Blogs/Articles";
 import Payment from "../../Pages/Home/Payment/Payment";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Resume from "../../Pages/Blogs/Resume"
+import MakeResume from "../../Pages/Blogs/MakeResume";
+import StepByStep from "../../Pages/Blogs/StepByStep";
+import ChooseKey from "../../Pages/Blogs/ChooseKey";
+import PostArticle from "../../Pages/Blogs/PostArticle";
+
 
 
 
@@ -75,8 +80,24 @@ const router = createBrowserRouter([
                 element:<CoverLetter></CoverLetter>
             },
             {
+                path:'/blog/postArticle',
+                element:<PostArticle></PostArticle>
+            },
+            {
                 path:'/blog/article',
                 element:<Articles></Articles>
+            },
+            {
+                path:'/blog/resume/makeresume',
+                element:<MakeResume></MakeResume>
+            },
+            {
+                path:'/step',
+                element:<StepByStep></StepByStep>
+            },
+            {
+                path:'/chooseKey',
+                element:<ChooseKey></ChooseKey>
             },
             {
                 path: '/category/:name',

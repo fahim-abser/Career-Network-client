@@ -1,15 +1,15 @@
 import React from 'react';
+import { MdArrowDropDown } from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import { MdArrowDropDown } from 'react-icons/md'
 
-const Resume = () => {
+const StepByStep = () => {
     return (
         <div className='m-10 grid grid-cols-1 lg:grid-cols-4'>
             <div className='bg-slate-50 shadow rounded-xl col-span-3'>
-                <h1 className='text-2xl text-green-600 ml-10 mt-3'>CV writing tips, Find CV Format & Samples</h1>
+                <h1 className='text-2xl text-green-600 ml-10 mt-3'>How to Make Standard CV</h1>
                 <div className='m-8'>
                     <div className='rounded-xl bg-gray-100 text-black border shadow-2xl p-6'>
-                        <p>Your Curriculum Vitae (CV) is the primary medium of presenting yourself as a candidate for a job to a prospective employer. But many of the job seekers do not give proper attention and care in preparing their CVs accurately. As a result, many potential job seekers do not get calls for job interviews to get the opportunity to present and prove their potential.</p> <hr className='my-3' />
+                    <p>Your Curriculum Vitae (CV) is the primary medium of presenting yourself as a candidate for a job to a prospective employer. But many of the job seekers do not give proper attention and care in preparing their CVs accurately. As a result, many potential job seekers do not get calls for job interviews to get the opportunity to present and prove their potential.</p> <hr className='my-3' />
 
                         <h1 className='text-xl text-gray-700'>Attention should be given to the following matters before preparing your CV:
                         </h1>
@@ -253,4 +253,4 @@ const Resume = () => {
     );
 };
 
-export default Resume;
+export default StepByStep;
