@@ -9,14 +9,9 @@ const Footer = () => {
                         <div className="w-full -mx-6 lg:w-2/5">
                             <div className="px-6">
                                 <div>
-
                                     <a href="#" className=" font-besicFont text-2xl font-bold  hover:text-gray-800 dark:hover:text-gray-300">Career Network</a>
-
                                 </div>
-
                                 <p className="max-w-sm mt-2 ">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
-
-
                             </div>
                         </div>
 

@@ -4,8 +4,7 @@ import React from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
 import CheckOut from './CheckOut';
-
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+const stripePromise = loadStripe('pk_test_51MZcj2HtXaK7NZJf1EVqhwbpTPeXjDpDcIBCnU7403d5Pp7lgNWBpqsd8jQUj3OTm24mVqD2aCFpAvuPSyaGvqW700fgsACTio');
 console.log(stripePromise)
 const Payment = () => {
     const jobinfo = useLoaderData();

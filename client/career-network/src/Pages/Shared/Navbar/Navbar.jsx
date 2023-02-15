@@ -66,7 +66,6 @@ const Navbar = () => {
         })
 
     })
-    console.log(condition)
 
     const navItems = <>
         <button onClick={() => dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill /> : <BsFillSunFill className='text-yellow-600' />}</li></button>

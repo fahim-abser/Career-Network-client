@@ -11,6 +11,16 @@ module.exports = {
         secondaryFont: ['Playfair Display','serif'],
         besicFont: ['Tinos', "serif"]
       }, 
+
+      colors:{
+        Primary:"#F9F5E7",  
+        secondary:"#205295", 
+        info:"#253858",
+        home:"#FFFBF5"
+      },
+      clipPath:{
+        mypolygon:"polygon(0 0, 100% 0, 80% 100%, 0% 100%)"
+      },
       keyframes:{
         wave: {
           '0%': { transform: 'rotate(0.0deg)' },
@@ -38,5 +48,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require('tailwind-clip-path')
+],
 }

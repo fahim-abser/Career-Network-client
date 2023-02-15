@@ -68,24 +68,31 @@ const router = createBrowserRouter([
                 element: <ContactWithEmail></ContactWithEmail>
             },
             {
-                path:'/blog/interview',
-                element:<Blogs></Blogs>
+                path: '/blog/interview',
+                element: <Blogs></Blogs>
             },
             {
-                path:'/blog/resume',
-                element:<Resume></Resume>
+                path: '/blog/resume',
+                element: <Resume></Resume>
             },
             {
-                path:'/blog/coverletter',
-                element:<CoverLetter></CoverLetter>
+                path: '/blog/coverletter',
+                element: <CoverLetter></CoverLetter>
             },
             {
+
                 path:'/blog/postArticle',
                 element:<PostArticle></PostArticle>
             },
+  {
+        path: '/blog/article',
+                element: <Articles></Articles>
+  
+  },
             {
                 path:'/article',
                 element:<Articles></Articles>
+
             },
             {
                 path:'/blog/resume/makeresume',
@@ -115,16 +122,16 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/alljobs/${params.jobId}`)
             },
             {
-                path:'/blog/resume',
-                element:<Resume></Resume>
+                path: '/blog/resume',
+                element: <Resume></Resume>
             },
             {
-                path:'/blog/coverletter',
-                element:<CoverLetter></CoverLetter>
+                path: '/blog/coverletter',
+                element: <CoverLetter></CoverLetter>
             },
             {
-                path:'/blog/article',
-                element:<Articles></Articles>
+                path: '/blog/article',
+                element: <Articles></Articles>
             },
         ]
     },
@@ -165,7 +172,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/employedashboard",
-        element: <EmployeeDeshbord></EmployeeDeshbord>,
+        element: <PrivateRoute><EmployeeDeshbord></EmployeeDeshbord></PrivateRoute>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
