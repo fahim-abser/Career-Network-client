@@ -2,20 +2,15 @@ import React from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
-const CoverLetter = () => {
+const ChooseKey = () => {
     return (
         <div className='m-10 grid grid-cols-1 lg:grid-cols-4'>
             <div className='bg-slate-50 shadow rounded-xl col-span-3'>
-                <h1 className='text-2xl text-green-600 ml-10 mt-3'>How to Write a Cover Letter for a Job Application
+                <h1 className='text-2xl text-green-600 ml-10 mt-3'>Looking for the Perfect Resume Words to Describe Your Work History? <br /> We've Got Those Here
                 </h1>
                 <div className='m-8'>
                     <div className='rounded-xl bg-gray-100 text-black border shadow-2xl p-6'>
-                        <p>
-                            <li className='mt-2 hover:text-blue-400'><Link>Step- by- step guide for writing a cover letter.</Link></li>
-                            <li className='mt-2 hover:text-blue-400'><Link>What your cover letter should say about you.</Link></li>
-                            <li className='mt-2 hover:text-blue-400'><Link>Tips for creating great cover letter content.</Link></li>
-                            <li className='mt-2 hover:text-blue-400'><Link>Tips for top cover letter mistakes.</Link></li>
-                        </p>
+                    <p>Have you ever thought of your resume as a personal marketing tool? If not, maybe it's time you do. Your resume should be designed to electrify potential employers by highlighting your most valuable skills and achievements. Get started by using our sure-fire tips.</p> <hr className='my-3' />
                     </div>
                 </div>
             </div>
@@ -49,4 +44,4 @@ const CoverLetter = () => {
     );
 };
 
-export default CoverLetter;
+export default ChooseKey;
