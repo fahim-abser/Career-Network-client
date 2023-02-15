@@ -14,7 +14,6 @@ const PostArticle = () => {
         const post = form.post.value;
         const imageData = e.target.image.files[0]
         formData.append('image',imageData)
-        console.log(imageData)
 
         fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
             method:'POST',
@@ -40,9 +39,10 @@ const PostArticle = () => {
                 })
                 .then(res=>res.json())
                 .then(data=>{
-                    if(data.accknowledge){
+                    if(data.acknowledged){
+                        console.log(data)
                         toast.success('Article Posted Succesfully')
-                        navigate('blog/article')
+                        navigate('/article')
                     }
                 })
             }

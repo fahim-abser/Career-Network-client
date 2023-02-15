@@ -84,7 +84,7 @@ const router = createBrowserRouter([
                 element:<PostArticle></PostArticle>
             },
             {
-                path:'/blog/article',
+                path:'/article',
                 element:<Articles></Articles>
             },
             {

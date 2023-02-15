@@ -77,7 +77,7 @@ const Navbar = () => {
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/interview'>Interview Tips</Link></li>
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/resume'>Resume Building Tips</Link></li>
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/coverletter'>Cover Letter Tips</Link></li>
-                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/article'>Articles</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/article'>Articles</Link></li>
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/postArticle'>Post An Article</Link></li>
             </ul>
         </div></li>
