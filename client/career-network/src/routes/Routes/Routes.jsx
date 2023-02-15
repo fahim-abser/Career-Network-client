@@ -81,30 +81,30 @@ const router = createBrowserRouter([
             },
             {
 
-                path:'/blog/postArticle',
-                element:<PostArticle></PostArticle>
+                path: '/blog/postArticle',
+                element: <PostArticle></PostArticle>
             },
-  {
-        path: '/blog/article',
-                element: <Articles></Articles>
-  
-  },
             {
-                path:'/article',
-                element:<Articles></Articles>
+                path: '/blog/article',
+                element: <Articles></Articles>
 
             },
             {
-                path:'/blog/resume/makeresume',
-                element:<MakeResume></MakeResume>
+                path: '/article',
+                element: <Articles></Articles>
+
             },
             {
-                path:'/step',
-                element:<StepByStep></StepByStep>
+                path: '/blog/resume/makeresume',
+                element: <MakeResume></MakeResume>
             },
             {
-                path:'/chooseKey',
-                element:<ChooseKey></ChooseKey>
+                path: '/step',
+                element: <StepByStep></StepByStep>
+            },
+            {
+                path: '/chooseKey',
+                element: <ChooseKey></ChooseKey>
             },
             {
                 path: '/category/:name',
@@ -137,7 +137,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Deshbord></Deshbord>,
+        element: <PrivateRoute><Deshbord></Deshbord></PrivateRoute>,
         errorElement: <DisplayError></DisplayError>,
         children: ([
             {
