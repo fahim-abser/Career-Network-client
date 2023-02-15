@@ -7,6 +7,7 @@ import TrustedSite from '../TrustedSite/TrustedSite';
 import Feature from '../Feature/Feature/Feature';
 import Opinion from '../Opinion/Opinion';
 import SearchSection from '../Search_Section/SearchSection';
+import State from '../State/State';
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <TrustedSite></TrustedSite>
             <JobPost></JobPost>
             <Feature></Feature>
+            <State></State>
             <Opinion></Opinion>
             <SearchSection></SearchSection>
 
