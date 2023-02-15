@@ -14,27 +14,31 @@ const JobPage = () => {
 
   // page
   const [jobData,setJobData] = useState([]);
-  const [count,setCount] = useState(0);
-  const [page,setPage] = useState(0);
-  const [size,setSize] = useState(2)
-
-  useEffect(()=>{
-    const url = `http://localhost:5000/alljobs?page=${page}&size=${size}`
-    fetch(url)
-    .then(res=>res.json())
-    .then(data=>{
-      setCount(data.count)
-      setJobData(data.jobs)
-    })
-  },[page,size])
-   console.log(jobData, count)
-
-  const pages = Math.ceil(count/size)
-  // 
+  const [currentPage,setCurrentPage]  =useState(1)
+  const [postsPerPage,setPostsPerPage] = useState(5)
   const [search, setSearch] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
   const [selectCategory, setSelectCategory] = useState("");
-  console.log(selectCategory)
+  
+ 
+  useEffect(()=>{
+    const url = `http://localhost:5000/alljobs?keyword=${search}&category=${selectCategory}&location=${searchLocation}`
+    console.log(url)
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>{
+setJobData(data)
+    })
+  },[search,searchLocation,selectCategory])
+   console.log(search,searchLocation,selectCategory)
+   const lastIndex = currentPage* postsPerPage
+   const firstIndex = lastIndex- postsPerPage
+   const filterJobs = jobData.slice(firstIndex,lastIndex)
+   
+
+  // 
+
+   console.log(jobData)
   return (
   <div>
       <div className='flex items-center justify-center'>
@@ -50,7 +54,7 @@ const JobPage = () => {
                 type="text"
                 placeholder="Job title or keyword"
                 className="input input-bordered pl-6 border-l-0 focus:outline-none dark:text-black"
-                onChange={(e) => setSearch(e.target.value)}
+                onBlur={(e) => setSearch(e.target.value)}
               />
             </div>
             {/* location input */}
@@ -62,7 +66,7 @@ const JobPage = () => {
                   placeholder="Location"
                   className="input input-bordered pl-6 border-l-0 focus:outline-none   dark:text-black"
 
-                  onChange={(e) => setSearchLocation(e.target.value)}
+                  onBlur={(e) => setSearchLocation(e.target.value)}
                 />
               </div>
             </div>
@@ -72,8 +76,8 @@ const JobPage = () => {
                 <option value="All Jobs" selected>
                   
                 </option>
-                <option>web development</option>
-                <option>marketing</option>
+                <option>Web Developer</option>
+                <option>Marketing</option>
                 
               </select>
             </div>
@@ -96,20 +100,7 @@ const JobPage = () => {
             </button>
           </div>
         </div>
-        {jobData
-          .filter((item) => {
-            if (search.toLowerCase() === "" && searchLocation.toLowerCase() === "" && selectCategory.toLowerCase() == "" )
-              return item;
-            else {
-              return (
-                item.job_title?.toLowerCase().includes(search) &&
-                item.location?.toLowerCase().includes(searchLocation) &&
-                item.category_name?.toLowerCase().includes(selectCategory)
-              );
-            }
-            // return search.toLowerCase()==='' || selectCategory?.toLowerCase===''? item : item.title.toLowerCase().includes(search) || item.category.toLowerCase.includes(selectCategory)
-          })
-          .map((item, idx) => (
+        {filterJobs?.map((item, idx) => (
            <Link to={`/jobdetails/${item._id}`}>
             <div
               key={idx}
@@ -143,7 +134,7 @@ const JobPage = () => {
       </div>
       
     </div>
-    <Pagination pages={pages} page={page} setPage={setPage}></Pagination>
+    <Pagination totalJobs={jobData?.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} setPostsPerPage={setPostsPerPage} currentPage={currentPage}></Pagination>
   </div>
   );
 };
