@@ -13,9 +13,10 @@ module.exports = {
       }, 
 
       colors:{
-        Primary:"#F9F5E7",  //blue
+        Primary:"#F9F5E7",  
         secondary:"#205295", 
-        info:"#253858"
+        info:"#253858",
+        home:"#FFFBF5"
       },
       clipPath:{
         mypolygon:"polygon(0 0, 100% 0, 80% 100%, 0% 100%)"

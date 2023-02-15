@@ -13,7 +13,7 @@ const Categories = () => {
     },[])
 
     return (
-        <div className=' py-14 bg-Primary'>
+        <div className=' py-14 bg-Primary '>
             <div className='text-center w-8/12 mx-auto mb-10'> 
                 <h2 className='text-4xl font-bold text-sky-800 '>Categories</h2>
                 <p className='mt-2 text-lg'>Easy-to-use, HR platform with highly 
