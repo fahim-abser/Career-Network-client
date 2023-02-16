@@ -9,7 +9,7 @@ const FeatureCard = ({ feature }) => {
     const { _id, job_title, location, duty_hours, companyName, salary,image } = feature;
     return (
         <Link to={`/jobdetails/${_id}`}>
-        <div className="flex justify-start items-stretch shadow-md hover:shadow-lg h-40 gap-2 bg-white  hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500">
+        <div className="flex justify-start items-stretch shadow-md hover:shadow-lg h-40 gap-2 bg-white  hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500 dark:text-black">
             <div className=''>
                 <img className='h-full p-2' src={image} alt="jobImage" />
             </div>

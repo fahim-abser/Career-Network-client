@@ -11,9 +11,9 @@ const JobPost = () => {
                         <h2 className='text-4xl text-center font-bold'>Get it to your job</h2>
                         <p className='my-4 text-lg'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione <br /> veniam dignissimos officiis magnam vel! Dolorum maiores quos autem dolores qui?</p>
                         <div className='flex justify-center gap-x-4'>
-                            <Link to='/dashboard/recruitment/createjob'><button  className='btn border-none bg-sky-500 hover:btn-info'> Post A Job</button></Link>
+                            <Link to='/dashboard/recruitment/createjob'><button  className='btn border-none bg-button hover:bg-button shadow-md shadow-cyan-800'> Post A Job</button></Link>
                             <input  type="submit" value="" />
-                            <input className='btn w-28 border-none bg-green-400 hover:bg-green-400' type="submit" value="Search" />
+                            <input className='btn w-28 border-none shadow-md shadow-cyan-800 bg-secondaryButton hover:bg-secondaryButton' type="submit" value="Search" />
                         </div>
                     </div>
                 </div>
