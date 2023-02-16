@@ -4,6 +4,7 @@ import Footer from '../Pages/Shared/Footer/Footer';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { useDispatch} from 'react-redux';
 import { setOnlyMenuTrue } from '../app/AllStateSlice/StateManageSlice';
+import Footer2 from '../Pages/Shared/Footer/Footer2';
 
 const Main = () => {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ const Main = () => {
             <div onClick={()=>dispatch(setOnlyMenuTrue())}>
                 <Outlet></Outlet>
             </div>
-            <Footer></Footer>
+            <Footer2></Footer2>
         </div>
     );
 };
