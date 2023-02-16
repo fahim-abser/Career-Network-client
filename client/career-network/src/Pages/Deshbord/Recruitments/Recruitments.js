@@ -43,6 +43,7 @@ function Recruitments() {
               <th></th>
               <th>Image</th>
               <th>Name</th>
+              <th>Details</th>
               <th>Pay</th>
               <th>Delete</th>
             </tr>
@@ -59,6 +60,7 @@ function Recruitments() {
                   </div>
                 </td>
                 <td>{job.job_title}</td>
+                <td>{job && <Link to={`/employedashboard/applieddetails/${job._id}`}><button className='btn btn-xs btn-info'>Details</button></Link>}</td>
                 <td>{job?.isPaid !== true && <Link to={`/employedashboard/payment/${job._id}`}><button className='btn btn-xs btn-info'>Pay For Feature</button></Link>}{job?.isPaid === true && <button className='btn btn-xs  btn-success'>Paid For Featured</button>}</td>
                 <td>{job && <button onClick={() => handleDeleteJob(job)} className='btn btn-xs btn-error'>Delete This Job</button>}</td>
               </tr>)

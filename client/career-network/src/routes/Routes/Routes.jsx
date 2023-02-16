@@ -39,6 +39,7 @@ import MakeResume from "../../Pages/Blogs/MakeResume";
 import StepByStep from "../../Pages/Blogs/StepByStep";
 import ChooseKey from "../../Pages/Blogs/ChooseKey";
 import PostArticle from "../../Pages/Blogs/PostArticle";
+import DetailsR from "../../Pages/Deshbord/Recruitments/Recruit/DetailsR";
 
 
 
@@ -199,6 +200,12 @@ const router = createBrowserRouter([
                 path: "/employedashboard/payment/:Id",
                 element: <Payment></Payment>,
                 loader: ({ params }) => fetch(`http://localhost:5000/addjobs/${params.Id}`)
+
+            },
+            {
+                path: "/employedashboard/applieddetails/:Id",
+                element: <DetailsR></DetailsR>,
+                loader: ({ params }) => fetch(`http://localhost:5000/applieddetails/${params.Id}`)
 
             }
 
