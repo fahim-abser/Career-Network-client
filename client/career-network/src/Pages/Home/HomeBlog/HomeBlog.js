@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { FreeMode, Pagination } from 'swiper'
+import React from 'react'
+import { Pagination } from 'swiper'
 import { SwiperSlide,Swiper } from 'swiper/react'
 import "swiper/css";
 import "swiper/css/free-mode";
