@@ -4,7 +4,7 @@ import { GrFacebook, GrLinkedin, GrTwitter, GrInstagram } from 'react-icons/gr'
 import logo1 from '../../../logo/logo.png'
 const Footer2 = () => {
     return (
-        <footer class="bg-[#263238] dark:bg-gray-900 p-6 font-sans">
+        <footer class="bg-[#263238] dark:bg-gray-900 p-6 font-sans mt-5">
             <div class="container lg:px-14 px-6  py-12 ">
 
 
@@ -26,10 +26,10 @@ const Footer2 = () => {
                         <p class="font-semibold text-white text-lg uppercase dark:text-white">JOB CATEGORIES</p>
 
                         <div class="flex flex-col items-start mt-5 space-y-2">
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Development</Link>
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Design</Link>
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Marketing</Link>
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Others</Link>
+                            <Link to="/category/Web%20Developer" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Development</Link>
+                            <Link to="/category/Designer" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Designer</Link>
+                            <Link to="/category/Marketing" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Marketing</Link>
+                            <Link to="/category/Education" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-blue-400  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Education</Link>
 
                         </div>
                     </div>
@@ -39,10 +39,10 @@ const Footer2 = () => {
                         <p class="font-semibold text-white text-lg uppercase dark:text-white">Blogs</p>
 
                         <div class="flex flex-col items-start mt-5 space-y-2">
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Career Tips</Link>
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Interview</Link>
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Resume</Link>
-                            <Link to="#" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Cover Letter</Link>
+                            <Link to="/blog/interview" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Career Tips</Link>
+                            <Link to="/blog/interview" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Interview</Link>
+                            <Link to="/blog/resume" class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Resume</Link>
+                            <Link to='/blog/coverletter' class=" text-[#C0C1C1] transition-colors duration-300 dark:text-gray-300  dark:hover:text-white  hover:text-white"><span className='text-3xl font-bold text-[#27B163] pr-1 '>-</span> Cover Letter</Link>
 
                         </div>
                     </div>
