@@ -34,7 +34,7 @@ const DetailsR = () => {
     }
     return (
         <div className='m-5'>
-            <h2 className="text-3xl p-3 font-bold text-sky-900 text-center">My Orders</h2>
+            <h2 className="text-3xl p-3 font-bold text-sky-900 text-center">{det[0].job_title}</h2>
             <h3 className="text-2xl p-3 font-bold text-sky-900 text-center">Total {det.length} applicant applied in this job</h3>
 
             <div className="overflow-x-auto">
