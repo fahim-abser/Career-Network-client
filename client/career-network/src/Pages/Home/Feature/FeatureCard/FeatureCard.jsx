@@ -6,15 +6,15 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
 const FeatureCard = ({ feature }) => {
-    const { _id, job_title, location, companyName, salary, skills,duty_hours,image } = feature;
+    const { _id, job_title, location, duty_hours, companyName, salary,image } = feature;
     return (
         <Link to={`/jobdetails/${_id}`}>
-        <div className="flex justify-start items-stretch shadow-md h-40 gap-2 bg-white hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500">
+        <div className="flex justify-start items-stretch shadow-md hover:shadow-lg h-40 gap-2 bg-white  hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500">
             <div className=''>
                 <img className='h-full p-2' src={image} alt="jobImage" />
             </div>
             <div className=" w-full h-full flex flex-col justify-evenly">
-                <h2 className="text-2xl text-sky-800">{job_title}</h2>
+                <h2 className="text-2xl font-semibold text-sky-800">{job_title}</h2>
                 <p className="flex items-center gap-2">
                         <MdWork className='text-sky-600' /> {companyName}
                 </p>
@@ -37,7 +37,7 @@ const FeatureCard = ({ feature }) => {
                 </div>
             </div>
         </div>
-        </Link>
+    </Link>
 
     );
 };

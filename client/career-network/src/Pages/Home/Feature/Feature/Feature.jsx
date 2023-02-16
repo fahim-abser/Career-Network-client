@@ -13,9 +13,12 @@ const Feature = () => {
 
 
     return (
-        <div className='my-10 py-10 lg:px-14 md:px-24 px-6'>
+        <div className='my-10 py-10 lg:px-14 md:px-24 px-6 bg-home'>
             <div className=''>
-                <h1 className='text-center font-bold text-4xl mb-[40px] font-secondaryFont'>Features Jobs</h1>
+                <div className='text-center'>
+                    <h1 className=' font-bold text-4xl mb-4 text-sky-800'>Features Jobs</h1>
+                    <p>Know your worth and find the job that qualify your life</p>
+                </div>
                 <div className='grid lg:grid-cols-2 mt-10 dark:bg-blue-800 gap-6'>
                     {
                         features.map((feature) => <FeatureCard feature={feature} key={feature.id}></FeatureCard>)

@@ -18,17 +18,17 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const { menu, them } = useSelector(store => store.state)
 
-    
+
 
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const notInfo = useGetNotifications(user?.email)
-    const notCounts = useGetUnreadNotNum(user?.email,'unread',loading)
+    const notCounts = useGetUnreadNotNum(user?.email, 'unread', loading)
     // notification
 
 
     // console.log(notInfo.length)
-     console.log(user?.email)
+    console.log(user?.email)
 
     const handleNotification = () => {
         setLoading(true)
@@ -37,17 +37,17 @@ const Navbar = () => {
         fetch(url, {
             method: 'PUT', // or 'PUT'
             headers: {
-              'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({ status: "read" })
-          })
+        })
             .then((response) => response.json())
             .then((data) => {
-              console.log('Success:', data);
-              setLoading(false);
+                console.log('Success:', data);
+                setLoading(false);
             })
             .catch((error) => {
-              console.error('Error:', error);
+                console.error('Error:', error);
             });
 
     }
@@ -66,7 +66,6 @@ const Navbar = () => {
         })
 
     })
-    console.log(condition)
 
     const navItems = <>
         <button onClick={() => dispatch(onSetTheme())} className=' mt-1 text-md w-full'><li className={` listItem  ${menu ? 'text-black' : "text-white lg:text-black"}`}>{them === false ? <BsMoonFill /> : <BsFillSunFill className='text-yellow-600' />}</li></button>
@@ -77,8 +76,8 @@ const Navbar = () => {
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/interview'>Interview Tips</Link></li>
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/resume'>Resume Building Tips</Link></li>
                 <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/coverletter'>Cover Letter Tips</Link></li>
-                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/article'>Articles</Link></li>
-                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link>Post An Article</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/article'>Articles</Link></li>
+                <li className='text-sm hover:bg-blue-400 lg:text-black'><Link to='/blog/postArticle'>Post An Article</Link></li>
             </ul>
         </div></li>
         <Link><li className={` listItem ${menu ? "text-black" : "text-white lg:text-black"}`}>About</li></Link>
@@ -100,12 +99,12 @@ const Navbar = () => {
         <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
-                <button onClick={()=>handleNotification()} className='text-2xl'> <MdNotificationsNone/></button>
-                    
+                    <button onClick={() => handleNotification()} className='text-2xl'> <MdNotificationsNone /></button>
 
-                   {
-                    notCounts.length > 0 ?   <span className="badge bg-red-600  top-0.5 right-0.5 badge-sm indicator-item">{notCounts?.length}</span>:''
-                  } 
+
+                    {
+                        notCounts.length > 0 ? <span className="badge bg-red-600  top-0.5 right-0.5 badge-sm indicator-item">{notCounts?.length}</span> : ''
+                    }
 
 
                 </div>
@@ -113,17 +112,17 @@ const Navbar = () => {
             </label>
             <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-96 bg-base-100  shadow">
                 <div className="card-body">
-                  <p className='text-lg font-bold mt-0'>Notifications</p>
-                  <div className='divider -mt-1 mb-0'></div>
+                    <p className='text-lg font-bold mt-0'>Notifications</p>
+                    <div className='divider -mt-1 mb-0'></div>
 
-                 {
+                    {
 
-                    notInfo?.map(notification=><div className='bg-base-100 shadow-xl rounded' key={notification._id}>
-                        <p className='p-3'>{notification.applicant_name} has applied for your job post {notification.job_title} <span className=''>--{moment(notification.createdAt).fromNow()}</span></p>
+                        notInfo?.map(notification => <div className='bg-base-100 shadow-xl rounded' key={notification._id}>
+                            <p className='p-3'>{notification.applicant_name} has applied for your job post {notification.job_title} <span className=''>--{moment(notification.createdAt).fromNow()}</span></p>
 
-                    </div>)
+                        </div>)
 
-                  } 
+                    }
 
                 </div>
             </div>
