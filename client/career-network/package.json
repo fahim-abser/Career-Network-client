@@ -32,6 +32,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "stripe": "^11.9.1",
+    "swiper": "^9.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

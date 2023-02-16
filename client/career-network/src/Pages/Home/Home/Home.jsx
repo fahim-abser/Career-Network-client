@@ -7,20 +7,23 @@ import TrustedSite from '../TrustedSite/TrustedSite';
 import Feature from '../Feature/Feature/Feature';
 import Opinion from '../Opinion/Opinion';
 import SearchSection from '../Search_Section/SearchSection';
-
+import AllCounting from '../AllCounting/AllCounting';
+import Review from '../Review/Review';
+import HomeBlog from '../HomeBlog/HomeBlog';
 
 const Home = () => {
     return (
         <div>
-
             <Banner></Banner>
             <Categories></Categories>
             <TrustedSite></TrustedSite>
             <JobPost></JobPost>
             <Feature></Feature>
+            <AllCounting></AllCounting>
+            <Review></Review>
             <Opinion></Opinion>
             <SearchSection></SearchSection>
-
+            <HomeBlog></HomeBlog>
         </div>
     );
 };

@@ -11,12 +11,15 @@ module.exports = {
         secondaryFont: ['Playfair Display','serif'],
         besicFont: ['Tinos', "serif"]
       }, 
-
+      backgroundImage:{
+        "hero-img":"url('/src/assets/Herobanner/Shiny Overlay.svg')"
+      },
       colors:{
         Primary:"#F9F5E7",  
         secondary:"#205295", 
-        info:"#253858",
-        home:"#FFFBF5"
+        button:"#1967D2",
+        home:"#F9F9F9",
+        secondaryButton:"#15CE73",
       },
       clipPath:{
         mypolygon:"polygon(0 0, 100% 0, 80% 100%, 0% 100%)"
