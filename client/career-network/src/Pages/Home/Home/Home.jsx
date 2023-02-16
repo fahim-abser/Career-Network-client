@@ -20,7 +20,7 @@ const Home = () => {
             <TrustedSite></TrustedSite>
             <JobPost></JobPost>
             <Feature></Feature>
-            <State></State>
+            {/* <State></State> */}
             <AllCounting></AllCounting>
             <Review></Review>
             <Opinion></Opinion>
