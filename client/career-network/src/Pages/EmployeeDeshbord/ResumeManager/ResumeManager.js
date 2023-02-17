@@ -5,6 +5,8 @@ import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../../Context/AuthProvider'
 
+import '@react-pdf-viewer/core/lib/styles/index.css';
+
 
 
 

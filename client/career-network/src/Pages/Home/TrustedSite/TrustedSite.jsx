@@ -34,7 +34,7 @@ const TrustedSite = () => {
         <div className='flex justify-center container mx-auto'>
             <div className='my-5'>
                 <Marquee play="true" speed={"40"} direction="right">
-                    <div className='grid lg:grid-cols-5 md:grid-cols-2 gap-2'>
+                    <div className='grid grid-cols-5 gap-2'>
                         {logos.map(logo => <TrustedSiteCard logo={logo}></TrustedSiteCard>)}
                     </div>
                 </Marquee>
