@@ -13,13 +13,13 @@ module.exports = {
       }, 
 
       backgroundImage:{
-        "hero-img":"url('/src/assets/Herobanner/Shiny Overlay.svg')"
+        "hero-img":"url('/src/assets/Herobanner/wave (2).svg')"
       },
 
       colors:{
         Primary:"#F9F5E7",  
         secondary:"#205295", 
-        button:"#1967D2",
+        button:"#2A8AA8",
         home:"#F9F9F9",
         secondaryButton:"#15CE73",
       },
