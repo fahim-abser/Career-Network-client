@@ -31,7 +31,7 @@ const ContactWithEmail = () => {
                                 <input className='h-12  input input-bordered' type="email" name='email' placeholder='Your Email' required />
                                 <input className='h-20  input input-bordered' type="text" name='subject' placeholder='Your Subject' required />
                                 <input className='h-20  input input-bordered' type="text" name='message' placeholder='Your Message' required />
-                                <input className='btn btn-success w-28 text-white flex mx-auto' type="submit" value='Send' />
+                                <input className='btn btn-success w-28 text-white flex mx-auto' type="submit" value='Send Email' />
                             </div>
                         </form>
                     </div>
