@@ -19,9 +19,14 @@ module.exports = {
       colors:{
         Primary:"#F9F5E7",  
         secondary:"#205295", 
-        button:"#2A8AA8",
         home:"#F9F9F9",
-        secondaryButton:"#15CE73",
+        button:"#2980b9",
+        gradientPrimaryLeft:"#00B4DB", 
+        gradientPrimaryRight:"#0083B0", 
+        gradientSecondaryLeft:"#15CE73",
+        gradientSecondaryRight:"#15CE73",
+        gradientComponetLeft:"#314755",
+        gradientComponetRight:"#26a0da",
       },
 
       clipPath: {
