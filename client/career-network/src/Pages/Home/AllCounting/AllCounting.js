@@ -8,7 +8,7 @@ import CountUp from "react-countup";
 function AllCounting(...rest) {
   const [viewPortEntered, setViewPortEntered] = useState(false);
   return (
-    <div className="md:h-60 h-full bg-secondary text-white md:py-0 py-10">
+    <div className="md:h-60 h-full componetGradient text-white md:py-0 py-10">
       <div className="grid md:grid-cols-3 place-items-center h-full gap-7">
         <div className="text-center">
           {/*  */}

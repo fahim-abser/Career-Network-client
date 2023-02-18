@@ -10,29 +10,12 @@ function EmployeeDeshbordNavbar() {
   // state context
     const {state} = useSelector(store=>store.counter)
     const dispatch = useDispatch()
-    const {user, logOut} = useContext(AuthContext)
+    const { logOut} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(err => console.log(err));
     }
-
-    // navbar list item 
-    const navItems =<>
-        <li className={`listItem`}><Link to="/employedashboard" className=''>deshbord</Link></li>
-        <li className={`listItem`}><Link to={"/employedashboard/resumemanager"}>Resume</Link></li>
-        <li className={`listItem`}><Link to={"/employedashboard/employejobs"}>jobs</Link></li>
-        <li className={`listItem `}><Link to={"/employedashboard/myaccount"}>account</Link></li> 
-        {user?.uid ? <>
-            <li className={`listItem`}><Link onClick={handleLogOut}>Logout</Link></li>
-        </> : <>
-                <li className={`listItem`}><Link to='/login'>Login</Link></li>
-            </>
-        }
-        <li className="tooltip tooltip-bottom" data-tip="name">
-            <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
-        </li>
-    </>
 
     // navbar start hare
     return (
@@ -48,8 +31,11 @@ function EmployeeDeshbordNavbar() {
                         </label>
                     </div>
                     <div className="hidden lg:flex">
-                        <ul className="text-xl font-medium flex items-center capitalize">
-                            {navItems}
+                        <ul className="text-xl font-medium flex items-center capitalize gap-4">
+                            <li className="btn buttonPrimary rounded-lg btn-sm border-none" onClick={handleLogOut}>Logout</li>
+                            <li className="tooltip tooltip-bottom" data-tip="name">
+                                <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
+                            </li>
                         </ul>
                     </div>
                 </div>

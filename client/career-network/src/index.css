@@ -8,6 +8,18 @@
     .InputData{
         @apply input w-full focus:outline-none input-bordered font-besicFont focus:border-sky-800 
     }
+    .buttonPrimary{
+        @apply bg-gradient-to-r from-gradientPrimaryLeft to-gradientPrimaryRight
+    }
+    .componetGradient{
+        @apply bg-gradient-to-r from-gradientComponetLeft to-gradientComponetRight
+    }
+    .dashboardnavbar{
+        @apply border-b-2 hover:bg-sky-800 hover:rounded-lg duration-150 capitalize
+    }
+    .dropdowntoggle{
+        @apply transition-all duration-300 componetGradient absolute w-full rounded-lg
+    }
 }
 
 :root{
