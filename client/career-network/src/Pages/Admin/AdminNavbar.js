@@ -9,29 +9,13 @@ import { AuthContext } from '../../Context/AuthProvider';
 function AdminNavbar() {
     const {state} = useSelector(store=>store.counter)
     const dispatch = useDispatch()
-    const {user, logOut,adminNavmenu} = useContext(AuthContext)
+    const {logOut} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(err => console.log(err));
     }
 
-    // navbar list item 
-    const navItems =<>
-        <Link to="/admin" className=''><li className={`listItem ${adminNavmenu ? 'text-black' : "text-white"}`}>deshbord</li></Link>
-        <Link to={""}><li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}>Resume</li></Link>
-        <Link to={''}><li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}>jobs</li></Link>
-        <Link to={""}><li className={`listItem ${adminNavmenu? "text-black": "text-white"}`}>account</li></Link>
-        {user?.uid ? <>
-            <Link onClick={handleLogOut}><li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}>Logout</li></Link>
-        </> : <>
-                <li className={`listItem ${adminNavmenu ? "text-black" : "text-white"}`}><Link to='/login'>Login</Link></li>
-            </>
-        }
-        <li className="tooltip tooltip-bottom" data-tip="name">
-            <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
-        </li>
-    </>
     // navbar start hare
     return (
     <div className='h-16 sticky top-0 z-20'>
@@ -46,8 +30,11 @@ function AdminNavbar() {
                     </label>
                 </div>
                 <div className="hidden lg:flex">
-                    <ul className="text-xl font-medium flex items-center capitalize">
-                        {navItems}
+                    <ul className="text-xl font-medium flex items-center gap-4 capitalize">
+                        <li onClick={handleLogOut} className="btn buttonPrimary rounded-lg btn-sm border-none">Logout</li>
+                        <li className="tooltip tooltip-bottom" data-tip="name">
+                            <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -7,8 +7,21 @@ import "./Review.css"
 import { EffectCoverflow, Pagination } from "swiper";
 import { BsFacebook, BsGithub } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
+import { useQuery } from "react-query";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 export default function App() {
+    const {user}=useContext(AuthContext)
+
+    const {data:comments=[]}=useQuery({
+        queryKey:[user],
+        queryFn:(async()=>{
+            const res = await fetch("http://localhost:5000/teamcomment")
+            const data = res.json()
+            return data
+        })
+    })
+    console.log(comments)
   return (
     <div className="relative h-full m-0 px-0 pt-14 pb-10 bg-home ">
         <div>
@@ -32,7 +45,7 @@ export default function App() {
                 modules={[EffectCoverflow, Pagination]}
                 className="mySwiper"
             >
-                <SwiperSlide>
+                {comments?.length && comments?.map((item)=> <SwiperSlide>
                     <div className="block w-full h-full  px-6 bg-testimonial shadow-md hover:shadow-inner hover:shadow-slate-800 shadow-slate-400 transition-shadow duration-300 capitalize rounded-tl-3xl rounded-br-3xl">
                         <div className="flex flex-col justify-evenly h-full items-start">
                             <div className="flex justify-between items-center w-full">
@@ -53,7 +66,7 @@ export default function App() {
                             </div>
                         </div>
                     </div>
-                </SwiperSlide>
+                </SwiperSlide>)}
                 <SwiperSlide>
                     <div className="block w-full h-full bg-sky-700 px-6">
                         <h2>hello world</h2>

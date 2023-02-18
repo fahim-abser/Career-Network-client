@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { RxCross1 } from 'react-icons/rx'
 import { useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -7,11 +7,6 @@ import { onlyDrawerClick } from '../../app/DashboardSlice/DashboardSlice'
 
 function EmployeeDrawer() {
     const dispatch = useDispatch()
-    const navbar = [
-        {name:"my dashboard",send:"/employedashboard"},
-        {name:"resume",send:"/employedashboard/resumemanager"},
-        {name:"my account",send:"/employedashboard/myaccount"},
-    ]
   return (
     <div className=''>
         <div className="">
@@ -21,11 +16,10 @@ function EmployeeDrawer() {
                     <button onClick={()=>dispatch(onlyDrawerClick())} className='text-2xl'><RxCross1 className='sm:hidden'/></button>
                 </div>
                 <ul className="menu p-4 text-white">
-                    {navbar.map((item, i)=>(
-                        <li key={i} onClick={()=>dispatch(onlyDrawerClick())} className="border-b-2 hover:bg-sky-800 hover:rounded-lg duration-150 capitalize">
-                            <Link to={item.send}>{item.name}</Link>
-                        </li>
-                    ))}
+                    <li><Link to="/employedashboard" className="dashboardnavbar">deshbord</Link></li>
+                    <li><Link to={"/employedashboard/resumemanager"} className="dashboardnavbar" >Resume</Link></li>
+                    <li><Link to={"/employedashboard/employejobs"}className="dashboardnavbar">jobs</Link></li>
+                    <li><Link to={"/employedashboard/myaccount"}className="dashboardnavbar">account</Link></li>
                 </ul>
             </div>
         </div>

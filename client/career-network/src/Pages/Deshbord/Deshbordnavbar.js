@@ -1,88 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { onclickdrawerbutton } from "../../app/DashboardSlice/DashboardSlice";
-
 import { AuthContext } from "../../Context/AuthProvider";
 
 function Deshbordnavbar() {
   // state context
   const { state } = useSelector(store => store.counter)
   const dispatch = useDispatch()
-  const [inbox, setInbox] = useState(false);
-  const [recuriter, setRecuriter] = useState(false);
-  const { user, logOut } = useContext(AuthContext);
+  const { logOut } = useContext(AuthContext);
   const handleLogOut = () => {
-    logOut()
+      logOut()
       .then(() => { })
       .catch((err) => console.log(err));
   };
-  // navbar list item
 
-  const navItems = (<>
-    <li className={`px-3  dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>
-      <Link to={"/dashboard"}>Recruiter</Link>
-    </li>
-    <div onMouseEnter={() => setInbox(true)} onMouseLeave={() => setInbox(false)} className=" mx-1">
-      <li className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>
-        <Link>inbox</Link>
-      </li>
-      <ul className={`font-besicFont h-0 lg:absolute block ${inbox ? " h-fit animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3" : "hidden "}`}>
-        <Link><li className="py-1">interview</li></Link>
-        <Link><li className="py-1">jobs</li></Link>
-        <Link><li className="py-1">offer</li></Link>
-        <Link><li className="py-1">candidate email</li></Link>
-        <Link> <li className="py-1">internal comment</li></Link>
-        <Link><li className="py-1">condidate alert</li></Link>
-      </ul>
-    </div>
-    <div onMouseEnter={() => setRecuriter(true)} onMouseLeave={() => setRecuriter(false)} className="mx-1 ">
-      <li className={`px-3 dark:text-white lg:pl-3 pl-10  lg:py-1 py-2  lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>
-        <Link>Recruitment</Link>
-      </li>
-      <ul className={`font-besicFont ${recuriter ? "lg:absolute block animate lg:pl-3 pl-16 duration-1000 bg-slate-200 text-black lg:p-3" : "hidden "}`}>
-        <Link to={"/dashboard/recruitment"}><li className="py-1">Posted job</li></Link>
-        <Link to={"/dashboard/recruitment/createjob"}><li className="py-1">Add job</li></Link>
-      </ul>
-    </div>
-    <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>
-      <Link>Employee</Link>
-    </li>
-    <li className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"} font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}>
-      <Link to={"/deshbord"}>Dashboard</Link>
-    </li>
-    {user?.uid ? (
-      <>
-        <li
-          className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"
-            } font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}
-        >
-          <Link onClick={handleLogOut}>Logout</Link>
-        </li>
-      </>
-    ) : (
-      <>
-        <li
-          className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"
-            } font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}
-        >
-          <Link to="/login">Login</Link>
-        </li>
-        <li
-          className={`px-3 dark:text-white lg:pl-3 pl-10 mx-1 lg:py-1 py-2 lg:text-black ${state ? "text-black" : "text-white"
-            } font-besicFont hover:bg-sky-900 lg:hover:bg-transparent`}
-        >
-          <Link to="/signup">Signup</Link>
-        </li>
-      </>
-    )}
-    <li className="tooltip tooltip-bottom" data-tip="name">
-      <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
-    </li>
-  </>
-  );
   // navbar start hare
   return (
     <div className='h-16 sticky top-0 z-20'>
@@ -97,8 +31,11 @@ function Deshbordnavbar() {
             </label>
           </div>
           <div className="hidden lg:flex">
-            <ul className="text-xl font-medium flex items-center capitalize">
-              {navItems}
+            <ul className="text-xl font-medium flex items-center gap-4 capitalize">
+                <li onClick={handleLogOut} className="btn buttonPrimary rounded-lg btn-sm border-none">Logout</li>
+                <li className="tooltip tooltip-bottom" data-tip="name">
+                    <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
+                </li>
             </ul>
           </div>
         </div>
