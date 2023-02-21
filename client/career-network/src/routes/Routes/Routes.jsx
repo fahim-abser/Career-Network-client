@@ -163,6 +163,10 @@ const router = createBrowserRouter([
                 element: <Employess></Employess>
             },
             {
+                path: "/dashboard/rprofile",
+                element: <RProfile></RProfile>
+            },
+            {
                 path: "/dashboard/reports",
                 element: <Reports></Reports>
             },
