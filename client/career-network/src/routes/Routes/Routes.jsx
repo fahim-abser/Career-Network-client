@@ -40,6 +40,7 @@ import StepByStep from "../../Pages/Blogs/StepByStep";
 import ChooseKey from "../../Pages/Blogs/ChooseKey";
 import PostArticle from "../../Pages/Blogs/PostArticle";
 import DetailsR from "../../Pages/Deshbord/Recruitments/Recruit/DetailsR";
+import RProfile from "../../Pages/Deshbord/Recruitments/RProfile/RProfile";
 
 
 
@@ -162,6 +163,10 @@ const router = createBrowserRouter([
                 element: <Employess></Employess>
             },
             {
+                path: "/dashboard/rprofile",
+                element: <RProfile></RProfile>
+            },
+            {
                 path: "/dashboard/reports",
                 element: <Reports></Reports>
             },
@@ -169,6 +174,7 @@ const router = createBrowserRouter([
                 path: "/dashboard/setting",
                 element: <Setting></Setting>
             }
+
         ])
     },
     {
@@ -206,9 +212,7 @@ const router = createBrowserRouter([
                 path: "/employedashboard/applieddetails/:Id",
                 element: <DetailsR></DetailsR>,
                 loader: ({ params }) => fetch(`http://localhost:5000/applieddetails/${params.Id}`)
-
             }
-
         ])
     },
     {
