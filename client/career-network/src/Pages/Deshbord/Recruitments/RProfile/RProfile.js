@@ -15,15 +15,13 @@ const RProfile = () => {
         const formData = new FormData()
         const form = e.target;
         const companyName = form.companyName.value;
-        const location = form.location.value;
-        const category = form.category.value;
-        const jobSummary = form.jobSummary.value;
+        const country = form.country.value;
+        const number = form.number.value;
+        const adress = form.adress.value;
         const description = form.description.value;
-        const experience = form.experience.value;
-        const postDate = date
         const imagedata = e.target.image.files[0]
         formData.append("image", imagedata)
-        console.log(formData)
+        console.log(country, companyName, number, adress, description, imagedata)
         //  imgbb api 
         fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d', {
             method: "POST",
@@ -36,20 +34,16 @@ const RProfile = () => {
                     const postInfo = {
                         image: data?.data?.url,
                         companyName,
-                        location,
-                        category_name: category,
-                        jobSummary,
+                        country,
+                        number: number,
+                        adress,
                         description,
-                        experience,
-                        postDate,
-                        isPaid: false,
-                        isVerify: false,
                         recruiterEmail: user?.email
                     };
-
-                    const url = `http://localhost:5000/jobs`
+                    console.log(postInfo)
+                    const url = `http://localhost:5000/rprofile?email=${user?.email}`
                     fetch(url, {
-                        method: 'POST',
+                        method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
                         },
@@ -58,8 +52,8 @@ const RProfile = () => {
                         .then((response) => response.json())
                         .then((data) => {
                             console.log('Success:', data);
-                            toast.success('job posted successfully')
-                            navigate(`/category/${category}`)
+                            toast.success('profile updated successfully')
+                            navigate(``)
 
                         })
                         .catch((error) => {
@@ -80,20 +74,6 @@ const RProfile = () => {
             <div className="">
                 <form onSubmit={handleCreateProfile}>
                     <div className="flex md:flex-row flex-col gap-6 justify-center items-center ">
-                        {/* title */}
-                        <div className="w-full ">
-                            <label className=" ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Job Title
-                            </label>
-                            <input
-                                type="text"
-                                name="title"
-                                placeholder="Job Title"
-                                className="InputData"
-                                required
-                            />
-                        </div>
-                        {/* City */}
                         <div className="w-full">
                             <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
                                 Company Name
@@ -111,12 +91,12 @@ const RProfile = () => {
                         {/* Location */}
                         <div className="w-full">
                             <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Location
+                                Country
                             </label>
                             <input
                                 type="text"
-                                name="location"
-                                placeholder="Location"
+                                name="country"
+                                placeholder="Country"
                                 className="InputData"
                                 required
                             />
@@ -124,92 +104,28 @@ const RProfile = () => {
                         {/* Salary */}
                         <div className="w-full">
                             <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Salary
+                                Number
                             </label>
                             <input
-                                type="text"
-                                name="salary"
+                                type="number"
+                                name="number"
                                 id="fName"
-                                placeholder="Salary"
-                                className="InputData"
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div className="flex md:flex-row flex-col gap-6 justify-center items-center">
-                        {/* Job skills */}
-                        <div className="w-full">
-                            <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                deadline
-                            </label>
-                            <input
-                                type="date"
-                                name="dateline"
-                                placeholder="Job Skills"
-                                className="InputData"
-                                required
-                            />
-                        </div>
-                        {/* Job Category */}
-                        <div className="w-full">
-                            <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Job Category
-                            </label>
-                            <select
-                                name="category"
-                                className=" InputData"
-                            >
-
-                                <option defaultValue="Choose a category">Choose a category</option>
-                                <option defaultValue="Designer">Designer</option>
-                                <option defaultValue="Web Developer">Web Developer</option>
-                                <option defaultValue="Marketing">Marketing</option>
-                                <option defaultValue="Education">Education</option>
-                                <option defaultValue="Writing And Editing">
-                                    Writing And Editing
-                                </option>
-                                <option value="Sales">Sales</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div className="flex gap-6 md:flex-row flex-col jsutify-center items-center my-3">
-                        {/* Job Type selected */}
-                        <div className="w-full">
-                            <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Job Type
-                            </label>
-                            <input
-                                type="text"
-                                name="jobType"
-                                placeholder=" Job Type"
-                                className="InputData"
-                                required
-                            />
-                        </div>
-                        {/* Experienced Required */}
-                        <div className="w-full">
-                            <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Experience Required
-                            </label>
-                            <input
-                                type="text"
-                                name="experience"
-                                placeholder=" Experience Required"
+                                placeholder="Phone Number"
                                 className="InputData"
                                 required
                             />
                         </div>
                     </div>
                     <div className="flex gap-6 md:flex-row flex-col jsutify-center items-center my-3 ">
+                        {/* Adress Required */}
                         <div className="w-full">
                             <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                                Job Skills
+                                Adress
                             </label>
                             <input
                                 type="text"
-                                name="skills"
-                                placeholder="Job Skills"
+                                name="adress"
+                                placeholder=" Adress Required"
                                 className="InputData"
                                 required
                             />
@@ -227,22 +143,10 @@ const RProfile = () => {
                             />
                         </div>
                     </div>
-                    {/* Job Summary */}
-                    <div className="w-full">
-                        <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                            Job Summary
-                        </label>
-                        <textarea
-                            name="jobSummary"
-                            placeholder="Write here.."
-                            className="w-full border-2 h-20 rounded-md focus:outlet-none focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2"
-                            required
-                        ></textarea>
-                    </div>
-                    {/* Job description */}
+                    {/* Company description */}
                     <div className="w-full my-3">
                         <label className="ml-2 block font-besicFont font-bold text-[#07074D]">
-                            Job Description
+                            Company Description
                         </label>
                         <textarea
                             name="description"
