@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import GetLoading from '../components/Loading/GetLoading';
 import { AuthContext } from '../Context/AuthProvider';
 import useAdmin from '../others/Hooks/useAdmin';
-import Loading from '../Pages/Shared/Loading/Loading';
 
 const AdminRoute = ({ children }) => {
 
@@ -11,7 +11,9 @@ const AdminRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading || isAdminLoading) {
-        return <Loading></Loading>
+        return <div className='h-screen grid place-items-center'>
+            <GetLoading></GetLoading>
+        </div>
     }
 
     if (user && isAdmin) {

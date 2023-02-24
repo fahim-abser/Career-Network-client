@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
-import Loading from '../Pages/Shared/Loading/Loading';
+import GetLoading from '../components/Loading/GetLoading';
 
 
 const PrivateRoute = ({ children }) => {
@@ -10,7 +10,9 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <Loading></Loading>
+        return <div className='h-screen grid place-items-center'>
+            <GetLoading></GetLoading>
+        </div>
     }
 
     if (user) {

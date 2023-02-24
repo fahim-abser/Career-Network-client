@@ -2,12 +2,8 @@ import React from 'react';
 
 const GetLoading = () => {
     return (
-        <div className=''>
-            <div className="flex items-center justify-center space-x-2">
-                <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
-                <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
-                <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
-            </div>
+        <div className='text-center'>
+            <div className="radial-progress animate-spin text-sky-700" style={{ "--value": "70", "--size": "6rem", "--thickness": "10px" }}></div>
         </div>
     );
 };
