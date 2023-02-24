@@ -65,7 +65,7 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen shadow-2xl p-10">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-row-reverse">
                 <div className='h-[600px] flex justify-center'>
                     <div className='w-96 p-7'>
                         <form onSubmit={handleSubmit(handleLogin)}>
@@ -94,7 +94,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="lg:block hidden">
                     <img className=' h-[550px]' src={login} alt="" />
                 </div>
             </div>

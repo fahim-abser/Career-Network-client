@@ -1,10 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Footer from '../Shared/Footer/Footer'
 import AdminNavbar from './AdminNavbar'
 import AdminDrawer from './AdminDrawer'
 import { useDispatch, useSelector } from 'react-redux'
 import { onlyDrawerClick } from '../../app/DashboardSlice/DashboardSlice'
+import Footer2 from '../Shared/Footer/Footer2'
 
 function AdminDeshbord() {
   const {state} = useSelector(store=>store.counter)
@@ -16,10 +16,10 @@ function AdminDeshbord() {
     </div>
     <div className='w-full overflow-y-scroll'>
         <AdminNavbar></AdminNavbar>
-          <div onClick={()=>dispatch(onlyDrawerClick())} className='lg:mx-6'>
+          <div onClick={()=>dispatch(onlyDrawerClick())} className=''>
               <Outlet></Outlet>
           </div>
-        <Footer></Footer>
+        <Footer2></Footer2>
     </div>
 </div>
   )

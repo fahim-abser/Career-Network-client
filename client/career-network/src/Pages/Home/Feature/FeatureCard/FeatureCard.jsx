@@ -9,16 +9,16 @@ const FeatureCard = ({ feature }) => {
     const { _id, job_title, location, duty_hours, companyName, salary,image } = feature;
     return (
         <Link to={`/jobdetails/${_id}`}>
-        <div className="flex justify-start items-stretch shadow-md hover:shadow-lg h-40 gap-2 bg-white  hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500 dark:text-black">
+        <div className="flex justify-start items-stretch shadow-md hover:shadow-lg md:h-40 h-full lg:my-0 my-7 gap-2 bg-white  hover:shadow-slate-700 shadow-slate-300 rounded-lg transition-all duration-500 dark:text-black">
             <div className=''>
-                <img className='h-full p-2' src={image} alt="jobImage" />
+                <img className='h-full p-2 w-40' src={image} alt="jobImage" />
             </div>
-            <div className=" w-full h-full flex flex-col justify-evenly">
+            <div className=" w-full h-full flex flex-col justify-evenly sm:mr-0 mr-3">
                 <h2 className="text-2xl font-semibold text-sky-800">{job_title}</h2>
                 <p className="flex items-center gap-2">
                         <MdWork className='text-sky-600' /> {companyName}
                 </p>
-                <div className='flex justify-start items-center gap-4'>
+                <div className='flex justify-start sm:items-center gap-4 sm:flex-row flex-col'>
                     <p className="flex items-center gap-2">
                         <MdLocationPin className='text-sky-600' />
                         {location}
