@@ -61,7 +61,7 @@ const Navbar = () => {
         queryKey: [user],
         queryFn: (async () => {
             const res = await fetch(`http://localhost:5000/checkit?email=${user?.email}`)
-            const data = res.json()
+            const data = await res.json()
             return data
         })
 
@@ -93,7 +93,6 @@ const Navbar = () => {
 
 
         }
-
 
         {/* notification */}
         <div className="dropdown dropdown-end">
@@ -129,6 +128,7 @@ const Navbar = () => {
         </div>
         {/* modal */}
     </>
+    console.log(condition)
     return (
         <div className={`relative h-16 `}>
             <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>

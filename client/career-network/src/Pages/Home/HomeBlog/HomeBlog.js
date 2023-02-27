@@ -8,10 +8,20 @@ import { useTasksQuery } from '../../../app/SomeApi/taskApi';
 import { AiOutlineUser } from 'react-icons/ai';
 import { BiMessageDetail } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import GetLoading from '../../../components/Loading/GetLoading';
 
 function HomeBlog() {
-    const {data,error,isSuccess,}=useTasksQuery()
-    // console.log(data)
+
+    const {data,isError,error,isSuccess,isLoading,isFetching}=useTasksQuery()
+    if(isLoading || isFetching){
+        return <div className='grid place-items-center h-80'>
+            <GetLoading></GetLoading>
+        </div>
+    }
+    if(isError){
+        return <p>{error.status}</p>
+    }
+
   return (
     <div className='relative h-full m-0 px-0 py-8 w-full bg-home'>
         <div className='text-center capitalize'>
