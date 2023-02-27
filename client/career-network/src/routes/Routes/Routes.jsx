@@ -199,16 +199,19 @@ const router = createBrowserRouter([
                 element: <ResumeManager></ResumeManager>
             },
             {
-                path: "/employedashboard/appliedjobs",
-                element: <AppliedJobs></AppliedJobs>
+                path: "/employedashboard/appliedjobs/:email",
+                element: <AppliedJobs></AppliedJobs>,
+               
             },
             {
-                path: "/employedashboard/savedjobs",
-                element: <SavedJobs></SavedJobs>
+                path: "/employedashboard/savedjobs/:email",
+                element: <SavedJobs></SavedJobs>,
+               
             },
             {
-                path: "/employedashboard/candidateprofile",
-                element: <CandidateProfile></CandidateProfile>
+                path: "/employedashboard/candidateprofile/:email",
+                element: <CandidateProfile></CandidateProfile>,
+                loader: ({ params }) => fetch(`http://localhost:5000/employedashboard/candidateprofile/${params.email}`)
             },
             {
                 path: "/employedashboard/createprofile",

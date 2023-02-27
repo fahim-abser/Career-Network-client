@@ -17,7 +17,7 @@ import useGetNotifications from '../../hooks/useGetNotifications';
 const JobDetails = () => {
   const data = useLoaderData()
   const user = useContext(AuthContext)
-  const { _id, job_title, duty_hours, location, salary, companyName, experience, deadline, description, jobSummary,recruiterEmail } = data
+  const { _id, job_title, duty_hours, location, salary, companyName, experience, deadline, description, jobSummary,recruiterEmail,category_name } = data
   const descrip = description.split('.')
 
   const [loading, setLoading] = useState(false)
@@ -60,6 +60,8 @@ const JobDetails = () => {
       applicant_email: user?.user?.email,
       jobId: _id,
       job_title,
+      duty_hours,
+      category_name,
       company: companyName,
       status: "Appiled",
     }
@@ -90,7 +92,10 @@ const JobDetails = () => {
       applicant_email: user?.user?.email,
       jobId: _id,
       job_title,
-      company: "Soft Tech",
+      duty_hours,
+      category_name,
+      company: companyName,
+      status: "Appiled",
 
     }
 

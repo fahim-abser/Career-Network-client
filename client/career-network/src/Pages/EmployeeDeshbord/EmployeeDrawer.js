@@ -10,9 +10,12 @@ import { FaBriefcase } from "react-icons/fa";
 import { AiOutlineQrcode } from "react-icons/ai";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
+import { useContext } from 'react'
+import { AuthContext } from '../../Context/AuthProvider'
 
 function EmployeeDrawer() {
     const dispatch = useDispatch()
+    const {user} = useContext(AuthContext)
   return (
     <div className=''>
         <div className="">
@@ -23,11 +26,11 @@ function EmployeeDrawer() {
                 </div>
                 <ul className="menu p-4 text-white">
                     <li><Link to="/employedashboard" className="dashboardnavbar"><span><AiOutlineQrcode/></span> dashbord</Link></li>
-                    <li><Link to="/employedashboard/candidateprofile" className="dashboardnavbar"><span><CgProfile/></span> Profile</Link></li>
+                    <li><Link to={`/employedashboard/candidateprofile/${user?.email}`} className="dashboardnavbar"><span><CgProfile/></span> Profile</Link></li>
                     <li><Link to="/employedashboard/createprofile" className="dashboardnavbar"><span><CgProfile/></span>Create Profile</Link></li>
                     <li><Link to={"/employedashboard/resumemanager"} className="dashboardnavbar" ><span><HiOutlineDocumentText/></span> Resume</Link></li>
-                    <li><Link to={"/employedashboard/appliedjobs"} className="dashboardnavbar" ><span><FaBriefcase/></span> Applied Jobs</Link></li>
-                    <li><Link to={"/employedashboard/savedjobs"} className="dashboardnavbar" ><span><BsBookmarkCheck/></span> Saved Jobs</Link></li>
+                    <li><Link to={`/employedashboard/appliedjobs/${user?.email}`} className="dashboardnavbar" ><span><FaBriefcase/></span> Applied Jobs</Link></li>
+                    <li><Link to={`/employedashboard/savedjobs/${user?.email}`} className="dashboardnavbar" ><span><BsBookmarkCheck/></span> Saved Jobs</Link></li>
                     <li><Link to={"/employedashboard/employejobs"}className="dashboardnavbar"><span><SlNote/></span> My Task</Link></li>
                     <li><Link to={"/employedashboard/myaccount"}className="dashboardnavbar"><span><RiLogoutCircleRLine/></span> Logout</Link></li>
                 </ul>
