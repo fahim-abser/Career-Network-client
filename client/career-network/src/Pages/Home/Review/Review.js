@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -9,21 +9,13 @@ import { BsFacebook, BsGithub } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
 import { useCommentQuery } from "../../../app/SomeApi/taskApi";
 import GetLoading from "../../../components/Loading/GetLoading";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 export default function App() {
-<<<<<<< HEAD
+
     const {user}=useContext(AuthContext)
 
-    const {data:comments=[]}=useQuery({
-        queryKey:[user],
-        queryFn:(async()=>{
-            const res = await fetch("http://localhost:5000/teamcomment")
-            const data = res.json()
-            return data
-        })
-    })
-    // console.log(comments)
-=======
+   
     const {data:comments=[],isLoading,isFetching,isSuccess,isError,error}=useCommentQuery()
     if(isLoading || isFetching){
         return <div className="grid place-items-center h-80">
@@ -33,7 +25,12 @@ export default function App() {
     if(isError){
         return <p>{error.status}</p>
     }
->>>>>>> a7ab6d1d29014f0a506db0aa3049260f07986077
+    // console.log(comments)
+
+    if(isError){
+        return <p>{error.status}</p>
+    }
+
   return (
     <div className="relative h-full m-0 px-0 pt-14 pb-10 bg-home ">
         <div>
