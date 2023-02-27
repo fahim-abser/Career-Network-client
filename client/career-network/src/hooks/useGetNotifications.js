@@ -6,13 +6,13 @@ const useGetNotifications = (email) => {
 
     useEffect(() => {
       if (email) {
-        console.log(email)
+        // console.log(email)
         const url =`http://localhost:5000/notifications?email=${email}`
-         console.log(url)
+        //  console.log(url)
             fetch(url)
             .then(res=>res.json())
             .then(data=> {
-                console.log(data)
+                // console.log(data)
                 setNotInfos(data)
                 
             }) 

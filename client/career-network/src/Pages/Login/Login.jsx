@@ -6,6 +6,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useLocation, useNavigate } from 'react-router';
 import login from '../../../src/others/images/login.png'
 import useToken from '../../others/Hooks/useToken';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const { logIn, googleSignIn, setUser, githubSignIn } = useContext(AuthContext)
@@ -86,6 +87,7 @@ const Login = () => {
                                 })} className="input input-bordered w-full max-w-xs" />
                                 {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                             </div>
+                            <p>Don't have any account?<Link to='/signup'><span className='text-blue-600'>Register</span></Link></p>
                             <input className='btn  w-full mt-4' value="Login" type="submit" />
                         </form>
                         <div className=''>

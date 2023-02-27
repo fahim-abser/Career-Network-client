@@ -42,7 +42,9 @@ function AddResume() {
     }
   return (
     <div>
+        
         <div className='min-h-screen overflow-hidden -z-50 bg-sky-800 text-white'>
+            
             <div>
                 <div className='text-center mt-16'>
                     <h2 className='text-6xl capitalize font-semibold'>add you resume or cv</h2>

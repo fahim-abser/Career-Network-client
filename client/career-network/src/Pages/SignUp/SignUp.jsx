@@ -31,7 +31,7 @@ const SignUp = () => {
                 setUser(user);
                 console.log(user)
                 const userInfo = {
-                    displayName: user.name
+                    displayName: data.name
                 }
                 saveUser(data.name, data.email, data.role);
                 updateUser(userInfo)

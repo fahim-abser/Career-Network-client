@@ -5,6 +5,7 @@ import Footer from '../Shared/Footer/Footer'
 import EmployeeDrawer from './EmployeeDrawer'
 import { useDispatch, useSelector } from 'react-redux'
 import { onlyDrawerClick } from '../../app/DashboardSlice/DashboardSlice'
+import Footer2 from '../Shared/Footer/Footer2'
 
 function EmployeeDeshbord() {
   const {state} = useSelector(store=>store.counter)
@@ -19,7 +20,7 @@ function EmployeeDeshbord() {
                 <div onClick={()=>dispatch(onlyDrawerClick())} className='lg:mx-6'>
                     <Outlet></Outlet>
                 </div>
-              <Footer></Footer>
+              <Footer2></Footer2>
           </div>
     </div>
   )

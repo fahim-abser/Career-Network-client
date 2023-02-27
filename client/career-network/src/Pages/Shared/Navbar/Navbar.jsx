@@ -28,12 +28,12 @@ const Navbar = () => {
 
 
     // console.log(notInfo.length)
-    console.log(user?.email)
+    // console.log(user?.email)
 
     const handleNotification = () => {
         setLoading(true)
         const url = `http://localhost:5000/notifications?email=${user?.email}`
-        console.log(url)
+        // console.log(url)
         fetch(url, {
             method: 'PUT', // or 'PUT'
             headers: {

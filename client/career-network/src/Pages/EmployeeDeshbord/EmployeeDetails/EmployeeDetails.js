@@ -1,22 +1,147 @@
-import React from 'react'
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 
-function EmployeeDetails() {
+import { FaBriefcase } from "react-icons/fa";
+import { BsBookmarkCheck } from "react-icons/bs";
+import VisibilitySensor from "react-visibility-sensor";
+import { SlNote } from "react-icons/sl";
+import CountUp from "react-countup";
+function EmployeeDetails(...rest) {
+  const user = useContext(AuthContext);
+  const [viewPortEntered, setViewPortEntered] = useState(false);
+  console.log(user?.user);
   return (
-    <div className='' >
-      <div>
-      htmlFor="my-drawer-2" lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    <div className="pl-4">
+      <p className="text-3xl text font-bold">
+        Howdy, {user?.user?.displayName}
+      </p>
+      {/* breadcrumbs */}
+      <div class="flex items-center py-2 overflow-x-auto whitespace-nowrap">
+        <Link to="/" class="text-sky-700 dark:text-gray-200">
+          Home
+        </Link>
 
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+        <span class="mx-2 text-sky-700 dark:text-gray-300 rtl:-scale-x-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
 
-
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+        <p class="text-sky-700 dark:text-gray-200 ">Dashboard</p>
+      </div>
+      {/*  */}
+      {/* card */}
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-8 ">
+        <div>
+          <div class="flex w-full  justify-between p-6 mt-16 bg-blue-800 text-white rounded-lg shadow-lg dark:bg-gray-800">
+            <div className="">
+              <p className="text-3xl">Job Applied</p>
+              <CountUp {...rest} start={viewPortEntered ? null : 0} end={7}>
+                {({ countUpRef }) => {
+                  return (
+                    <VisibilitySensor
+                      active={!viewPortEntered}
+                      onChange={(isVisible) => {
+                        if (isVisible) {
+                          setViewPortEntered(true);
+                        }
+                      }}
+                    >
+                      <div className="flex items-center  font-bold text-5xl ">
+                        <h1 className="">0</h1>
+                        <h2 className="" ref={countUpRef}>
+                         
+                        </h2>
+                      </div>
+                    </VisibilitySensor>
+                  );
+                }}
+              </CountUp>
+            </div>
+            <div className="pt-4">
+              <FaBriefcase size={50}></FaBriefcase>
+            </div>
+          </div>
+        </div>
+        {/* 2 */}
+        <div>
+          <div>
+            <div class="flex w-full  justify-between p-6 mt-16 bg-black text-white rounded-lg shadow-lg dark:bg-gray-800">
+              <div>
+                <p className="text-3xl">Saved Job</p>
+                <CountUp {...rest} start={viewPortEntered ? null : 0} end={7}>
+                {({ countUpRef }) => {
+                  return (
+                    <VisibilitySensor
+                      active={!viewPortEntered}
+                      onChange={(isVisible) => {
+                        if (isVisible) {
+                          setViewPortEntered(true);
+                        }
+                      }}
+                    >
+                      <div className="flex items-center  font-bold text-5xl ">
+                        <h1 className="">0</h1>
+                        <h2 className="" ref={countUpRef}>
+                         
+                        </h2>
+                      </div>
+                    </VisibilitySensor>
+                  );
+                }}
+              </CountUp>
+              </div>
+              <div className="pt-4">
+                <BsBookmarkCheck size={50}></BsBookmarkCheck>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* 3 */}
+        <div>
+          <div class="flex w-full  justify-between p-6 mt-16 bg-orange-700 text-white rounded-lg shadow-lg dark:bg-gray-800">
+            <div>
+              <p className="text-3xl">Task</p>
+              <CountUp {...rest} start={viewPortEntered ? null : 0} end={2}>
+                {({ countUpRef }) => {
+                  return (
+                    <VisibilitySensor
+                      active={!viewPortEntered}
+                      onChange={(isVisible) => {
+                        if (isVisible) {
+                          setViewPortEntered(true);
+                        }
+                      }}
+                    >
+                      <div className="flex items-center  font-bold text-5xl ">
+                      <h1 className="">0</h1>
+                        <h2 className="" ref={countUpRef}>
+                     
+                        </h2>
+                      </div>
+                    </VisibilitySensor>
+                  );
+                }}
+              </CountUp>
+            </div>
+            <div className="pt-4">
+              <SlNote size={50}></SlNote>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default EmployeeDetails
+export default EmployeeDetails;

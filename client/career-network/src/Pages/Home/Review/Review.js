@@ -21,7 +21,7 @@ export default function App() {
             return data
         })
     })
-    console.log(comments)
+    // console.log(comments)
   return (
     <div className="relative h-full m-0 px-0 pt-14 pb-10 bg-home ">
         <div>

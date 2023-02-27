@@ -40,6 +40,10 @@ import StepByStep from "../../Pages/Blogs/StepByStep";
 import ChooseKey from "../../Pages/Blogs/ChooseKey";
 import PostArticle from "../../Pages/Blogs/PostArticle";
 import DetailsR from "../../Pages/Deshbord/Recruitments/Recruit/DetailsR";
+import AppliedJobs from "../../Pages/EmployeeDeshbord/AppliedJobs/AppliedJobs";
+import SavedJobs from "../../Pages/EmployeeDeshbord/SavedJobs/SavedJobs";
+import CandidateProfile from "../../Pages/EmployeeDeshbord/CandidateProfile/CandidateProfile";
+import CreateProfile from "../../Pages/EmployeeDeshbord/CreateProfile/CreateProfile";
 
 
 
@@ -183,6 +187,22 @@ const router = createBrowserRouter([
             {
                 path: "/employedashboard/resumemanager",
                 element: <ResumeManager></ResumeManager>
+            },
+            {
+                path: "/employedashboard/appliedjobs",
+                element: <AppliedJobs></AppliedJobs>
+            },
+            {
+                path: "/employedashboard/savedjobs",
+                element: <SavedJobs></SavedJobs>
+            },
+            {
+                path: "/employedashboard/candidateprofile",
+                element: <CandidateProfile></CandidateProfile>
+            },
+            {
+                path: "/employedashboard/createprofile",
+                element: <CreateProfile></CreateProfile>
             },
             {
                 path: "/employedashboard/addresume",

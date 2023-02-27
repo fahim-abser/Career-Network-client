@@ -6,13 +6,13 @@ const useGetUnreadNotNum = (email,stat,loading) => {
 
     useEffect(() => {
       if (email) {
-        console.log(email,stat,loading);
+        // console.log(email,stat,loading);
         const url =`http://localhost:5000/notificationCount?email=${email}&status=${stat}`
-         console.log(url)
+        //  console.log(url)
             fetch(url)
             .then(res=>res.json())
             .then(data=> {
-                console.log(data)
+                // console.log(data)
                 setNotCount(data)
                 
             }) 

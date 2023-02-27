@@ -12,13 +12,13 @@ const Payment = () => {
 
     const { job_title } = jobinfo;
     const price = 35;
-    console.log(jobinfo)
+    // console.log(jobinfo)
 
     if (navigation.state === "loading") {
         return <Loading></Loading>
 
     }
-    console.log(jobinfo)
+    // console.log(jobinfo)
     return (
         <div className='px-10'>
             <h3 className='text-3xl font-bold text-center text-sky-900'>Payment for {job_title}</h3>

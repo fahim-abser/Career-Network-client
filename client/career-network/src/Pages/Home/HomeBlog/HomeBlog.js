@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 function HomeBlog() {
     const {data,error,isSuccess,}=useTasksQuery()
-    console.log(data)
+    // console.log(data)
   return (
     <div className='relative h-full m-0 px-0 py-8 w-full bg-home'>
         <div className='text-center capitalize'>
