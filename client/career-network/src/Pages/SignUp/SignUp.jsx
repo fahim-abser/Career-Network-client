@@ -7,6 +7,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../others/Hooks/useToken';
 import signup from '../../../src/others/images/signup.png'
 
+
 const SignUp = () => {
     const { registerUser, setUser, updateUser, googleSignIn } = useContext(AuthContext);
     const [createdUserEmail, setCreatedUserEmail] = useState('')
@@ -22,40 +23,68 @@ const SignUp = () => {
         navigate(from, { replace: true });
     }
 
-
-    const handleSignUp = data => {
-        console.log(data);
+    const handleSignUp =(data) => {
+        const formdata = new FormData()
+        const image = data.image[0]
         registerUser(data.email, data.password)
             .then(result => {
+                formdata.append("image",image)
                 const user = result.user
                 setUser(user);
-                console.log(user)
-                const userInfo = {
-                    displayName: data.name
-                }
-                saveUser(data.name, data.email, data.role);
-                updateUser(userInfo)
-                    .then(() => {
+                fetch('https://api.imgbb.com/1/upload?key=d1f3d96d8051fdcb90609fd80a5c336d',{
+                    method:'POST',
+                    body:formdata
                     })
-                    .catch(err => console.log(err));
-                toast('Your Account Created Successfully.')
+                .then((res)=>res.json())
+                .then((item)=> {
+                    if(item){
+                        const updateInfo = {
+                            displayName: data?.name,
+                            photoURL:item?.data?.url
+                        }
+                        updateUser(updateInfo)
+                        .then(()=>{
+                            saveUser(data.name, item?.data?.url, data.email, data.role);
+                            toast('Your Account Created Successfully.')
+                        })
+                        .catch(error=>console.log(error))
+                    }
+                })
+                .catch(error=>console.log(error))
             })
             .catch(error => console.log(error))
-    }
+        }
+
+
+   const saveUser = (name,image, email, role) => {
+       const verify = false
+       const user = { name,image, email, role, verify };
+       fetch('http://localhost:5000/user', {
+           method: 'POST',
+           headers: {
+               'content-type': 'application/json'
+           },
+           body: JSON.stringify(user)
+       })
+           .then(res => res.json())
+           .then(data => {
+               setCreatedUserEmail(email);
+           })
+   }
 
     const handlegoogle = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user
                 setUser(user);
-                console.log(user);
                 const userInfo = {
                     displayName: user.name
                 }
+                console.log(user?.photoURL)
                 updateUser(userInfo)
                     .then(() => {
                         const role = "seeker";
-                        saveUser(user.name, user.email, role);
+                        saveUser(user.name, user?.photoURL, user.email, role);
                     })
                     .catch(err => console.log(err));
                 toast('Your Account Created Successfully.')
@@ -64,39 +93,26 @@ const SignUp = () => {
     }
 
 
-    const saveUser = (name, email, role) => {
-        const verify = false
-        const user = { name, email, role, verify };
-        fetch('http://localhost:5000/user', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                setCreatedUserEmail(email);
-                console.log(createdUserEmail)
-            })
-    }
-
 
     return (
-        <div className="hero min-h-screen shadow-2xl p-10">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="card flex-shrink-0 w-full max-w-sm gap-x-5">
-                    <div className='w-96 p-7'>
+        <div className="min-h-screen w-full shadow-2xl p-10">
+            <div className="flex justify-evenly items-center flex-row-reverse w-full">
+                <div className="w-full gap-x-5 mx-auto">
+                    <div className='w-full p-7 max-w-sm mx-auto'>
                         <h2 className='text-3xl font-bold text-center'>Sign Up</h2>
                         <form onSubmit={handleSubmit(handleSignUp)}>
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <label className="label"> <span className="label-text dark:text-white">Full Name</span></label>
                                 <input type="text" {...register("name", {
                                     required: "Name is Required"
-                                })} className="input input-bordered w-full max-w-xs" />
+                                })} className="input input-bordered w-full " />
                                 {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                             </div>
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
+                                <label className="label"> <span className="label-text dark:text-white">image</span></label>
+                                <input type="file" {...register("image")} className="border border-slate-200" />
+                            </div>
+                            <div className="form-control w-full">
                                 <label className="label"> <span className="label-text dark:text-white">Email</span></label>
                                 <input type="email" {...register("email", {
                                     required: true
@@ -128,7 +144,7 @@ const SignUp = () => {
                         <button onClick={handlegoogle} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                     </div>
                 </div>
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="lg:block hidden w-full">
                     <img className=' h-[450px]' src={signup} alt="" />
                 </div>
             </div>

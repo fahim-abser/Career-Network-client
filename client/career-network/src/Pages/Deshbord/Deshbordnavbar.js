@@ -10,7 +10,7 @@ function Deshbordnavbar() {
   // state context
   const { state } = useSelector(store => store.counter)
   const dispatch = useDispatch()
-  const { logOut } = useContext(AuthContext);
+  const { logOut,user } = useContext(AuthContext);
   const handleLogOut = () => {
       logOut()
       .then(() => { })
@@ -33,8 +33,8 @@ function Deshbordnavbar() {
           <div className="hidden lg:flex">
             <ul className="text-xl font-medium flex items-center gap-4 capitalize">
                 <li onClick={handleLogOut} className="btn buttonPrimary rounded-lg btn-sm border-none">Logout</li>
-                <li className="tooltip tooltip-bottom" data-tip="name">
-                    <img className='h-10 w-10 bg-black rounded-full' src="" alt="" />
+                <li className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                    <img className='h-10 w-10 bg-black rounded-full' src={user?.photoURL} alt="" />
                 </li>
             </ul>
           </div>

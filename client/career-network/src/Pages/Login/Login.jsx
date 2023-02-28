@@ -68,23 +68,23 @@ const Login = () => {
         <div className="hero min-h-screen shadow-2xl p-10">
             <div className="hero-content flex-row-reverse">
                 <div className='h-[600px] flex justify-center'>
-                    <div className='w-96 p-7'>
+                    <div className='w-full p-7'>
                         <form onSubmit={handleSubmit(handleLogin)}>
                             <h2 className="text-3xl font-bold text-center">Login</h2>
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <label className=" label "> <span className="label-text dark:text-white">Email</span></label>
                                 <input type="email" {...register("email", {
                                     required: true
-                                })} className="input input-bordered w-full max-w-xs" />
+                                })} className="input input-bordered w-full " />
                                 {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                             </div>
-                            <div className="form-control w-full max-w-xs">
+                            <div className="form-control w-full">
                                 <label className=" label dark:t"> <span className="label-text dark:text-white">Password</span></label>
                                 <input type="password" {...register("password", {
                                     required: "Password is required",
                                     minLength: { value: 6, message: "Password must be 6 characters long" },
                                     pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
-                                })} className="input input-bordered w-full max-w-xs" />
+                                })} className="input input-bordered w-full" />
                                 {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                             </div>
                             <p>Don't have any account?<Link to='/signup'><span className='text-blue-600'>Register</span></Link></p>
