@@ -26,14 +26,11 @@ const Navbar = () => {
     const notCounts = useGetUnreadNotNum(user?.email, 'unread', loading)
     // notification
 
-
     // console.log(notInfo.length)
-    // console.log(user?.email)
 
     const handleNotification = () => {
         setLoading(true)
         const url = `http://localhost:5000/notifications?email=${user?.email}`
-        // console.log(url)
         fetch(url, {
             method: 'PUT', // or 'PUT'
             headers: {
@@ -128,7 +125,6 @@ const Navbar = () => {
         </div>
         {/* modal */}
     </>
-    console.log(condition)
     return (
         <div className={`relative h-16 `}>
             <div className={`navbar max-w-[1440px] mx-auto backdrop-blur-3xl z-10 fixed top-0 lg:text-black ${menu ? 'bg-transparent text-black duration-200 ease-in' : 'bg-sky-800 dark:bg-black text-slate-200 duration-200 ease-out'}  px-4 dark:text-white `}>
