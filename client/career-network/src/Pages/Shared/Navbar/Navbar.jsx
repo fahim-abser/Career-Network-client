@@ -26,7 +26,6 @@ const Navbar = () => {
     const notCounts = useGetUnreadNotNum(user?.email, 'unread', loading)
     // notification
 
-
     // console.log(notInfo.length)
 
     const handleNotification = () => {
