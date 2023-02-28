@@ -12,8 +12,7 @@ const JobPost = () => {
                         <p className='my-4 text-lg lg:text-left text-center'>The job market can be tough to navigate, but with our job portal, finding your dream job has never been easier. Our platform connects you with top employers in your field, offering a wide range of job opportunities to suit your skills and experience.</p>
                         <div className='flex justify-center gap-x-4'>
                             <Link to='/dashboard/recruitment/createjob'><button  className='btn border-none buttonPrimary shadow-md shadow-cyan-800'> Post A Job</button></Link>
-                            <input  type="submit" value="" />
-                            <input className='btn w-28 border-none shadow-md shadow-cyan-800 bg-secondaryButton hover:bg-secondaryButton' type="submit" value="Search" />
+                            <Link to='/contact/email'><button  className='btn border-none buttonSecondary shadow-md shadow-cyan-800'> contact me</button></Link>
                         </div>
                     </div>
                 </div>

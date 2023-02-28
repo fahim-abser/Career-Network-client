@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUser = (userInfo) => {
-        return updateProfile(user, userInfo);
+        return updateProfile(auth.currentUser, userInfo);
     }
 
     const googleSignIn = (provider) => {
@@ -44,7 +44,6 @@ const AuthProvider = ({ children }) => {
 
         return () => unsubscribe();
     }, [])
-
     const authInfo = {
         user,
         registerUser,
